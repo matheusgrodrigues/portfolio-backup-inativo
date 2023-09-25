@@ -1,11 +1,24 @@
 # Portfolio Frontend - Matheus Gomes 🚀
 
+
+<div align="center">
 **Status**: Em desenvolvimento
 
-- [Adicionar badge de status]
-- [Adicionar logotipo]
 
 Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimento frontend em que trabalhei ao longo dos anos. Aqui você encontrará exemplos de meu trabalho e minhas habilidades como desenvolvedora frontend.
+
+[Capturas de Tela](#capturas-de-tela-ou-demonstração) •
+[Tecnologias Utilizadas](#tecnologias-utilizadas) •
+[Instrucoes de Instalacao](#instrucoes-de-instalacao) •
+[Como Usar](#como-usar) •
+[Contribuicao](#contribuicao) •
+[Licenca](#licenca)
+
+</div>
+
+## Capturas de Tela ou Demonstração
+
+[Adicionar print aqui]
 
 ## Tecnologias Utilizadas
 
@@ -44,7 +57,7 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 - Cypress
 - BDD/TDD
 
-### Prototicacao
+### Prototipacao
 
 - Figma
 
@@ -54,11 +67,7 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 - Confluence
 - Storybook
 
-## Capturas de Tela ou Demonstração
-
-[Adicionar print aqui]
-
-## Instruções de Instalação
+## Instrucoes de Instalacao
 
 1. Clone o repositório para sua máquina local usando o seguinte comando:
 2. Navegue até o diretório do projeto:
