@@ -1,8 +1,8 @@
 # Portfolio Frontend - Matheus Gomes 🚀
 
+> **Em andamento**
 
 <div align="center">
-
 Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimento frontend em que trabalhei ao longo dos anos. Aqui você encontrará exemplos de meu trabalho e minhas habilidades como desenvolvedora frontend.
 
 [Capturas de Tela](#capturas-de-tela-ou-demonstração) •
@@ -11,14 +11,14 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 [Como Usar](#como-usar) •
 [Contribuicao](#contribuicao) •
 [Licenca](#licenca)
-
-**Em andamento**
-
 </div>
 
 ## Capturas de Tela
 
-[Adicionar print aqui]
+| Desktop Light                            | Desktop Dark                             |
+| ----------------------------------- | ----------------------------------- |
+| ![desktop-light](/readme/desktop-light.png) | ![desktop-dark](/readme/desktop-dark.png) |
+
 
 ## Tecnologias Utilizadas
 
