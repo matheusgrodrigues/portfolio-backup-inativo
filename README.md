@@ -13,10 +13,9 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 
 ## Capturas de Tela
 
-| Desktop Light                            | Desktop Dark                             |
-| ----------------------------------- | ----------------------------------- |
+| Light                                       | Dark                                      |
+| ------------------------------------------- | ----------------------------------------- |
 | ![desktop-light](/readme/desktop-light.png) | ![desktop-dark](/readme/desktop-dark.png) |
-
 
 ## Tecnologias Utilizadas
 
@@ -68,17 +67,28 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 ## Instrucoes de Instalacao
 
 1. Clone o repositório para sua máquina local usando o seguinte comando:
+
+   > git clone https://github.com/matheusgrodrigues/portfolio.git
+
 2. Navegue até o diretório do projeto:
-3. Abra o arquivo index.html em seu navegador ou inicie um servidor local para visualizar o portfólio.
+
+   > cd portfolio
+
+3. Inicie um servidor local para visualizar o portfólio.
+
+   > yarn dev ou yarn start
+
+4. Abra o navegador e visualize o portfolio na porta 3000
+   > http://localhost:3000
 
 ## Como Usar
 
-Este portfólio é simples de usar. Basta abrir o arquivo `index.html` em seu navegador para ver os projetos listados. Cada projeto possui um link ou botão que leva você a uma demonstração ou ao código-fonte no GitHub, onde você pode explorar mais detalhes.
+Este portfólio é simples de usar. Basta acessar as rotas disponíveis que podem ser visualizadas dentro da pasta `pages`.
 
 ## Contribuicao
 
-Descreva como os outros podem contribuir para o projeto, incluindo informações sobre como relatar problemas (issues) ou enviar solicitações de pull requests.
+Sinta-se a vontade para contribuir enviando um pull request.
 
 ## Licenca
 
-Especifique a licença sob a qual o projeto está disponível. Isso é importante para que os outros saibam como podem usar, modificar e distribuir o seu código.
+MIT License
