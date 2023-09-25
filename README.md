@@ -2,8 +2,6 @@
 
 
 <div align="center">
-**Status**: Em desenvolvimento
-
 
 Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimento frontend em que trabalhei ao longo dos anos. Aqui você encontrará exemplos de meu trabalho e minhas habilidades como desenvolvedora frontend.
 
@@ -14,9 +12,11 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 [Contribuicao](#contribuicao) •
 [Licenca](#licenca)
 
+**Em andamento**
+
 </div>
 
-## Capturas de Tela ou Demonstração
+## Capturas de Tela
 
 [Adicionar print aqui]
 
