@@ -4,11 +4,19 @@
 
 Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimento frontend em que trabalhei ao longo dos anos. Aqui você encontrará exemplos de meu trabalho e minhas habilidades como desenvolvedora frontend.
 
-- [Capturas de Tela](#capturas-de-tela-ou-demonstração) •
-- [Tecnologias Utilizadas](#tecnologias-utilizadas) •
-- [Instruções de Instalação](#instrucoes-de-instalacao) •
-- [Como Usar](#como-usar) •
-- [Contribuição](#contribuicao) •
+- [Capturas de Tela](#capturas-de-tela-ou-demonstração) 
+- [Tecnologias Utilizadas](#tecnologias-utilizadas) 
+    - [Frontend](#frontend)
+    - [Bibliotecas](#bibliotecas)
+    - [Infraestrutura](#infraestrutura)
+    - [Deploy e Hospedagem](#deploy-e-hospedagem)
+    - [Versionamento](#versionamento)
+    - [Testes](#testes)
+    - [Prototipação](#prototipacao)
+    - [Documentação](#documentacao)
+- [Instruções de Instalação](#instrucoes-de-instalacao) 
+- [Como Usar](#como-usar) 
+- [Contribuição](#contribuicao) 
 - [Licença](#licenca)
 
 ## Capturas de Tela
