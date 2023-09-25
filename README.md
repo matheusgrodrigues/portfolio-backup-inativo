@@ -6,10 +6,10 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 
 - [Capturas de Tela](#capturas-de-tela-ou-demonstração) •
 - [Tecnologias Utilizadas](#tecnologias-utilizadas) •
-- [Instrucoes de Instalacao](#instrucoes-de-instalacao) •
+- [Instruções de Instalação](#instrucoes-de-instalacao) •
 - [Como Usar](#como-usar) •
-- [Contribuicao](#contribuicao) •
-- [Licenca](#licenca)
+- [Contribuição](#contribuicao) •
+- [Licença](#licenca)
 
 ## Capturas de Tela
 
