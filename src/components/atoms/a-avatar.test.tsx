@@ -2,12 +2,12 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 // Atom
-import Avatar from "./a-avatar";
+import { Avatar } from "./a-avatar";
 
 describe("Deve renderizar o Avatar, corretamente", () => {
   // ==================================================================
 
-  it("Deve renderizar o Avatar com  a prop, src.", async () => {
+  it("Deve renderizar o Avatar com  a prop, src.", () => {
     // Arrange
     const image_src =
       "https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80";
@@ -27,7 +27,7 @@ describe("Deve renderizar o Avatar, corretamente", () => {
 
   // ==================================================================
 
-  it("Deve renderizar o Avatar com a prop, alt.", async () => {
+  it("Deve renderizar o Avatar com a prop, alt.", () => {
     // Arrange
     const image_src =
       "https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80";

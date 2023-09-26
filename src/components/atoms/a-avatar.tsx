@@ -6,7 +6,7 @@ interface IAvatarRoot extends RadixAvatar.AvatarProps {
   "data-testid"?: string;
 }
 
-export const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>(
+const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>(
   (props) => ({
     as: "span",
     "data-testid": props["data-testid"] || "a-avatar",
@@ -28,7 +28,7 @@ interface IAvatarImage extends RadixAvatar.AvatarImageProps {
   "data-testid"?: string;
 }
 
-export const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>(
+const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>(
   (props) => ({
     as: "img",
     "data-testid": props["data-testid"] || "a-avatar-image",
@@ -44,7 +44,7 @@ interface IAvatarFallBack extends RadixAvatar.AvatarFallbackProps {
   "data-testid"?: string;
 }
 
-export const AvatarFallback = styled(
+const AvatarFallback = styled(
   RadixAvatar.Fallback
 ).attrs<IAvatarFallBack>((props) => ({
   as: "span",
@@ -67,7 +67,7 @@ interface IAvatar extends RadixAvatar.AvatarProps {
   alt: string;
 }
 
-export default function Avatar({ src, alt, ...props }: IAvatar) {
+export function Avatar({ src, alt, ...props }: IAvatar) {
   return (
     <AvatarRoot {...props}>
       <AvatarImage src={src} alt={alt} />
