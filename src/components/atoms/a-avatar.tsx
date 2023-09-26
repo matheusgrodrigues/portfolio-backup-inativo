@@ -1,8 +1,17 @@
 import { styled } from "styled-components";
 
-import * as Avatar from "@radix-ui/react-avatar";
+import * as RadixAvatar from "@radix-ui/react-avatar";
 
-export const AvatarRoot = styled(Avatar.Root)`
+interface IAvatarRoot extends RadixAvatar.AvatarProps {
+  "data-testid"?: string;
+}
+
+export const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>(
+  (props) => ({
+    as: "span",
+    "data-testid": props["data-testid"] || "a-avatar",
+  })
+)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -15,14 +24,32 @@ export const AvatarRoot = styled(Avatar.Root)`
   background-color: var(--black-a3);
 `;
 
-export const AvatarImage = styled(Avatar.Image)`
+interface IAvatarImage extends RadixAvatar.AvatarImageProps {
+  "data-testid"?: string;
+}
+
+export const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>(
+  (props) => ({
+    as: "img",
+    "data-testid": props["data-testid"] || "a-avatar-image",
+  })
+)`
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
 `;
 
-export const AvatarFallback = styled(Avatar.Fallback)`
+interface IAvatarFallBack extends RadixAvatar.AvatarFallbackProps {
+  "data-testid"?: string;
+}
+
+export const AvatarFallback = styled(
+  RadixAvatar.Fallback
+).attrs<IAvatarFallBack>((props) => ({
+  as: "span",
+  "data-testid": props["data-testid"] || "a-avatar-fallback",
+}))`
   width: 100%;
   height: 100%;
   display: flex;
@@ -34,3 +61,16 @@ export const AvatarFallback = styled(Avatar.Fallback)`
   line-height: 1;
   font-weight: 500;
 `;
+
+interface IAvatar extends RadixAvatar.AvatarProps {
+  src: string;
+  alt: string;
+}
+
+export default function Avatar({ src, alt, ...props }: IAvatar) {
+  return (
+    <AvatarRoot {...props}>
+      <AvatarImage src={src} alt={alt} />
+    </AvatarRoot>
+  );
+}
