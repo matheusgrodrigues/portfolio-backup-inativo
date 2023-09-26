@@ -31,7 +31,7 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 ### Frontend
 
 - HTML5
-- CSS3 (SASS)
+- CSS3 
 - TypeScript
 - Next.js 16.14
 
