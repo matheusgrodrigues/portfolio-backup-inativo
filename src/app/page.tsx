@@ -1,11 +1,7 @@
 "use client";
 
-import { ButtonStyled } from "../components/test";
+import PageHome from "../components/pages/home";
 
-export default function Home() {
-  return (
-    <>
-      <ButtonStyled>teste</ButtonStyled>
-    </>
-  );
-}
+const Home = () => <PageHome />;
+
+export default Home;

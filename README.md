@@ -1,3 +1,8 @@
+| Light                                       | Dark                                      |
+| ------------------------------------------- | ----------------------------------------- |
+| ![desktop-light](/readme/desktop-light.png) | ![desktop-dark](/readme/desktop-dark.png) |
+| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6223-43018&mode=design&t=FJpNUfNZeq3gN6Xu-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6265-1082&mode=design&t=FJpNUfNZeq3gN6Xu-4)
+
 # Portfolio Frontend - Matheus Gomes 🚀
 
 > **Em andamento**
@@ -18,13 +23,6 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 - [Como Usar](#como-usar) 
 - [Contribuição](#contribuicao) 
 - [Licença](#licenca)
-
-## Capturas de Tela
-
-| Light                                       | Dark                                      |
-| ------------------------------------------- | ----------------------------------------- |
-| ![desktop-light](/readme/desktop-light.png) | ![desktop-dark](/readme/desktop-dark.png) |
-| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6223-43018&mode=design&t=FJpNUfNZeq3gN6Xu-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6265-1082&mode=design&t=FJpNUfNZeq3gN6Xu-4)
 
 ## Tecnologias Utilizadas
 
