@@ -24,7 +24,7 @@ Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimen
 | Light                                       | Dark                                      |
 | ------------------------------------------- | ----------------------------------------- |
 | ![desktop-light](/readme/desktop-light.png) | ![desktop-dark](/readme/desktop-dark.png) |
-| ![Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6223%3A43017&mode=design&t=4fOFjjNDt3QBD6aj-1)
+| [Visualize o Layout no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6223%3A43017&mode=design&t=4fOFjjNDt3QBD6aj-1)
 
 ## Tecnologias Utilizadas
 
