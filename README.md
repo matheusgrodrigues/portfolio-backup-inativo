@@ -7,11 +7,12 @@
 | ------------------------------------------- | ----------------------------------------- |
 | ![desktop-light](/readme/desktop-contact-light.png) | ![desktop-dark](/readme/desktop-contact-dark.png) |
 | [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6536-2630&mode=design&t=NdNn7XX9xlAZmckL-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6536-2652&mode=design&t=NdNn7XX9xlAZmckL-4)
-# MVP - Portfolio Frontend - Matheus Gomes 🚀
 
-> **Em andamento**
+# [MVP - Portfolio Frontend - Matheus Gomes](https://matheusgomesdev.com.br) 🚀
 
-Este é o MVP do meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissional, conectando você ao meu LinkedIn, GitHub e outras redes para conhecer melhor meu trabalho e habilidades.
+> **Em andamento**: https://staging.matheusgomesdev.com.br
+
+Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissional, conectando você ao meu LinkedIn, GitHub e outras redes para descobrir como minhas habilidades podem agregar valor á sua equipe.
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas) 
     - [Frontend](#frontend)
