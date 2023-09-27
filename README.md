@@ -52,7 +52,7 @@ Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissio
 
 ### Deploy e Hospedagem
 
-- Versel
+- Vercel
 
 ### Versionamento
 
@@ -95,7 +95,7 @@ Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissio
 
 ## Como Usar
 
-Este portfólio é simples de usar. Basta acessar as rotas disponíveis que podem ser visualizadas dentro da pasta `pages`.
+Este portfólio é simples de usar. Basta acessar as rotas disponíveis que podem ser visualizadas dentro da pasta `app`.
 
 ## Contribuicao
 
@@ -103,4 +103,4 @@ Sinta-se a vontade para contribuir enviando um pull request.
 
 ## Licenca
 
-MIT License
+MIT License.
