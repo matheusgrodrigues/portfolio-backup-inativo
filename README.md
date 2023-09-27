@@ -1,13 +1,17 @@
 | Light                                       | Dark                                      |
 | ------------------------------------------- | ----------------------------------------- |
 | ![desktop-light](/readme/desktop-light.png) | ![desktop-dark](/readme/desktop-dark.png) |
-| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6533-2814&mode=design&t=pwW297oSrgfz4UrJ-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6533-2792&mode=design&t=pwW297oSrgfz4UrJ-4)
+| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6533-2814&mode=design&t=NdNn7XX9xlAZmckL-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6533-2792&mode=design&t=NdNn7XX9xlAZmckL-4)
 
-# Portfolio Frontend - Matheus Gomes 🚀
+| Light                                       | Dark                                      |
+| ------------------------------------------- | ----------------------------------------- |
+| ![desktop-light](/readme/desktop-contact-light.png) | ![desktop-dark](/readme/desktop-contact-dark.png) |
+| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6536-2630&mode=design&t=NdNn7XX9xlAZmckL-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6536-2652&mode=design&t=NdNn7XX9xlAZmckL-4)
+# MVP - Portfolio Frontend - Matheus Gomes 🚀
 
 > **Em andamento**
 
-Este é o meu portfólio pessoal que mostra alguns dos projetos de desenvolvimento frontend em que trabalhei ao longo dos anos. Aqui você encontrará exemplos de meu trabalho e minhas habilidades como desenvolvedor frontend.
+Este é o MVP do meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissional, conectando você ao meu LinkedIn, GitHub e outras redes para conhecer melhor meu trabalho e habilidades.
 
 - [Tecnologias Utilizadas](#tecnologias-utilizadas) 
     - [Frontend](#frontend)
