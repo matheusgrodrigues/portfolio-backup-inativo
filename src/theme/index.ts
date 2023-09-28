@@ -1,6 +1,6 @@
 import { por_ref_colors, por_ref_colorsDark } from "./ref";
 
-const theme = {
+export const theme = {
   ref: { por_ref_colors },
   sys: {},
   comp: {},
