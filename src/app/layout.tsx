@@ -1,5 +1,7 @@
-import "./globals.css";
 import type { Metadata } from "next";
+
+// Reset css
+import "./globals.css";
 
 // Font
 import { Inter } from "next/font/google";
