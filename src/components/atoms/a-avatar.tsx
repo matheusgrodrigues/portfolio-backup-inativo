@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 
 import * as RadixAvatar from "@radix-ui/react-avatar";
 
+import { getRefColor } from "@/src/theme/helpers/theme-manager";
+
 interface IAvatarRoot extends RadixAvatar.AvatarProps {
   "data-testid"?: string;
 }
@@ -19,7 +21,8 @@ const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>((props) => ({
   width: 45px;
   height: 45px;
   border-radius: 100%;
-  background-color: ${props => props.theme.ref.por_ref_colors.por_ref_color_gray500};
+  background-color: ${({ theme }) =>
+    getRefColor(theme, "por_ref_color_gray500")};
 `;
 
 interface IAvatarImage extends RadixAvatar.AvatarImageProps {

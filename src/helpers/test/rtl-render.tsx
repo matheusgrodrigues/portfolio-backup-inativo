@@ -4,7 +4,7 @@ import { RenderOptions, render as rtlRender } from "@testing-library/react";
 
 // Theme
 import { ThemeProvider } from "../../theme/helpers/theme-provider";
-import { theme } from "../../theme";
+import { themeLight } from "../../theme";
 
 interface WrapperProps {
   children: ReactNode;
@@ -12,7 +12,7 @@ interface WrapperProps {
 
 function render(ui: ReactElement, { ...options }: RenderOptions = {}) {
   const wrapper: React.FC<WrapperProps> = ({ children }) => (
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    <ThemeProvider theme={themeLight}>{children}</ThemeProvider>
   );
 
   return rtlRender(ui, { wrapper, ...options });

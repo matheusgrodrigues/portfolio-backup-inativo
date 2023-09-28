@@ -28,7 +28,7 @@ export const por_ref_colorsDark = {
   por_ref_color_white,
   por_ref_color_black,
   por_ref_color_gray50,
-  por_ref_color_gray500,
+  por_ref_color_gray500: por_ref_color_primary600,
   por_ref_color_gray900,
   por_ref_color_primary500,
   por_ref_color_primary600,
