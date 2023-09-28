@@ -1,5 +1,14 @@
 import { ReactNode } from "react";
 
+import { Avatar } from "../../atoms";
+
 export default function PageHome(): ReactNode {
-  return <></>;
+  return (
+    <>
+      <Avatar
+        src=""
+        alt=""
+      />
+    </>
+  );
 }
