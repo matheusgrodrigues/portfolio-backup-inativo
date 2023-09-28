@@ -1,10 +1,13 @@
 "use client";
 
+import { useContext } from "react";
+
 // Theme
 import { darkTheme, themeLight } from "../theme";
 
 // Helpers
 import { ThemeProvider } from "../theme/helpers/theme-provider";
+import { DataContext } from "@/data/data-context";
 
 // Hooks
 import { useDarkMode } from "../hooks/useDarkMode";
@@ -17,9 +20,15 @@ const Home = () => {
 
   const themeMode = theme === "light" ? themeLight : darkTheme;
 
+  const context = useContext(DataContext);
+
   return (
     <ThemeProvider theme={themeMode}>
       <button onClick={themeToggler}>Switch Theme</button>
+
+      <DataContext.Provider value={{ nome: "Matheus" }}>
+        <p>{context.nome}</p>
+      </DataContext.Provider>
       <PageHome />
     </ThemeProvider>
   );

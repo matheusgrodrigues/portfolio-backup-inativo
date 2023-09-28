@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 
 // Reset css
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     "Programador Frontend apaixonado por criação de interfaces inovadoras.",
 };
 
+
 export default function RootLayout({
   children,
 }: {
@@ -21,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>{children}</body>
+        <body className={inter.className}>{children}</body>
     </html>
   );
 }
