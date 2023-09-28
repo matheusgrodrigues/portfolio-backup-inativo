@@ -7,13 +7,13 @@ import { darkTheme, themeLight } from "../theme";
 import { ThemeProvider } from "../theme/helpers/theme-provider";
 
 // Hooks
-import { useDarkMode } from "../theme/helpers/useDarkMode";
+import { useDarkMode } from "../hooks/useDarkMode";
 
 // Page
 import PageHome from "../components/pages/home";
 
 const Home = () => {
-  const [theme, themeToggler] = useDarkMode();
+  const { theme, themeToggler } = useDarkMode();
 
   const themeMode = theme === "light" ? themeLight : darkTheme;
 

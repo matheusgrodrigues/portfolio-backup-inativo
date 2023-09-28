@@ -10,13 +10,18 @@ export const useDarkMode = () => {
     setTheme(mode);
   };
 
-  const themeToggler = () => {
-    theme === "light" ? setMode("dark") : setMode("light");
-  };
+  function themeToggler() {
+    if (theme === "light") {
+      setMode("dark");
+    } else {
+      setMode("light");
+    }
+  }
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem("theme");
     localTheme && setTheme(localTheme);
   }, []);
-  return [theme, themeToggler];
+
+  return {theme, themeToggler};
 };
