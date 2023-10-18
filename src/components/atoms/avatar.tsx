@@ -2,15 +2,13 @@ import { styled } from "styled-components";
 
 import * as RadixAvatar from "@radix-ui/react-avatar";
 
-import { getRefColor } from "@/src/theme/helpers/theme-manager";
-
 interface IAvatarRoot extends RadixAvatar.AvatarProps {
   "data-testid"?: string;
 }
 
 const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>((props) => ({
   as: "span",
-  "data-testid": props["data-testid"] || "a-avatar",
+  "data-testid": props["data-testid"],
 }))`
   display: inline-flex;
   align-items: center;
@@ -21,8 +19,7 @@ const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>((props) => ({
   width: 45px;
   height: 45px;
   border-radius: 100%;
-  background-color: ${({ theme }) =>
-    getRefColor(theme, "por_ref_color_gray500")};
+  background-color: ${({ theme }) => theme.ref.colors.color_gray500};
 `;
 
 interface IAvatarImage extends RadixAvatar.AvatarImageProps {
@@ -31,7 +28,7 @@ interface IAvatarImage extends RadixAvatar.AvatarImageProps {
 
 const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>((props) => ({
   as: "img",
-  "data-testid": props["data-testid"] || "a-avatar-image",
+  "data-testid": props["data-testid"],
 }))`
   width: 100%;
   height: 100%;
@@ -46,8 +43,8 @@ interface IAvatar extends RadixAvatar.AvatarProps {
 
 export function Avatar({ src, alt, ...props }: IAvatar) {
   return (
-    <AvatarRoot {...props}>
-      <AvatarImage src={src} alt={alt} />
+    <AvatarRoot data-testid="a-avatar" {...props}>
+      <AvatarImage data-testid="a-avatar-image" src={src} alt={alt} />
     </AvatarRoot>
   );
 }
