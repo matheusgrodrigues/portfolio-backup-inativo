@@ -1,11 +1,16 @@
 import { ReactNode } from "react";
 
-import { Avatar } from "../../atoms";
+import { AAvatar } from "../../atoms";
+import { AIcon } from "../../atoms/a-icon/a-icon";
 
 export default function PageHome(): ReactNode {
   return (
     <>
-      <Avatar src="/images/avatar.jpeg" alt="" variant="md" />
+      <AAvatar src="/images/avatar.jpeg" alt="" variant="md" />
+
+      <div>
+        <AIcon icon="sun" height={32} />
+      </div>
     </>
   );
 }

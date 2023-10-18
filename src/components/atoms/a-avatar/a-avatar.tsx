@@ -46,7 +46,7 @@ interface IAvatar extends RadixAvatar.AvatarProps {
   variant?: TVariant;
 }
 
-export function Avatar({ ...props }: IAvatar) {
+export function AAvatar({ ...props }: IAvatar) {
   const { src, alt } = props;
 
   return (
