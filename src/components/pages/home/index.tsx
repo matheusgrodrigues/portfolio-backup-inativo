@@ -7,11 +7,11 @@ import { ADisplay } from "../../atoms/a-display";
 export default function PHome(): ReactNode {
   return (
     <>
-      <AAvatar src="/images/avatar.jpeg" alt="" variant="md" />
+      <AAvatar src="/images/avatar.jpeg" alt="" $variant="md"/>
 
       <AIcon icon="sun" height={32} />
 
-      <ADisplay variant="lg" fontWeight="semibold" color="gradient">
+      <ADisplay $variant="lg" fontWeight="semibold" color="gradient">
         Display
       </ADisplay>
     </>

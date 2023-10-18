@@ -6,16 +6,16 @@ import { themeLight } from "@/src/theme";
 import { ThemeProvider } from "@/src/theme/helpers/theme-provider";
 
 interface IADisplay {
-  variant: "lg";
+  $variant: "lg";
   fontWeight: "semibold";
   color: "gradient" | "gray900";
   children: ReactNode;
 }
 
-const Display = styled("h1").attrs<IADisplay>(() => ({}))`
+const Display = styled("h1").attrs<IADisplay>((props) => ({}))`
   ${(props) => {
     return (
-      props.variant === "lg" &&
+      props.$variant === "lg" &&
       `
         font-size: ${props.theme.ref.font.font_size_displayLg};
         letter-spacing: -0.96px;
@@ -35,16 +35,21 @@ const Display = styled("h1").attrs<IADisplay>(() => ({}))`
 `;
 
 export const ADisplay = ({
-  variant,
+  $variant,
   fontWeight,
   color,
   children,
 }: IADisplay) => {
   return (
     <>
-      {variant === "lg" && (
+      {$variant === "lg" && (
         <ThemeProvider theme={themeLight}>
-          <Display variant={variant} fontWeight={fontWeight} color={color}>
+          <Display
+            data-testid="a-display"
+            $variant={$variant}
+            fontWeight={fontWeight}
+            color={color}
+          >
             {children}
           </Display>
         </ThemeProvider>
