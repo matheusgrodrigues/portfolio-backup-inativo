@@ -1,8 +1,8 @@
-import { render, screen } from "../../../src/test-utils/rtl-render";
+import { render, screen } from "../../../../src/test-utils/rtl-render";
 import "@testing-library/jest-dom";
 
 // Atom
-import { Avatar } from "../../../src/components/atoms/a-avatar/a-avatar";
+import { AAvatar } from "@/src/components/atoms";
 
 describe("Deve renderizar o Avatar, corretamente", () => {
   // ==================================================================
@@ -13,7 +13,7 @@ describe("Deve renderizar o Avatar, corretamente", () => {
       "https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80";
     const image_alt = "";
 
-    render(<Avatar src={image_src} alt={image_alt} />);
+    render(<AAvatar src={image_src} alt={image_alt} />);
 
     // Act
     const get_avatar = screen.getByTestId("a-avatar");
