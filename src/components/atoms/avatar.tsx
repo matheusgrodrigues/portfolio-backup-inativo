@@ -2,15 +2,17 @@ import { styled } from "styled-components";
 
 import * as RadixAvatar from "@radix-ui/react-avatar";
 
-import { getRefColor } from "@/src/theme/helpers/theme-manager";
+type TVariant = "md";
 
 interface IAvatarRoot extends RadixAvatar.AvatarProps {
   "data-testid"?: string;
+  variant?: TVariant;
 }
 
 const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>((props) => ({
   as: "span",
-  "data-testid": props["data-testid"] || "a-avatar",
+  "data-testid": props["data-testid"],
+  variant: props["variant"],
 }))`
   display: inline-flex;
   align-items: center;
@@ -18,11 +20,10 @@ const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>((props) => ({
   vertical-align: middle;
   overflow: hidden;
   user-select: none;
-  width: 45px;
-  height: 45px;
+  width: ${({ variant }) => (variant === "md" ? "92px" : "45px")};
+  height: ${({ variant }) => (variant === "md" ? "92px" : "45px")};
   border-radius: 100%;
-  background-color: ${({ theme }) =>
-    getRefColor(theme, "por_ref_color_gray500")};
+  background-color: ${({ theme }) => theme.ref.colors.color_gray500};
 `;
 
 interface IAvatarImage extends RadixAvatar.AvatarImageProps {
@@ -31,7 +32,7 @@ interface IAvatarImage extends RadixAvatar.AvatarImageProps {
 
 const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>((props) => ({
   as: "img",
-  "data-testid": props["data-testid"] || "a-avatar-image",
+  "data-testid": props["data-testid"],
 }))`
   width: 100%;
   height: 100%;
@@ -42,12 +43,15 @@ const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>((props) => ({
 interface IAvatar extends RadixAvatar.AvatarProps {
   src: string;
   alt: string;
+  variant?: TVariant;
 }
 
-export function Avatar({ src, alt, ...props }: IAvatar) {
+export function Avatar({ ...props }: IAvatar) {
+  const { src, alt } = props;
+
   return (
-    <AvatarRoot {...props}>
-      <AvatarImage src={src} alt={alt} />
+    <AvatarRoot data-testid="a-avatar" {...props}>
+      <AvatarImage data-testid="a-avatar-image" src={src} alt={alt} />
     </AvatarRoot>
   );
 }

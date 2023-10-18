@@ -3,8 +3,8 @@ import { ReactElement, ReactNode } from "react";
 import { RenderOptions, render as rtlRender } from "@testing-library/react";
 
 // Theme
-import { ThemeProvider } from "../../theme/helpers/theme-provider";
-import { themeLight } from "../../theme";
+import { ThemeProvider } from "../theme/helpers/theme-provider";
+import { themeLight } from "../theme";
 
 interface WrapperProps {
   children: ReactNode;
