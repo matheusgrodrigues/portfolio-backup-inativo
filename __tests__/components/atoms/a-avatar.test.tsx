@@ -2,7 +2,7 @@ import { render, screen } from "../../../src/test-utils/rtl-render";
 import "@testing-library/jest-dom";
 
 // Atom
-import { Avatar } from "../../../src/components/atoms/avatar";
+import { Avatar } from "../../../src/components/atoms/a-avatar/a-avatar";
 
 describe("Deve renderizar o Avatar, corretamente", () => {
   // ==================================================================
