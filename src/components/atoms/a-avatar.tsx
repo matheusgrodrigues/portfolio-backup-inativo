@@ -6,13 +6,11 @@ type TVariant = "md";
 
 interface IAvatarRoot extends RadixAvatar.AvatarProps {
   "data-testid"?: string;
-  variant?: TVariant;
+  "variant"?: TVariant;
 }
 
 const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>((props) => ({
   as: "span",
-  "data-testid": props["data-testid"],
-  variant: props["variant"],
 }))`
   display: inline-flex;
   align-items: center;
@@ -32,12 +30,12 @@ interface IAvatarImage extends RadixAvatar.AvatarImageProps {
 
 const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>((props) => ({
   as: "img",
-  "data-testid": props["data-testid"],
 }))`
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
+  overflow: hidden;
 `;
 
 interface IAvatar extends RadixAvatar.AvatarProps {

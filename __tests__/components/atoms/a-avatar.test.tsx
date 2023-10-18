@@ -1,4 +1,4 @@
-import { render, screen } from "../../../../src/test-utils/rtl-render";
+import { render, screen } from "../../../src/test-utils/rtl-render";
 import "@testing-library/jest-dom";
 
 // Atom

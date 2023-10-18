@@ -1,3 +1,3 @@
-import { AAvatar } from "./a-avatar/a-avatar";
+import { AAvatar } from "./a-avatar";
 
 export { AAvatar };

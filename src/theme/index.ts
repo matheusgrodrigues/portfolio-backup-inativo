@@ -1,7 +1,7 @@
-import { colors, colorsDark } from "./ref";
+import { colors, colorsDark, font } from "./ref";
 
 export const themeLight: Theme = {
-  ref: { colors }
+  ref: { colors, font },
 };
 
 export const darkTheme: Theme = {

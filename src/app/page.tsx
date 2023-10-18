@@ -7,7 +7,7 @@ import { darkTheme, themeLight } from "../theme";
 
 // Helpers
 import { ThemeProvider } from "../theme/helpers/theme-provider";
-import { DataContext } from "@/data/data-context";
+import { DataContext } from "@/context/data-context";
 
 // Hooks
 import { useDarkMode } from "../hooks/useDarkMode";
