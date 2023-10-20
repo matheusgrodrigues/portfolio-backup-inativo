@@ -7,7 +7,7 @@ describe("Deve renderizar o ADisplay corretamente", () => {
   it("Deve preservar a estrutura visual do ADisplay", () => {
     const three = renderer
       .create(
-        <ADisplay variant="lg" fontWeight="semibold" color="gradient">
+        <ADisplay $variant="lg" fontWeight="semibold" color="gradient">
           ADisplay
         </ADisplay>
       )

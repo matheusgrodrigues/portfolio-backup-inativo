@@ -27,18 +27,18 @@ const Display = styled("h1").attrs<IADisplay>((props) => ({}))`
   }};
 
   ${(props) => {
-    const { color_primary600, color_primary900, gradient } =
+    const { color_primary600, color_gray900, color_gradient_primary600 } =
       props.theme.ref.colors;
 
     switch (props.color) {
       case "gradient":
         return `
-     color: ${color_primary600}
+     color: ${color_gradient_primary600}
    `;
         break;
       case "gray900":
         return `
-       color: ${color_primary900}
+       color: ${color_gray900}
      `;
         break;
     }

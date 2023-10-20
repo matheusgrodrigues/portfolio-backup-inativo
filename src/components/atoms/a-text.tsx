@@ -52,12 +52,11 @@ const ATextStyled = styled("p").attrs<IAText>((props) => ({}))`
 
   ${(props) => {
     const {
-      color_primary50,
+      color_gray50,
       color_primary500,
       color_primary600,
-      color_primary900,
-      white,
-      black,
+      color_gray900,
+      color_white,
     } = props.theme.ref.colors;
 
     switch (props.color) {
@@ -65,17 +64,13 @@ const ATextStyled = styled("p").attrs<IAText>((props) => ({}))`
         return `color: ${color_primary600}`;
         break;
       case "gray50":
-        return `color: ${color_primary50}`;
+        return `color: ${color_gray50}`;
       case "gray500":
         return `color: ${color_primary500}`;
         break;
       case "gray900":
-        return `color: ${color_primary900}`;
+        return `color: ${color_gray900}`;
         break;
-      case "black":
-        return `color: ${white}`;
-      default:
-        return `color: ${black}`;
     }
   }};
 `;

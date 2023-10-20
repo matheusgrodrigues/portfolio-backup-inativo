@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o AButton corretamente Deve preservar a estrutura visual do componente 1`] = `
+<button
+  className="sc-beyTiQ eBOnYr"
+>
+  AButton
+</button>
+`;

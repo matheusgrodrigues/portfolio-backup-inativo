@@ -4,6 +4,7 @@ import { AAvatar } from "../../atoms";
 import { AIcon } from "../../atoms/a-icon";
 import { ADisplay } from "../../atoms/a-display";
 import { AText } from "../../atoms/a-text";
+import { AButton } from "../../atoms/a-button";
 
 export default function PHome(): ReactNode {
   return (
@@ -19,6 +20,16 @@ export default function PHome(): ReactNode {
       <AText $variant="xl" fontWeight="semibold" color="gray50">
         A-Text
       </AText>
+
+      <AButton
+        $variant="lg"
+        $background="color_white"
+        $fontSize="fs_textMd"
+        $fontWeight="fw_semibold"
+        $color="color_gray500"
+      >
+        AButton
+      </AButton>
     </>
   );
 }
