@@ -6,45 +6,61 @@ import { themeLight } from "@/src/theme";
 import { ThemeProvider } from "@/src/theme/helpers/theme-provider";
 
 interface IADisplay {
-  variant: "lg";
+  $variant: "lg";
   fontWeight: "semibold";
   color: "gradient" | "gray900";
   children: ReactNode;
 }
 
-const Display = styled("h1").attrs<IADisplay>(() => ({}))`
+const Display = styled("h1").attrs<IADisplay>((props) => ({}))`
   ${(props) => {
-    return (
-      props.variant === "lg" &&
-      `
-        font-size: ${props.theme.ref.font.font_size_displayLg};
+    const { fs_displayLg } = props.theme.ref.font;
+
+    switch (props.$variant) {
+      case "lg":
+        return `
+        font-size: ${fs_displayLg};
         letter-spacing: -0.96px;
-      `
-    );
+      `;
+        break;
+    }
   }};
 
   ${(props) => {
-    return props.color === "gradient"
-      ? `
-        color: ${props.theme.ref.colors.color_primary600}
-      `
-      : props.color === "gray900"
-      ? props.theme.ref.colors.color_primary600
-      : null;
+    const { color_primary600, color_primary900, gradient } =
+      props.theme.ref.colors;
+
+    switch (props.color) {
+      case "gradient":
+        return `
+     color: ${color_primary600}
+   `;
+        break;
+      case "gray900":
+        return `
+       color: ${color_primary900}
+     `;
+        break;
+    }
   }};
 `;
 
 export const ADisplay = ({
-  variant,
+  $variant,
   fontWeight,
   color,
   children,
 }: IADisplay) => {
   return (
     <>
-      {variant === "lg" && (
+      {$variant === "lg" && (
         <ThemeProvider theme={themeLight}>
-          <Display variant={variant} fontWeight={fontWeight} color={color}>
+          <Display
+            data-testid="a-display"
+            $variant={$variant}
+            fontWeight={fontWeight}
+            color={color}
+          >
             {children}
           </Display>
         </ThemeProvider>

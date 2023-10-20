@@ -6,11 +6,12 @@ type TVariant = "md";
 
 interface IAvatarRoot extends RadixAvatar.AvatarProps {
   "data-testid"?: string;
-  "variant"?: TVariant;
+  $variant?: TVariant;
 }
 
 const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>((props) => ({
   as: "span",
+  "data-testid": "a-avatar",
 }))`
   display: inline-flex;
   align-items: center;
@@ -18,8 +19,8 @@ const AvatarRoot = styled(RadixAvatar.Root).attrs<IAvatarRoot>((props) => ({
   vertical-align: middle;
   overflow: hidden;
   user-select: none;
-  width: ${({ variant }) => (variant === "md" ? "92px" : "45px")};
-  height: ${({ variant }) => (variant === "md" ? "92px" : "45px")};
+  width: ${({ $variant }) => ($variant === "md" ? "92px" : "45px")};
+  height: ${({ $variant }) => ($variant === "md" ? "92px" : "45px")};
   border-radius: 100%;
   background-color: ${({ theme }) => theme.ref.colors.color_gray500};
 `;
@@ -30,6 +31,7 @@ interface IAvatarImage extends RadixAvatar.AvatarImageProps {
 
 const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>((props) => ({
   as: "img",
+  "data-testid": "a-avatar-image",
 }))`
   width: 100%;
   height: 100%;
@@ -41,15 +43,15 @@ const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>((props) => ({
 interface IAvatar extends RadixAvatar.AvatarProps {
   src: string;
   alt: string;
-  variant?: TVariant;
+  $variant?: TVariant;
 }
 
 export function AAvatar({ ...props }: IAvatar) {
   const { src, alt } = props;
 
   return (
-    <AvatarRoot data-testid="a-avatar" {...props}>
-      <AvatarImage data-testid="a-avatar-image" src={src} alt={alt} />
+    <AvatarRoot {...props}>
+      <AvatarImage src={src} alt={alt} />
     </AvatarRoot>
   );
 }
