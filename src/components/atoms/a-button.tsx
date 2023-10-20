@@ -30,3 +30,9 @@ export const AButton = styled.button<IAButton>`
   font-weight: ${(props) => props.theme.ref.font[props.$fontWeight]};
   font-size: ${(props) => props.theme.ref.font[props.$fontSize]};
 `;
+
+export const AButtonTransparent = styled.button`
+  border: none;
+  background: transparent;
+  cursor: pointer;
+`;
