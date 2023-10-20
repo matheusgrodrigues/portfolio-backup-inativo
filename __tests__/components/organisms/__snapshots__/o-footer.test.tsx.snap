@@ -5,11 +5,18 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
   className="sc-dmyDmy"
 >
   <p>
-    © 2023 matheusgomesdev.
+    © 2023 
+    <a
+      href="https://matheusgomesdev.com.br"
+    >
+      matheusgomesdev
+    </a>
+    .
   </p>
   <div>
     <button
       className="sc-guDMob ikoIuE"
+      onClick={[Function]}
     >
       <svg
         fill="none"
@@ -28,6 +35,7 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
     </button>
     <button
       className="sc-guDMob ikoIuE"
+      onClick={[Function]}
     >
       <svg
         fill="none"

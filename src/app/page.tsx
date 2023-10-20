@@ -1,35 +1,55 @@
 "use client";
 
-import { useContext } from "react";
-
 // Theme
 import { darkTheme, themeLight } from "../theme";
 
 // Helpers
 import { ThemeProvider } from "../theme/helpers/theme-provider";
-import { DataContext } from "@/context/data-context";
 
 // Hooks
 import { useDarkMode } from "../hooks/useDarkMode";
 
 // Page
-import PageHome from "../components/pages/home";
+import { PBriefDescription } from "../components/pages/p-briefing-description/p-brief-description";
+
+// Interfaces
+import { IOHeader } from "../components/organisms/o-header";
+import { ITBriefDescription } from "../components/templates/t-briefing-description";
+import { IOFooter } from "../components/organisms/o-footer";
 
 const Home = () => {
   const { theme, themeToggler } = useDarkMode();
 
-  const themeMode = theme === "light" ? themeLight : darkTheme;
+  // Organism: HeaderProps
+  const oHeaderProps: IOHeader = {
+    avatar: { src: "/images/avatar.jpeg", alt: "" },
+    handleToggleTheme: themeToggler,
+  };
 
-  const context = useContext(DataContext);
+  // Template: BriefDescription
+  const tBriefDescriptionProps: ITBriefDescription = {
+    avatarBody: oHeaderProps.avatar,
+    textName: "Matheus Gomes",
+    linkedinUrl: "https://www.linkedin.com/in/matheusgomes/",
+    githubUrl: "https://github.com/matheusgrodrigues",
+    handleDownloadCV: () => null,
+    handleSubmitContactForm: () => null,
+  };
+
+  // Organism: FooterProps
+  const oFooterProps: IOFooter = {
+    siteUrl: "https://matheusgomesdev.com.br",
+    githubUrl: tBriefDescriptionProps.githubUrl,
+    linkedinUrl: tBriefDescriptionProps.linkedinUrl,
+  };
 
   return (
-    <ThemeProvider theme={themeMode}>
-      <button onClick={themeToggler}>Switch Theme</button>
-
-      <DataContext.Provider value={{ nome: "Matheus" }}>
-        <p>{context.nome}</p>
-      </DataContext.Provider>
-      <PageHome />
+    <ThemeProvider theme={theme === "light" ? themeLight : darkTheme}>
+      <PBriefDescription
+        oHeaderProps={oHeaderProps}
+        tBriefDescriptionProps={tBriefDescriptionProps}
+        oFooterProps={oFooterProps}
+      />
     </ThemeProvider>
   );
 };
