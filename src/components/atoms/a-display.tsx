@@ -14,23 +14,34 @@ interface IADisplay {
 
 const Display = styled("h1").attrs<IADisplay>((props) => ({}))`
   ${(props) => {
-    return (
-      props.$variant === "lg" &&
-      `
-        font-size: ${props.theme.ref.font.font_size_displayLg};
+    const { fs_displayLg } = props.theme.ref.font;
+
+    switch (props.$variant) {
+      case "lg":
+        return `
+        font-size: ${fs_displayLg};
         letter-spacing: -0.96px;
-      `
-    );
+      `;
+        break;
+    }
   }};
 
   ${(props) => {
-    return props.color === "gradient"
-      ? `
-        color: ${props.theme.ref.colors.color_primary600}
-      `
-      : props.color === "gray900"
-      ? props.theme.ref.colors.color_primary600
-      : null;
+    const { color_primary600, color_primary900, gradient } =
+      props.theme.ref.colors;
+
+    switch (props.color) {
+      case "gradient":
+        return `
+     color: ${color_primary600}
+   `;
+        break;
+      case "gray900":
+        return `
+       color: ${color_primary900}
+     `;
+        break;
+    }
   }};
 `;
 
