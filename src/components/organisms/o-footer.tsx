@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Atoms
 import { AIcon } from "../atoms/a-icon";
 
-export const OFooterStyled = styled.footer``;
+const OFooterStyled = styled.footer``;
 
 export const OFooter = () => {
   return (

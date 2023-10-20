@@ -13,7 +13,7 @@ import { DataContext } from "@/context/data-context";
 import { useDarkMode } from "../hooks/useDarkMode";
 
 // Page
-import PageHome from "../components/pages/home";
+import { PBriefDescription } from "../components/pages/p-briefing-description/p-brief-description";
 
 const Home = () => {
   const { theme, themeToggler } = useDarkMode();
@@ -29,7 +29,7 @@ const Home = () => {
       <DataContext.Provider value={{ nome: "Matheus" }}>
         <p>{context.nome}</p>
       </DataContext.Provider>
-      <PageHome />
+      <PBriefDescription />
     </ThemeProvider>
   );
 };

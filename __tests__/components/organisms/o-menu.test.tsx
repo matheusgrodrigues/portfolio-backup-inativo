@@ -1,7 +1,7 @@
 import renderer from "react-test-renderer";
 
 // Organism
-import { OHeader } from "@/src/components/molecules/o-header";
+import { OHeader } from "@/src/components/organisms/o-header";
 
 // Theme
 import { ThemeProvider } from "@/src/theme/helpers/theme-provider";

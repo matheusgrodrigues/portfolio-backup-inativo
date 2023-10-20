@@ -1,18 +1,18 @@
 import renderer from "react-test-renderer";
 
+// Template
+import { TBriefDescription } from "@/src/components/templates/t-briefing-description";
+
 // Theme
 import { ThemeProvider } from "@/src/theme/helpers/theme-provider";
 import { themeLight } from "@/src/theme";
 
-// Organism
-import { OFooter } from "@/src/components/molecules/o-footer";
-
-describe("Deve renderizar o OFooter corretamente", () => {
-  it("Deve preservar o visual do OHeader", () => {
+describe("Deve renderizar o TBriefDescription, corretamente", () => {
+  it("Deve preservar a estrutura visual do TBriefDescription", () => {
     const three = renderer
       .create(
         <ThemeProvider theme={themeLight}>
-          <OFooter />
+          <TBriefDescription />
         </ThemeProvider>
       )
       .toJSON();
