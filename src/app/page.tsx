@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 // Theme
 import { darkTheme, themeLight } from "../theme";
 
@@ -23,28 +21,27 @@ const Home = () => {
   const { theme, themeToggler } = useDarkMode();
 
   // Organism: HeaderProps
-  const [oHeaderProps, setOHeaderProps] = useState<IOHeader>({
+  const oHeaderProps: IOHeader = {
     avatar: { src: "/images/avatar.jpeg", alt: "" },
     handleToggleTheme: themeToggler,
-  });
+  };
 
   // Template: BriefDescription
-  const [tBriefDescriptionProps, setTBriefDescriptionProps] =
-    useState<ITBriefDescription>({
-      avatarBody: oHeaderProps.avatar,
-      textName: "Matheus Gomes",
-      linkedinUrl: "https://www.linkedin.com/in/matheusgomes/",
-      githubUrl: "https://github.com/matheusgrodrigues",
-      handleDownloadCV: () => null,
-      handleSubmitContactForm: () => null,
-    });
+  const tBriefDescriptionProps: ITBriefDescription = {
+    avatarBody: oHeaderProps.avatar,
+    textName: "Matheus Gomes",
+    linkedinUrl: "https://www.linkedin.com/in/matheusgomes/",
+    githubUrl: "https://github.com/matheusgrodrigues",
+    handleDownloadCV: () => null,
+    handleSubmitContactForm: () => null,
+  };
 
   // Organism: FooterProps
-  const [oFooterProps, setOFooterProps] = useState<IOFooter>({
+  const oFooterProps: IOFooter = {
     siteUrl: "https://matheusgomesdev.com.br",
     githubUrl: tBriefDescriptionProps.githubUrl,
     linkedinUrl: tBriefDescriptionProps.linkedinUrl,
-  });
+  };
 
   return (
     <ThemeProvider theme={theme === "light" ? themeLight : darkTheme}>
