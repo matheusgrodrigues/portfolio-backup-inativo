@@ -2,11 +2,11 @@
 
 exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visual do OHeader 1`] = `
 <div
-  className="sc-eDLKEg dfSAHy"
+  className="sc-eDLKEg gPRfGe"
 >
   <span
     alt=""
-    className="sc-beyTiQ lPxIG"
+    className="sc-beyTiQ kTPWrS"
     data-testid="a-avatar"
     src="/images/a-avatar.jpeg"
   >

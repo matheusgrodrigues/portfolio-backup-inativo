@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Deve renderizar o PBriefDescription corretamente Deve preservar a estrutura do componente 1`] = `
-[
+<div
+  className="sc-qZruQ isEezQ"
+>
   <div
-    className="sc-eDLKEg dfSAHy"
+    className="sc-eDLKEg gPRfGe"
   >
     <span
       alt=""
-      className="sc-beyTiQ lPxIG"
+      className="sc-beyTiQ kTPWrS"
       data-testid="a-avatar"
       src="/images/a-avatar.jpeg"
     >
@@ -37,7 +39,7 @@ exports[`Deve renderizar o PBriefDescription corretamente Deve preservar a estru
         />
       </svg>
     </button>
-  </div>,
+  </div>
   <div
     className="sc-fsYfxw"
   >
@@ -77,9 +79,11 @@ exports[`Deve renderizar o PBriefDescription corretamente Deve preservar a estru
     >
       Entre em Contato
     </button>
-  </div>,
+  </div>
   <footer
     className="sc-jTQDJr"
+    data-testid="o-footer"
+    id="o-footer"
   >
     <p>
       © 2023 
@@ -130,6 +134,6 @@ exports[`Deve renderizar o PBriefDescription corretamente Deve preservar a estru
         </svg>
       </button>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;

@@ -3,6 +3,8 @@
 exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHeader 1`] = `
 <footer
   className="sc-dmyDmy"
+  data-testid="o-footer"
+  id="o-footer"
 >
   <p>
     © 2023 

@@ -1,3 +1,5 @@
+import { TFont } from "styled-components";
+
 // Family
 const ff_inter = "Inter";
 
@@ -14,7 +16,7 @@ const fs_textXl = "20px";
 // Size: Display
 const fs_displayLg = "48px";
 
-export const font = {
+export const font: TFont = {
   ff_inter,
   fw_regular,
   fw_medium,

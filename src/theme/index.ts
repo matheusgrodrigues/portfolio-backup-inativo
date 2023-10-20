@@ -1,7 +1,15 @@
-import { colors, colorsDark, font } from "./ref";
+import { colors, colorsDark, font, spacing, bp } from "./ref";
+
+export const bpHelper = (bp: string, content: string) => {
+  return `
+  @media screen and (min-width: ${bp}) {
+    ${content}
+  }
+  `;
+};
 
 export const themeLight = {
-  ref: { colors, font },
+  ref: { colors, font, spacing, bp },
 };
 
 export const darkTheme = {

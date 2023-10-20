@@ -17,7 +17,7 @@ export const OFooter = ({ siteUrl, githubUrl, linkedinUrl }: IOFooter) => {
   const router = useRouter();
 
   return (
-    <OFooterStyled>
+    <OFooterStyled data-testid="o-footer" id="o-footer">
       <p>
         © 2023 <a href={siteUrl}>matheusgomesdev</a>.
       </p>
