@@ -40,7 +40,7 @@ const AvatarImage = styled(RadixAvatar.Image).attrs<IAvatarImage>((props) => ({
   overflow: hidden;
 `;
 
-interface IAvatar extends RadixAvatar.AvatarProps {
+export interface IAvatar extends RadixAvatar.AvatarProps {
   src: string;
   alt: string;
   $variant?: TVariant;

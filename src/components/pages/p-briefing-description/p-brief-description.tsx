@@ -1,18 +1,25 @@
 // Organism
-import { OHeader } from "../../organisms/o-header";
-import { OFooter } from "../../organisms/o-footer";
+import { IOHeader, OHeader } from "../../organisms/o-header";
+import { IOFooter, OFooter } from "../../organisms/o-footer";
 
-interface IPBriefDescription {}
+// Template
+import {
+  ITBriefDescription,
+  TBriefDescription,
+} from "../../templates/t-briefing-description";
 
-export const PBriefDescription = ({}: IPBriefDescription) => {
+interface IPBriefDescription {
+  oHeaderProps: IOHeader;
+  tBriefDescriptionProps: ITBriefDescription;
+  oFooterProps: IOFooter;
+}
+
+export const PBriefDescription = ({ ...props }: IPBriefDescription) => {
   return (
     <>
-      <OHeader
-        avatar={{ url: "/images/avatar.jpeg", alt: "" }}
-        toggleTheme={() => null}
-      />
-
-      <OFooter />
+      <OHeader {...props.oHeaderProps} />
+      <TBriefDescription {...props.tBriefDescriptionProps} />
+      <OFooter {...props.oFooterProps} />
     </>
   );
 };

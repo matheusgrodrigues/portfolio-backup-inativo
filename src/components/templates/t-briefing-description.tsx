@@ -1,28 +1,35 @@
 import styled from "styled-components";
 
 // Atoms
-import { AAvatar } from "../atoms";
-import { AIcon } from "../atoms/a-icon";
 import { ADisplay } from "../atoms/a-display";
 import { AText } from "../atoms/a-text";
 import { AButton } from "../atoms/a-button";
+import { IAvatar } from "../atoms/a-avatar";
 
 const TBriefDescriptionStyled = styled.div``;
 
-interface ITBriefDescription {}
+export interface ITBriefDescription {
+  avatarBody: IAvatar;
+  textName: string;
+  linkedinUrl: string;
+  githubUrl: string;
+  handleDownloadCV: () => void;
+  handleSubmitContactForm: () => void;
+}
 
-export const TBriefDescription = ({}: ITBriefDescription) => {
+export const TBriefDescription = ({ ...props }: ITBriefDescription) => {
   return (
     <TBriefDescriptionStyled>
-      <AAvatar src="/images/avatar.jpeg" alt="" $variant="md" />
-      <AIcon icon="sun" height={32} />
-
       <ADisplay $variant="lg" fontWeight="semibold" color="gradient">
-        Display
+        Programador Frontend
+      </ADisplay>
+      <ADisplay $variant="lg" fontWeight="semibold" color="gray900">
+        apaixonado por criação de interfaces inovadoras
       </ADisplay>
 
       <AText $variant="xl" fontWeight="semibold" color="gray50">
-        A-Text
+        Visite meu perfil no Linkedin e explore meus projetos no GitHub para
+        descobrir como minhas habilidades podem agregar valor á sua equipe.
       </AText>
 
       <AButton
@@ -31,8 +38,20 @@ export const TBriefDescription = ({}: ITBriefDescription) => {
         $fontSize="fs_textMd"
         $fontWeight="fw_semibold"
         $color="color_gray500"
+        onClick={props.handleDownloadCV}
       >
-        AButton
+        Download CV
+      </AButton>
+
+      <AButton
+        $variant="lg"
+        $background="color_white"
+        $fontSize="fs_textMd"
+        $fontWeight="fw_semibold"
+        $color="color_gray500"
+        onClick={props.handleSubmitContactForm}
+      >
+        Entre em Contato
       </AButton>
     </TBriefDescriptionStyled>
   );

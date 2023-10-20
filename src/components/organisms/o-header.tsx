@@ -9,19 +9,19 @@ const OHeaderStyled = styled.div`
   justify-content: space-between;
 `;
 
-interface IOHeader {
+export interface IOHeader {
   avatar: {
-    url: string;
+    src: string;
     alt: string;
   };
-  toggleTheme: () => void;
+  handleToggleTheme: () => void;
 }
 
-export const OHeader = ({ avatar, toggleTheme }: IOHeader) => {
+export const OHeader = ({ avatar, handleToggleTheme }: IOHeader) => {
   return (
     <OHeaderStyled>
-      <AAvatar src={avatar.url} alt={avatar.alt} />
-      <AIcon icon="sun" height={32} onClick={toggleTheme} />
+      <AAvatar src={avatar.src} alt={avatar.alt} />
+      <AIcon icon="sun" height={32} onClick={handleToggleTheme} />
     </OHeaderStyled>
   );
 };

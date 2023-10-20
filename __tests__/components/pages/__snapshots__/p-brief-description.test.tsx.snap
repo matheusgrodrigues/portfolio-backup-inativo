@@ -9,13 +9,13 @@ exports[`Deve renderizar o PBriefDescription corretamente Deve preservar a estru
       alt=""
       className="sc-beyTiQ lPxIG"
       data-testid="a-avatar"
-      src="/images/avatar.jpeg"
+      src="/images/a-avatar.jpeg"
     >
       <img
         alt=""
         className="sc-guDMob AvYEu"
         data-testid="a-avatar-image"
-        src="/images/avatar.jpeg"
+        src="/images/a-avatar.jpeg"
       />
     </span>
     <button
@@ -24,7 +24,7 @@ exports[`Deve renderizar o PBriefDescription corretamente Deve preservar a estru
       <svg
         fill="none"
         height={32}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         viewBox="0 0 15 15"
         width="200px"
         xmlns="http://www.w3.org/2000/svg"
@@ -38,15 +38,62 @@ exports[`Deve renderizar o PBriefDescription corretamente Deve preservar a estru
       </svg>
     </button>
   </div>,
+  <div
+    className="sc-fsYfxw"
+  >
+    <h1
+      className="sc-gLLuHO SsgvX"
+      color="gradient"
+      data-testid="a-display"
+      fontWeight="semibold"
+    >
+      Programador Frontend
+    </h1>
+    <h1
+      className="sc-gLLuHO kfqEvG"
+      color="gray900"
+      data-testid="a-display"
+      fontWeight="semibold"
+    >
+      apaixonado por criação de interfaces inovadoras
+    </h1>
+    <p
+      className="sc-iBdoyZ fPQCmd"
+      color="gray50"
+      data-testid="a-text"
+      fontWeight="semibold"
+    >
+      Visite meu perfil no Linkedin e explore meus projetos no GitHub para descobrir como minhas habilidades podem agregar valor á sua equipe.
+    </p>
+    <button
+      className="sc-dmyDmy fRZSRm"
+      onClick={[MockFunction]}
+    >
+      Download CV
+    </button>
+    <button
+      className="sc-dmyDmy fRZSRm"
+      onClick={[MockFunction]}
+    >
+      Entre em Contato
+    </button>
+  </div>,
   <footer
     className="sc-jTQDJr"
   >
     <p>
-      © 2023 matheusgomesdev.
+      © 2023 
+      <a
+        href="https://matheusgomesdev.com.br"
+      >
+        matheusgomesdev
+      </a>
+      .
     </p>
     <div>
       <button
         className="sc-hLQTFJ iIVlID"
+        onClick={[Function]}
       >
         <svg
           fill="none"
@@ -65,6 +112,7 @@ exports[`Deve renderizar o PBriefDescription corretamente Deve preservar a estru
       </button>
       <button
         className="sc-hLQTFJ iIVlID"
+        onClick={[Function]}
       >
         <svg
           fill="none"

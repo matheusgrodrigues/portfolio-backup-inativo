@@ -7,13 +7,23 @@ import { themeLight } from "@/src/theme";
 // Organism
 import { OFooter } from "@/src/components/organisms/o-footer";
 
+// Test utils
+import { AppRouterContextProviderMock } from "@/src/test-utils/provider/app-router-provider";
+
+// Mock
+import { oFooterMock } from "../../../__mocks__/components/organism/o-footer-mock";
+
 describe("Deve renderizar o OFooter corretamente", () => {
+  const push = jest.fn();
+
   it("Deve preservar o visual do OHeader", () => {
     const three = renderer
       .create(
-        <ThemeProvider theme={themeLight}>
-          <OFooter />
-        </ThemeProvider>
+        <AppRouterContextProviderMock router={{ push }}>
+          <ThemeProvider theme={themeLight}>
+            <OFooter {...oFooterMock} />
+          </ThemeProvider>
+        </AppRouterContextProviderMock>
       )
       .toJSON();
 
