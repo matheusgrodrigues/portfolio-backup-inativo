@@ -12,7 +12,9 @@ describe("Deve renderizar o AText corretamente", () => {
     const three = renderer
       .create(
         <ThemeProvider theme={themeLight}>
-          <AText />
+          <AText $variant="lg" fontWeight="semibold" color="gradient">
+            A-Text
+          </AText>
         </ThemeProvider>
       )
       .toJSON();
