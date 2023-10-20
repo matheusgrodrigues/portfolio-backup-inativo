@@ -6,6 +6,7 @@ import { ADisplay } from "../../atoms/a-display";
 import { AText } from "../../atoms/a-text";
 import { AButton } from "../../atoms/a-button";
 import { OHeader } from "../../molecules/o-header";
+import { OFooter } from "../../molecules/o-footer";
 
 export default function PHome(): ReactNode {
   return (
@@ -14,6 +15,8 @@ export default function PHome(): ReactNode {
         avatar={{ url: "/images/avatar.jpeg", alt: "" }}
         toggleTheme={() => null}
       />
+
+      <OFooter />
 
       <AAvatar src="/images/avatar.jpeg" alt="" $variant="md" />
 
