@@ -1,57 +1,82 @@
 "use client";
 
-// Theme
-import { darkTheme, themeLight } from "../theme";
+import { useCallback } from "react";
 
-// Helpers
-import { ThemeProvider } from "../theme/helpers/theme-provider";
+import styled from "styled-components";
 
-// Hooks
-import { useDarkMode } from "../hooks/useDarkMode";
+import { ThemeProvider } from "../core/theme/helpers/theme-provider";
+import { darkTheme, themeLight } from "../core/theme";
 
-// Page
-import { PBriefDescription } from "../components/pages/p-briefing-description/p-brief-description";
+import { useDarkMode } from "../core/hooks/useDarkMode";
 
-// Interfaces
-import { IOHeader } from "../components/organisms/o-header";
-import { ITBriefDescription } from "../components/templates/t-briefing-description";
-import { IOFooter } from "../components/organisms/o-footer";
+import { Button, Display, Text } from "../components/Atoms";
+import { Header, Footer } from "../components/Organisms";
+
+const BriefDescriptionStyled = styled.div`
+   flex-direction: column;
+   background: ${(props) => props.theme.ref.colors.color_white};
+   min-height: 100vh;
+   display: flex;
+   width: 100%;
+
+   & > [id="o-footer"] {
+      margin-top: auto;
+   }
+`;
 
 const Home = () => {
-  const { theme, themeToggler } = useDarkMode();
+   const { themeToggler, theme } = useDarkMode();
 
-  // Organism: HeaderProps
-  const oHeaderProps: IOHeader = {
-    avatar: { src: "/images/avatar.jpeg", alt: "" },
-    handleToggleTheme: themeToggler,
-  };
+   const handleSubmitContactForm = useCallback(() => null, []);
+   const handleDownloadCV = useCallback(() => null, []);
 
-  // Template: BriefDescription
-  const tBriefDescriptionProps: ITBriefDescription = {
-    avatarBody: oHeaderProps.avatar,
-    textName: "Matheus Gomes",
-    linkedinUrl: "https://www.linkedin.com/in/matheusgomes/",
-    githubUrl: "https://github.com/matheusgrodrigues",
-    handleDownloadCV: () => null,
-    handleSubmitContactForm: () => null,
-  };
+   return (
+      <ThemeProvider theme={theme === "light" ? themeLight : darkTheme}>
+         <BriefDescriptionStyled>
+            <Header handleToggleTheme={themeToggler} avatar={{ src: "/images/avatar.jpeg", alt: "" }} />
 
-  // Organism: FooterProps
-  const oFooterProps: IOFooter = {
-    siteUrl: "https://matheusgomesdev.com.br",
-    githubUrl: tBriefDescriptionProps.githubUrl,
-    linkedinUrl: tBriefDescriptionProps.linkedinUrl,
-  };
+            <Display $variant="lg" fontWeight="semibold" color="gradient">
+               Programador Frontend
+            </Display>
+            <Display $variant="lg" fontWeight="semibold" color="gray900">
+               apaixonado por criação de interfaces inovadoras
+            </Display>
 
-  return (
-    <ThemeProvider theme={theme === "light" ? themeLight : darkTheme}>
-      <PBriefDescription
-        oHeaderProps={oHeaderProps}
-        tBriefDescriptionProps={tBriefDescriptionProps}
-        oFooterProps={oFooterProps}
-      />
-    </ThemeProvider>
-  );
+            <Text fontWeight="semibold" $variant="xl" color="gray50">
+               Visite meu perfil no Linkedin e explore meus projetos no GitHub para descobrir como minhas habilidades
+               podem agregar valor á sua equipe.
+            </Text>
+
+            <Button
+               $variant="lg"
+               $background="color_white"
+               $fontSize="fs_textMd"
+               $fontWeight="fw_semibold"
+               $color="color_gray500"
+               onClick={handleDownloadCV}
+            >
+               Download CV
+            </Button>
+
+            <Button
+               $variant="lg"
+               $background="color_white"
+               $fontSize="fs_textMd"
+               $fontWeight="fw_semibold"
+               $color="color_gray500"
+               onClick={handleSubmitContactForm}
+            >
+               Entre em Contato
+            </Button>
+         </BriefDescriptionStyled>
+
+         <Footer
+            linkedinUrl={"https://www.linkedin.com/in/matheusgomes/"}
+            githubUrl={"https://github.com/matheusgrodrigues"}
+            siteUrl={"https://matheusgomesdev.com.br"}
+         />
+      </ThemeProvider>
+   );
 };
 
 export default Home;
