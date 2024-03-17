@@ -7,6 +7,7 @@ export type AppRouterContextProviderMockProps = {
     children: React.ReactNode
 }
 
+/* eslint-disable no-undef */
 export const AppRouterContextProviderMock = ({
     router,
     children,

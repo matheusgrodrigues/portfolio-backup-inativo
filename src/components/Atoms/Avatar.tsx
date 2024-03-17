@@ -6,12 +6,12 @@ import * as RadixAvatar from '@radix-ui/react-avatar'
 
 type AvatarRootVariant = 'md'
 
-interface AvatarRoot extends RadixAvatar.AvatarProps {
+interface AvatarRootProps extends RadixAvatar.AvatarProps {
     'data-testid'?: string
     $variant?: AvatarRootVariant
 }
 
-const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRoot>(() => ({
+const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRootProps>(() => ({
     as: 'span',
     'data-testid': 'a-avatar',
 }))`

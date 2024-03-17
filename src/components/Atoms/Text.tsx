@@ -18,6 +18,7 @@ interface TextProps {
     color: TextColor
 }
 
+/* eslint-disable no-unreachable */
 const TextStyled = styled('p').attrs<TextProps>(() => ({}))`
     ${(props) => {
         const { fw_regular, fw_semibold } = props.theme.ref.font

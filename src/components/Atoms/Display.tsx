@@ -19,6 +19,7 @@ letter-spacing: -0.96px;
 font-size: ${fontSize};
 `
 
+/* eslint-disable no-unreachable */
 const DisplayStyled = styled('h1').attrs<DisplayProps>(() => ({}))`
     ${(props) => {
         const { fs_displayLg } = props.theme.ref.font

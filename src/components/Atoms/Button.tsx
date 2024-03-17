@@ -13,6 +13,7 @@ max-width: 172px;
 height: 44px;
 `
 
+/* eslint-disable no-unreachable */
 export const Button = styled.button<ButtonProps>`
     border-radius: 8px;
     border: none;
