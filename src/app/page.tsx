@@ -36,7 +36,6 @@ const Home = () => {
         <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>
             <BriefDescriptionStyled>
                 <Header handleToggleTheme={themeToggler} avatar={{ src: '/images/avatar.jpeg', alt: '' }} />
-
                 <Display fontWeight="semibold" $variant="lg" color="gradient">
                     Programador Frontend
                 </Display>
