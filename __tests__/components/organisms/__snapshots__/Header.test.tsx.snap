@@ -2,23 +2,23 @@
 
 exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visual do OHeader 1`] = `
 <div
-  className="sc-gLLuHO jIuArr"
+  className="sc-gLLuof hUXbNo"
 >
   <span
     alt=""
-    className="sc-hLQTFJ eQriED"
+    className="sc-hLQSwg cfKalt"
     data-testid="a-avatar"
     src="/images/a-avatar.jpeg"
   >
     <img
       alt=""
-      className="sc-eDLKEg lnnLLQ"
+      className="sc-eDLKkx geszkw"
       data-testid="a-avatar-image"
       src="/images/a-avatar.jpeg"
     />
   </span>
   <button
-    className="sc-dmyDmy bemBC"
+    className="sc-dmyCSP icUhfv"
   >
     <svg
       fill="none"

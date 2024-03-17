@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o AText corretamente Deve preservar a estrutura visual do componente 1`] = `
 <p
-  className="sc-beyTiQ llKQRn"
+  className="sc-beySPh ifozmp"
   color="gradient"
   data-testid="a-text"
   fontWeight="semibold"

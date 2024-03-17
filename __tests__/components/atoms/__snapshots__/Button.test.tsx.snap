@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o Button corretamente Deve preservar a estrutura visual do componente 1`] = `
 <button
-  className="sc-beyTiQ hDgWyj"
+  className="sc-guDLey dBkHxG"
 >
   AButton
 </button>

@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHeader 1`] = `
 <footer
-  className="sc-dmyDmy"
+  className="sc-dmyCSP"
   data-testid="footer"
   id="footer"
 >
@@ -17,7 +17,7 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
   </p>
   <div>
     <button
-      className="sc-guDMob feDenk"
+      className="sc-guDLey hMNQJd"
       onClick={[Function]}
     >
       <svg
@@ -36,7 +36,7 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
       </svg>
     </button>
     <button
-      className="sc-guDMob feDenk"
+      className="sc-guDLey hMNQJd"
       onClick={[Function]}
     >
       <svg
