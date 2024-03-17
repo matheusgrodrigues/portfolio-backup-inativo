@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 import styled from 'styled-components'
 
@@ -19,7 +19,7 @@ letter-spacing: -0.96px;
 font-size: ${fontSize};
 `
 
-const DisplayStyled = styled('h1').attrs<DisplayProps>((props) => ({}))`
+const DisplayStyled = styled('h1').attrs<DisplayProps>(() => ({}))`
     ${(props) => {
         const { fs_displayLg } = props.theme.ref.font
 
@@ -31,7 +31,7 @@ const DisplayStyled = styled('h1').attrs<DisplayProps>((props) => ({}))`
     }};
 
     ${(props) => {
-        const { color_gradient_primary600, color_primary600, color_gray900 } = props.theme.ref.colors
+        const { color_gradient_primary600, color_gray900 } = props.theme.ref.colors
 
         switch (props.color) {
             case 'gradient':

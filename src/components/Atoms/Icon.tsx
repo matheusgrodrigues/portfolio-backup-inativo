@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { SunIcon, LinkedInLogoIcon, GitHubLogoIcon } from '@radix-ui/react-icons'
 
 import { IconProps as RadixIconProps } from '@radix-ui/react-icons/dist/types'

@@ -5,3 +5,5 @@ const bs_lg = `box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16p
 const bs_xl = `box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.03), 0px 20px 24px -4px rgba(16, 24, 40, 0.08);`
 const bs_2xl = `box-shadow: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);`
 const bs_3xl = `box-shadow: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);`
+
+export { bs_xs, bs_sm, bs_md, bs_lg, bs_xl, bs_2xl, bs_3xl }

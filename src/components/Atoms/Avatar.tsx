@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { styled } from 'styled-components'
 
 import * as RadixAvatar from '@radix-ui/react-avatar'
@@ -9,7 +11,7 @@ interface AvatarRoot extends RadixAvatar.AvatarProps {
     $variant?: AvatarRootVariant
 }
 
-const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRoot>((props) => ({
+const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRoot>(() => ({
     as: 'span',
     'data-testid': 'a-avatar',
 }))`
@@ -32,7 +34,7 @@ interface AvatarImageProps extends RadixAvatar.AvatarImageProps {
     'data-testid'?: string
 }
 
-const AvatarImage = styled(RadixAvatar.Image).attrs<AvatarImageProps>((props) => ({
+const AvatarImage = styled(RadixAvatar.Image).attrs<AvatarImageProps>(() => ({
     as: 'img',
     'data-testid': 'a-avatar-image',
 }))`

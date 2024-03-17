@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import { useCallback } from 'react'
 
 import styled from 'styled-components'
@@ -9,8 +11,8 @@ import { darkTheme, themeLight } from '../config/theme'
 
 import { useDarkMode } from '../core/hooks/useDarkMode'
 
-import { Button, Display, Text } from '../components/Atoms'
 import { Header, Footer } from '../components/Organisms'
+import { Button, Display, Text } from '../components/Atoms'
 
 const BriefDescriptionStyled = styled.div`
     flex-direction: column;
@@ -35,36 +37,36 @@ const Home = () => {
             <BriefDescriptionStyled>
                 <Header handleToggleTheme={themeToggler} avatar={{ src: '/images/avatar.jpeg', alt: '' }} />
 
-                <Display $variant="lg" fontWeight="semibold" color="gradient">
+                <Display fontWeight="semibold" $variant="lg" color="gradient">
                     Programador Frontend
                 </Display>
-                <Display $variant="lg" fontWeight="semibold" color="gray900">
+                <Display fontWeight="semibold" $variant="lg" color="gray900">
                     apaixonado por criação de interfaces inovadoras
                 </Display>
 
                 <Text fontWeight="semibold" $variant="xl" color="gray50">
-                    Visite meu perfil no Linkedin e explore meus projetos no GitHub para descobrir como minhas habilidades podem agregar valor á sua
-                    equipe.
+                    Visite meu perfil no Linkedin e explore meus projetos no GitHub para descobrir como minhas
+                    habilidades podem agregar valor á sua equipe.
                 </Text>
 
                 <Button
-                    $variant="lg"
                     $background="color_white"
-                    $fontSize="fs_textMd"
                     $fontWeight="fw_semibold"
-                    $color="color_gray500"
+                    $fontSize="fs_textMd"
+                    $variant="lg"
                     onClick={handleDownloadCV}
+                    $color="color_gray500"
                 >
                     Download CV
                 </Button>
 
                 <Button
-                    $variant="lg"
                     $background="color_white"
-                    $fontSize="fs_textMd"
                     $fontWeight="fw_semibold"
-                    $color="color_gray500"
+                    $fontSize="fs_textMd"
+                    $variant="lg"
                     onClick={handleSubmitContactForm}
+                    $color="color_gray500"
                 >
                     Entre em Contato
                 </Button>

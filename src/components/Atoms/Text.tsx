@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { ReactNode } from 'react'
 
 import styled from 'styled-components'
@@ -16,7 +18,7 @@ interface TextProps {
     color: TextColor
 }
 
-const TextStyled = styled('p').attrs<TextProps>((props) => ({}))`
+const TextStyled = styled('p').attrs<TextProps>(() => ({}))`
     ${(props) => {
         const { fw_regular, fw_semibold } = props.theme.ref.font
 
@@ -54,7 +56,7 @@ const TextStyled = styled('p').attrs<TextProps>((props) => ({}))`
     }};
 
     ${(props) => {
-        const { color_gray50, color_primary500, color_primary600, color_gray900, color_white } = props.theme.ref.colors
+        const { color_gray50, color_primary500, color_primary600, color_gray900 } = props.theme.ref.colors
 
         switch (props.color) {
             case 'gradient':
