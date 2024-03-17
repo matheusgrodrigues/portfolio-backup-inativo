@@ -4,8 +4,8 @@ import { useCallback } from "react";
 
 import styled from "styled-components";
 
-import { ThemeProvider } from "../core/theme/helpers/theme-provider";
-import { darkTheme, themeLight } from "../core/theme";
+import { ThemeProvider } from "../config/theme/helpers/theme-provider";
+import { darkTheme, themeLight } from "../config/theme";
 
 import { useDarkMode } from "../core/hooks/useDarkMode";
 

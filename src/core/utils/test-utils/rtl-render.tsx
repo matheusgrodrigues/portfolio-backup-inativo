@@ -2,8 +2,8 @@ import { ReactElement, ReactNode } from "react";
 
 import { RenderOptions, render as rtlRender } from "@testing-library/react";
 
-import { ThemeProvider } from "../../theme/helpers/theme-provider";
-import { themeLight } from "../../theme";
+import { ThemeProvider } from "../../../config/theme/helpers/theme-provider";
+import { themeLight } from "../../../config/theme";
 
 interface WrapperProps {
    children: ReactNode;

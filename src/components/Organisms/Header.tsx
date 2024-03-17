@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { bpHelper } from "@/src/core/theme";
+import { bpHelper } from "@/src/config/theme";
 
 import { Avatar, Icon } from "../Atoms";
 

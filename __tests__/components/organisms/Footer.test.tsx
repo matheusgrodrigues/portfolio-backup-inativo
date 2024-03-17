@@ -1,7 +1,7 @@
 import renderer from "react-test-renderer";
 
-import { ThemeProvider } from "@/src/core/theme/helpers/theme-provider";
-import { themeLight } from "@/src/core/theme";
+import { ThemeProvider } from "@/src/config/theme/helpers/theme-provider";
+import { themeLight } from "@/src/config/theme";
 
 import { Footer } from "@/src/components/Organisms/Footer";
 

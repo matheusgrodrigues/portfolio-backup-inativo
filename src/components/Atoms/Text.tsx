@@ -2,8 +2,8 @@ import { ReactNode } from "react";
 
 import styled from "styled-components";
 
-import { themeLight } from "@/src/core/theme";
-import { ThemeProvider } from "@/src/core/theme/helpers/theme-provider";
+import { themeLight } from "@/src/config/theme";
+import { ThemeProvider } from "@/src/config/theme/helpers/theme-provider";
 
 type TextFontWeigth = "regular" | "semibold";
 type TextVariant = "sm" | "md" | "lg" | "xl";
