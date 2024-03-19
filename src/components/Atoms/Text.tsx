@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 import { themeLight } from '@/src/config/theme'
-import { ThemeProvider } from '@/src/config/theme/helpers/theme-provider'
+import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
 
 type TextFontWeigth = 'regular' | 'semibold'
 type TextVariant = 'sm' | 'md' | 'lg' | 'xl'

@@ -6,7 +6,7 @@ import process from 'process'
 
 import styled from 'styled-components'
 
-import { ThemeProvider } from '../config/theme/helpers/theme-provider'
+import { ThemeProvider } from '../config/theme/utils/theme-provider'
 import { darkTheme, themeLight } from '../config/theme'
 
 import useTranslation from '../core/hooks/useTranslation'

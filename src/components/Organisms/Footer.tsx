@@ -1,5 +1,7 @@
 import React from 'react'
 
+import process from 'process'
+
 import { useRouter } from 'next/navigation'
 
 import styled from 'styled-components'
@@ -17,10 +19,12 @@ export interface FooterProps {
 export const Footer = ({ linkedinUrl, githubUrl, siteUrl }: FooterProps) => {
     const router = useRouter()
 
+    const date = new Date()
+
     return (
         <FooterStyled data-testid="footer" id="footer">
             <p>
-                © 2023 <a href={siteUrl}>matheusgomesdev</a>.
+                © {date.getFullYear()} <a href={siteUrl}>{`${process.env.NEXT_PUBLIC_BRAND_NAME}`}</a>.
             </p>
 
             <div>

@@ -2,7 +2,7 @@ import React, { ReactElement, ReactNode } from 'react'
 
 import { RenderOptions, render as rtlRender } from '@testing-library/react'
 
-import { ThemeProvider } from '../../../config/theme/helpers/theme-provider'
+import { ThemeProvider } from '../../../config/theme/utils/theme-provider'
 import { themeLight } from '../../../config/theme'
 
 interface WrapperProps {

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 
 import styled from 'styled-components'
 
-import { ThemeProvider } from '@/src/config/theme/helpers/theme-provider'
+import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
 import { themeLight } from '@/src/config/theme'
 
 type DisplayColor = 'gradient' | 'gray900'
