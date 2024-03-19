@@ -12,13 +12,7 @@ const FooterStyled = styled.footer`
     background: ${(props) => props.theme.ref.colors['color_gray900']};
 `
 
-export interface FooterProps {
-    linkedinUrl: string
-    githubUrl: string
-    siteUrl: string
-}
-
-export const Footer = ({ linkedinUrl, githubUrl, siteUrl }: FooterProps) => {
+export const Footer = () => {
     const router = useRouter()
 
     const date = new Date()
@@ -26,12 +20,23 @@ export const Footer = ({ linkedinUrl, githubUrl, siteUrl }: FooterProps) => {
     return (
         <FooterStyled data-testid="footer" id="footer">
             <p>
-                © {date.getFullYear()} <a href={siteUrl}>{`${process.env.NEXT_PUBLIC_BRAND_NAME}`}</a>.
+                © {date.getFullYear()}{' '}
+                <a href={`${process.env.NEXT_PUBLIC_SITE_URL}`}>{`${process.env.NEXT_PUBLIC_BRAND_NAME}`}</a>.
             </p>
 
             <div>
-                <Icon icon="github-square" callback={() => router.push(githubUrl)} height={32} width={32} />
-                <Icon icon="linkedin-rounded" callback={() => router.push(linkedinUrl)} height={32} width={32} />
+                <Icon
+                    icon="github-square"
+                    callback={() => router.push(`${process.env.NEXT_PUBLIC_GITHUB_URL}`)}
+                    height={32}
+                    width={32}
+                />
+                <Icon
+                    icon="linkedin-rounded"
+                    callback={() => router.push(`${process.env.NEXT_PUBLIC_LINKEDIN_URL}`)}
+                    height={32}
+                    width={32}
+                />
             </div>
         </FooterStyled>
     )

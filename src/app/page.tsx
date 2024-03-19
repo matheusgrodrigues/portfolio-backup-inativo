@@ -2,8 +2,6 @@
 
 import React, { useCallback } from 'react'
 
-import process from 'process'
-
 import styled from 'styled-components'
 
 import { ThemeProvider } from '../config/theme/utils/theme-provider'
@@ -96,11 +94,7 @@ const Home = () => {
                 </ActionButtonStyled>
             </BriefDescriptionStyled>
 
-            <Footer
-                linkedinUrl={`${process.env.NEXT_PUBLIC_LINKEDIN_URL}`}
-                githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}`}
-                siteUrl={`${process.env.NEXT_PUBLIC_SITE_URL}`}
-            />
+            <Footer />
         </ThemeProvider>
     )
 }
