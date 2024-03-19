@@ -2,10 +2,12 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-export const useDarkMode = () => {
-    const [theme, setTheme] = useState('light')
+type ThemeName = 'light' | 'dark'
 
-    const setMode = useCallback((mode: string) => {
+export const useDarkMode = () => {
+    const [theme, setTheme] = useState<ThemeName>('light')
+
+    const setMode = useCallback((mode: ThemeName) => {
         window.localStorage.setItem('theme', mode)
 
         setTheme(mode)
@@ -17,12 +19,12 @@ export const useDarkMode = () => {
         } else {
             setMode('light')
         }
-    }, [setMode, theme])
+    }, [theme])
 
     useEffect(() => {
         const localTheme = window.localStorage.getItem('theme')
 
-        localTheme && setTheme(localTheme)
+        localTheme && setTheme(localTheme as ThemeName)
     }, [])
 
     return { themeToggler, theme }

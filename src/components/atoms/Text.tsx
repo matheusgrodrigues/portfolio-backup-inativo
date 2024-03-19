@@ -4,9 +4,6 @@ import { ReactNode } from 'react'
 
 import styled from 'styled-components'
 
-import { themeLight } from '@/src/config/theme'
-import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
-
 type TextFontWeigth = 'regular' | 'semibold'
 type TextVariant = 'sm' | 'md' | 'lg' | 'xl'
 type TextColor = 'white' | 'black' | 'gradient' | 'gray50' | 'gray500' | 'gray900'
@@ -77,10 +74,8 @@ const TextStyled = styled('p').attrs<TextProps>(() => ({}))`
 
 export const Text = ({ $variant, fontWeight, color, children }: TextProps) => {
     return (
-        <ThemeProvider theme={themeLight}>
-            <TextStyled data-testid="a-text" fontWeight={fontWeight} $variant={$variant} color={color}>
-                {children}
-            </TextStyled>
-        </ThemeProvider>
+        <TextStyled data-testid="a-text" fontWeight={fontWeight} $variant={$variant} color={color}>
+            {children}
+        </TextStyled>
     )
 }

@@ -8,13 +8,13 @@ exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visua
     alt=""
     className="sc-hLQSwg cfKalt"
     data-testid="a-avatar"
-    src="/images/a-avatar.jpeg"
+    src="/images/avatar.jpeg"
   >
     <img
       alt=""
       className="sc-eDLKkx geszkw"
       data-testid="a-avatar-image"
-      src="/images/a-avatar.jpeg"
+      src="/images/avatar.jpeg"
     />
   </span>
   <button
@@ -23,7 +23,6 @@ exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visua
     <svg
       fill="none"
       height={32}
-      onClick={[MockFunction]}
       viewBox="0 0 15 15"
       width="200px"
       xmlns="http://www.w3.org/2000/svg"

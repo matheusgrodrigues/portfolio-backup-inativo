@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o ADisplay corretamente Deve preservar a estrutura visual do ADisplay 1`] = `
 <h1
-  className="sc-beySPh iWOTsC"
+  className="sc-beySPh mLWPG"
   color="gradient"
   data-testid="a-display"
   fontWeight="semibold"

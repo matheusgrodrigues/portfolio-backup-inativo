@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
 import { themeLight } from '@/src/config/theme'
 
-type DisplayColor = 'gradient' | 'gray900'
+type DisplayColor = 'gradient' | 'gray900' | 'primary600'
 
 interface DisplayProps {
     fontWeight: 'semibold'
@@ -32,16 +32,17 @@ const DisplayStyled = styled('h1').attrs<DisplayProps>(() => ({}))`
     }};
 
     ${(props) => {
-        const { color_gradient_primary600, color_gray900 } = props.theme.ref.colors
+        const { color_gradient_primary600, color_gray900, color_primary600 } = props.theme.ref.colors
 
         switch (props.color) {
             case 'gradient':
-                return `color: ${color_gradient_primary600}   `
+                return `color: ${color_gradient_primary600}`
                 break
             case 'gray900':
-                return `
-       color: ${color_gray900}
-     `
+                return `color: ${color_gray900}`
+                break
+            case 'primary600':
+                return `color: ${color_primary600}`
                 break
         }
     }};

@@ -9,8 +9,9 @@ import { Avatar, Icon } from '../atoms'
 const HeaderStyled = styled.div`
     justify-content: space-between;
     align-items: center;
-    background: ${(props) => props.theme.ref.colors['color_gray900']};
-    padding: 0 ${(props) => props.theme.ref.spacing.sp16};
+    background: ${({ theme }) =>
+        theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
+    padding: 0 ${({ theme }) => theme.ref.spacing.sp16};
     display: flex;
     height: 72px;
     width: 100%;
@@ -18,20 +19,15 @@ const HeaderStyled = styled.div`
     ${(props) => bpHelper(props.theme.ref.bp.bp_sm, `height: 82px;`)};
 `
 
-export interface HeaderProps {
-    handleToggleTheme: () => void
-
-    avatar: {
-        src: string
-        alt: string
-    }
+interface HeaderProps {
+    themeToggler: () => void
 }
 
-export const Header = ({ handleToggleTheme, avatar }: HeaderProps) => {
+export const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
     return (
         <HeaderStyled>
-            <Avatar src={avatar.src} alt={avatar.alt} />
-            <Icon onClick={handleToggleTheme} height={32} icon="sun" />
+            <Avatar src={'/images/avatar.jpeg'} alt={''} />
+            <Icon onClick={themeToggler} height={32} icon="sun" />
         </HeaderStyled>
     )
 }

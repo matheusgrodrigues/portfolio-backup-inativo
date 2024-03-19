@@ -13,17 +13,6 @@ export const colors = {
     color_primary500,
     color_primary600,
     color_gray500,
-    color_gray900: color_white,
-    color_gray50,
-    color_white,
-    color_black,
-}
-
-export const colorsDark = {
-    color_gradient_primary600,
-    color_primary500,
-    color_primary600,
-    color_gray500: color_primary600,
     color_gray900,
     color_gray50,
     color_white,

@@ -1,18 +1,18 @@
-import { colors, colorsDark, font, spacing, bp } from './ref'
+import { colors, font, spacing, bp } from './ref'
 
-export const bpHelper = (bp: string, content: string) => {
-    return `
+export const bpHelper = (bp: string, content: string) =>
+    `
   @media screen and (min-width: ${bp}) {
     ${content}
   }
   `
-}
 
 export const themeLight = {
+    name: 'light',
     ref: { colors, font, spacing, bp },
 }
 
 export const darkTheme = {
-    ...themeLight,
-    ref: { ...themeLight.ref, colors: { ...colorsDark } },
+    name: 'dark',
+    ref: { colors, font, spacing, bp },
 }

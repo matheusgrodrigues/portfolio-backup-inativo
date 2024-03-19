@@ -16,15 +16,25 @@ import { Button, Display, Text } from '../components/atoms'
 import { Header, Footer } from '../components/organisms'
 
 const BriefDescriptionStyled = styled.div`
+    justify-content: center;
     flex-direction: column;
-    background: ${(props) => props.theme.ref.colors['color_gray900']};
+    align-items: center;
+    text-align: center;
+    background: ${({ theme }) =>
+        theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
     min-height: 100vh;
     display: flex;
     width: 100%;
+    gap: ${({ theme }) => theme.ref.spacing.sp32};
 
     & > [id='footer'] {
         margin-top: auto;
     }
+`
+
+const ActionButtonStyled = styled.div`
+    display: flex;
+    gap: ${({ theme }) => theme.ref.spacing.sp16};
 `
 
 const Home = () => {
@@ -48,42 +58,42 @@ const Home = () => {
 
     return (
         <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>
+            <Header themeToggler={themeToggler} />
+
             <BriefDescriptionStyled>
-                <Header handleToggleTheme={themeToggler} avatar={{ src: '/images/avatar.jpeg', alt: '' }} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                    <Display fontWeight="semibold" $variant="lg" color={theme === 'light' ? 'gray900' : 'primary600'}>
+                        {displayName} <br /> {displayDescription}
+                    </Display>
 
-                <Display fontWeight="semibold" $variant="lg" color="gradient">
-                    {displayName}
-                </Display>
+                    <Text fontWeight="semibold" $variant="xl" color={theme === 'light' ? 'gray900' : 'gray50'}>
+                        {description}
+                    </Text>
+                </div>
 
-                <Display fontWeight="semibold" $variant="lg" color="gray900">
-                    {displayDescription}
-                </Display>
+                <ActionButtonStyled>
+                    <Button
+                        $background="color_white"
+                        $fontWeight="fw_semibold"
+                        $fontSize="fs_textMd"
+                        $variant="lg"
+                        onClick={handleDownloadCV}
+                        $color="color_gray500"
+                    >
+                        {buttonDownloadCV}
+                    </Button>
 
-                <Text fontWeight="semibold" $variant="xl" color="gray50">
-                    {description}
-                </Text>
-
-                <Button
-                    $background="color_white"
-                    $fontWeight="fw_semibold"
-                    $fontSize="fs_textMd"
-                    $variant="lg"
-                    onClick={handleDownloadCV}
-                    $color="color_gray500"
-                >
-                    {buttonDownloadCV}
-                </Button>
-
-                <Button
-                    $background={theme === 'light' ? 'color_white' : 'color_gradient_primary600'}
-                    $fontWeight="fw_semibold"
-                    $fontSize="fs_textMd"
-                    $variant="lg"
-                    onClick={handleSubmitContactForm}
-                    $color={theme === 'light' ? 'color_gray500' : 'color_white'}
-                >
-                    {buttonContact}
-                </Button>
+                    <Button
+                        $background={theme === 'light' ? 'color_white' : 'color_gradient_primary600'}
+                        $fontWeight="fw_semibold"
+                        $fontSize="fs_textMd"
+                        $variant="lg"
+                        onClick={handleSubmitContactForm}
+                        $color={theme === 'light' ? 'color_gray500' : 'color_white'}
+                    >
+                        {buttonContact}
+                    </Button>
+                </ActionButtonStyled>
             </BriefDescriptionStyled>
 
             <Footer
