@@ -26,16 +26,16 @@ export const Footer = () => {
 
             <div>
                 <Icon
-                    icon="github-square"
                     callback={() => router.push(`${process.env.NEXT_PUBLIC_GITHUB_URL}`)}
                     height={32}
                     width={32}
+                    icon="github-square"
                 />
                 <Icon
-                    icon="linkedin-rounded"
                     callback={() => router.push(`${process.env.NEXT_PUBLIC_LINKEDIN_URL}`)}
                     height={32}
                     width={32}
+                    icon="linkedin-rounded"
                 />
             </div>
         </FooterStyled>
