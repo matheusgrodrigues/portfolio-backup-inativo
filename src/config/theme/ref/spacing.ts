@@ -1,5 +1,3 @@
-import { TSpacing } from 'styled-components'
-
 const sp4 = '4px'
 const sp8 = '8px'
 const sp12 = '12px'
@@ -18,7 +16,7 @@ const sp192 = '192px'
 const sp224 = '224px'
 const sp256 = '256px'
 
-export const spacing: TSpacing = {
+export const spacing = {
     sp4,
     sp8,
     sp12,
