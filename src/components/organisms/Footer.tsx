@@ -6,9 +6,11 @@ import { useRouter } from 'next/navigation'
 
 import styled from 'styled-components'
 
-import { Icon } from '../Atoms/Icon'
+import { Icon } from '../atoms/Icon'
 
-const FooterStyled = styled.footer``
+const FooterStyled = styled.footer`
+    background: ${(props) => props.theme.ref.colors['color_gray900']};
+`
 
 export interface FooterProps {
     linkedinUrl: string

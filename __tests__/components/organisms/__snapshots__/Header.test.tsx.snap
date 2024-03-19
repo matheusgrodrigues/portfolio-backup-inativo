@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visual do OHeader 1`] = `
 <div
-  className="sc-gLLuof hUXbNo"
+  className="sc-gLLuof hyJSAA"
 >
   <span
     alt=""

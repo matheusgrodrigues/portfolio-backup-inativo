@@ -1,9 +1,9 @@
 import renderer from 'react-test-renderer'
 
-import { ThemeProvider } from '@/src/config/theme/helpers/theme-provider'
+import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
 import { themeLight } from '@/src/config/theme'
 
-import { Button } from '@/src/components/Atoms'
+import { Button } from '@/src/components/atoms'
 
 describe('Deve renderizar o Button corretamente', () => {
     it('Deve preservar a estrutura visual do componente', () => {

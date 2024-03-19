@@ -2,16 +2,18 @@
 
 exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHeader 1`] = `
 <footer
-  className="sc-dmyCSP"
+  className="sc-dmyCSP dsFHCQ"
   data-testid="footer"
   id="footer"
 >
   <p>
-    © 2023 
+    © 
+    2024
+     
     <a
       href="https://matheusgomesdev.com.br"
     >
-      matheusgomesdev
+      undefined
     </a>
     .
   </p>

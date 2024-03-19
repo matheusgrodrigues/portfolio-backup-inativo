@@ -4,17 +4,18 @@ import styled from 'styled-components'
 
 import { bpHelper } from '@/src/config/theme'
 
-import { Avatar, Icon } from '../Atoms'
+import { Avatar, Icon } from '../atoms'
 
 const HeaderStyled = styled.div`
     justify-content: space-between;
     align-items: center;
+    background: ${(props) => props.theme.ref.colors['color_gray900']};
     padding: 0 ${(props) => props.theme.ref.spacing.sp16};
     display: flex;
     height: 72px;
     width: 100%;
 
-    ${(props) => bpHelper(props.theme.ref.bp.bp_sm, `height: 82px;`)}
+    ${(props) => bpHelper(props.theme.ref.bp.bp_sm, `height: 82px;`)};
 `
 
 export interface HeaderProps {

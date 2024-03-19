@@ -12,25 +12,25 @@ import { darkTheme, themeLight } from '../config/theme'
 import useTranslation from '../core/hooks/useTranslation'
 import { useDarkMode } from '../core/hooks/useDarkMode'
 
-import { Button, Display, Text } from '../components/Atoms'
-import { Header, Footer } from '../components/Organisms'
+import { Button, Display, Text } from '../components/atoms'
+import { Header, Footer } from '../components/organisms'
 
 const BriefDescriptionStyled = styled.div`
     flex-direction: column;
-    background: ${(props) => props.theme.ref.colors.color_white};
+    background: ${(props) => props.theme.ref.colors['color_gray900']};
     min-height: 100vh;
     display: flex;
     width: 100%;
 
-    & > [id='o-footer'] {
+    & > [id='footer'] {
         margin-top: auto;
     }
 `
 
 const Home = () => {
-    const { t } = useTranslation()
-
     const { themeToggler, theme } = useDarkMode()
+
+    const { t } = useTranslation()
 
     const handleSubmitContactForm = useCallback(() => null, [])
     const handleDownloadCV = useCallback(() => null, [])
@@ -75,12 +75,12 @@ const Home = () => {
                 </Button>
 
                 <Button
-                    $background="color_white"
+                    $background={theme === 'light' ? 'color_white' : 'color_gradient_primary600'}
                     $fontWeight="fw_semibold"
                     $fontSize="fs_textMd"
                     $variant="lg"
                     onClick={handleSubmitContactForm}
-                    $color="color_gray500"
+                    $color={theme === 'light' ? 'color_gray500' : 'color_white'}
                 >
                     {buttonContact}
                 </Button>

@@ -1,9 +1,9 @@
 import renderer from 'react-test-renderer'
 
-import { ThemeProvider } from '@/src/config/theme/helpers/theme-provider'
+import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
 import { themeLight } from '@/src/config/theme'
 
-import { Header } from '@/src/components/Organisms/Header'
+import { Header } from '@/src/components/organisms/Header'
 
 describe('Deve renderizar o OHeader corretamente', () => {
     it('Deve preservar a estrutura visual do OHeader', () => {
