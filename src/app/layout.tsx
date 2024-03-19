@@ -2,8 +2,6 @@ import React from 'react'
 
 import type { Metadata } from 'next'
 
-import './i18n'
-
 import './globals.css'
 
 import { Inter } from 'next/font/google'
