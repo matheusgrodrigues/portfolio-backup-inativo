@@ -3,22 +3,22 @@ import React from 'react';
 import { AppRouterContext, AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 export type AppRouterContextProviderMockProps = {
-    router: Partial<AppRouterInstance>;
     children: React.ReactNode;
+    router: Partial<AppRouterInstance>;
 };
 
 /* eslint-disable no-undef */
 export const AppRouterContextProviderMock = ({
-    router,
     children,
+    router,
 }: AppRouterContextProviderMockProps): React.ReactNode => {
     const mockedRouter: AppRouterInstance = {
-        back: jest.fn(),
+        prefetch: jest.fn(),
         forward: jest.fn(),
-        push: jest.fn(),
         replace: jest.fn(),
         refresh: jest.fn(),
-        prefetch: jest.fn(),
+        back: jest.fn(),
+        push: jest.fn(),
         ...router,
     };
     return <AppRouterContext.Provider value={mockedRouter}>{children}</AppRouterContext.Provider>;

@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react';
 
+import { DefaultTheme } from 'styled-components/dist/types';
 import styled from 'styled-components';
 
 import { ThemeProvider } from '@/src/config/theme/utils/theme-provider';
 import { themeLight } from '@/src/config/theme';
 
-type DisplayColor = 'gradient' | 'gray900' | 'primary600';
+type DisplayColor = 'primary600' | 'color_white' | 'gradient' | 'gray900';
 
 interface DisplayProps {
     fontWeight: 'semibold';
@@ -14,25 +15,19 @@ interface DisplayProps {
     color: DisplayColor;
 }
 
-const setDisplayLgStyles = (fontSize: string) => `
-letter-spacing: -0.96px;
-font-size: ${fontSize};
-`;
-
 /* eslint-disable no-unreachable */
 const DisplayStyled = styled('h1').attrs<DisplayProps>(() => ({}))`
     ${(props) => {
         const { fs_displayLg } = props.theme.ref.font;
 
-        switch (props.$variant) {
-            case 'lg':
-                return setDisplayLgStyles(fs_displayLg);
-                break;
+        if (props.$variant == 'lg') {
+            return `letter-spacing: -0.96px;
+                    font-size: ${fs_displayLg};`;
         }
     }};
 
     ${(props) => {
-        const { color_gradient_primary600, color_gray900, color_primary600 } = props.theme.ref.colors;
+        const { color_gradient_primary600, color_gray900, color_primary600, color_white } = props.theme.ref.colors;
 
         switch (props.color) {
             case 'gradient':
@@ -44,6 +39,9 @@ const DisplayStyled = styled('h1').attrs<DisplayProps>(() => ({}))`
             case 'primary600':
                 return `color: ${color_primary600}`;
                 break;
+            case 'color_white':
+                return `color: ${color_white}`;
+                break;
         }
     }};
 `;
@@ -52,7 +50,7 @@ export const Display = ({ fontWeight, $variant, children, color }: DisplayProps)
     return (
         <>
             {$variant === 'lg' && (
-                <ThemeProvider theme={themeLight}>
+                <ThemeProvider theme={themeLight as DefaultTheme}>
                     <DisplayStyled data-testid="a-display" fontWeight={fontWeight} $variant={$variant} color={color}>
                         {children}
                     </DisplayStyled>

@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visual do OHeader 1`] = `
 <div
-  className="sc-gLLuof hyJSAA"
+  className="sc-gLLuof iILqjU"
 >
   <span
     alt=""
@@ -29,7 +29,7 @@ exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visua
         }
       }
       viewBox="0 0 15 15"
-      width="200px"
+      width={32}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

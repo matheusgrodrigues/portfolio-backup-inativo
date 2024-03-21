@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 
-type ThemeName = 'light' | 'dark';
+import { ThemeName } from '@/src/config/theme';
 
 export const useDarkMode = () => {
     const [theme, setTheme] = useState<ThemeName>('dark');

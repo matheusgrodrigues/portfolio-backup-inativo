@@ -5,11 +5,11 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "build:test": "NODE_ENV=test jest",
         "start": "next start",
         "lint": "next lint",
-        "build-test": "NODE_ENV=test jest",
         "test": "jest --watch",
-        "prettier-write": "npx prettier src/ --write"
+        "prettier:write": "npx prettier src/ --write"
     },
     "dependencies": {
         "@radix-ui/react-avatar": "^1.0.4",
