@@ -23,6 +23,11 @@ exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visua
     <svg
       fill="none"
       height={32}
+      style={
+        {
+          "color": "#101828",
+        }
+      }
       viewBox="0 0 15 15"
       width="200px"
       xmlns="http://www.w3.org/2000/svg"

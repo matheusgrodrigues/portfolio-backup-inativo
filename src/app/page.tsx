@@ -1,23 +1,30 @@
-'use client'
+'use client';
 
-import React, { useCallback } from 'react'
+import React, { useCallback } from 'react';
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { ThemeProvider } from '../config/theme/utils/theme-provider'
-import { darkTheme, themeLight } from '../config/theme'
+import { ThemeProvider } from '../config/theme/utils/theme-provider';
+import { darkTheme, themeLight } from '../config/theme';
+import { bpHelper } from '../config/theme/ref/breakpoint';
 
-import useTranslation from '../core/hooks/useTranslation'
-import { useDarkMode } from '../core/hooks/useDarkMode'
+import useTranslation from '../core/hooks/useTranslation';
+import { useDarkMode } from '../core/hooks/useDarkMode';
 
-import { Button, Display, Text } from '../components/atoms'
-import { Header, Footer } from '../components/organisms'
+import { Button, Display, Text } from '../components/atoms';
+import { Header, Footer } from '../components/organisms';
 
 const BriefDescriptionStyled = styled.div`
     justify-content: center;
     flex-direction: column;
-    align-items: center;
-    padding-top: ${({ theme }) => theme.ref.spacing.sp160};
+    padding-right: ${({ theme }) => theme.ref.spacing.sp20};
+    padding-left: ${({ theme }) => theme.ref.spacing.sp20};
+    padding-top: ${({ theme }) => theme.ref.spacing.sp64};
+
+    ${({ theme }) => bpHelper('bp_md', `padding-top: ${theme.ref.spacing.sp96};`)}
+    ${({ theme }) => bpHelper('bp_lg', `padding-top: ${theme.ref.spacing.sp128};`)}
+    ${({ theme }) => bpHelper('bp_xl', `padding-top: ${theme.ref.spacing.sp160};`)}
+
     text-align: center;
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
@@ -29,31 +36,32 @@ const BriefDescriptionStyled = styled.div`
     & > footer {
         margin-top: auto;
     }
-`
+`;
 
 const ActionButtonStyled = styled.div`
+    justify-content: center;
     display: flex;
     gap: ${({ theme }) => theme.ref.spacing.sp16};
-`
+`;
 
 const Home = () => {
-    const { themeToggler, theme } = useDarkMode()
+    const { themeToggler, theme } = useDarkMode();
 
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
-    const handleSubmitContactForm = useCallback(() => null, [])
-    const handleDownloadCV = useCallback(() => null, [])
+    const handleSubmitContactForm = useCallback(() => null, []);
+    const handleDownloadCV = useCallback(() => null, []);
 
     const [displayDescription, displayName, description] = [
         t('specific.home.brief_description.display_description'),
         t('specific.home.brief_description.display_name'),
         t('specific.home.brief_description.description'),
-    ]
+    ];
 
     const [buttonDownloadCV, buttonContact] = [
         t('specific.home.brief_description.button_download_cv'),
         t('specific.home.brief_description.button_contact'),
-    ]
+    ];
 
     return (
         <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>
@@ -97,7 +105,7 @@ const Home = () => {
                 <Footer />
             </BriefDescriptionStyled>
         </ThemeProvider>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

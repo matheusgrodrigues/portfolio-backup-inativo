@@ -2,11 +2,16 @@
 
 exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHeader 1`] = `
 <footer
-  className="sc-dmyCSP cdXnVm"
+  className="sc-dmyCSP dXdeE"
   data-testid="footer"
-  id="footer"
 >
-  <p>
+  <p
+    style={
+      {
+        "color": "#101828",
+      }
+    }
+  >
     © 
     2024
      
@@ -17,7 +22,14 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
     </a>
     .
   </p>
-  <div>
+  <div
+    style={
+      {
+        "display": "flex",
+        "gap": "8px",
+      }
+    }
+  >
     <button
       className="sc-guDLey hMNQJd"
       onClick={[Function]}
@@ -25,6 +37,11 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
       <svg
         fill="none"
         height={32}
+        style={
+          {
+            "color": "#101828",
+          }
+        }
         viewBox="0 0 15 15"
         width={32}
         xmlns="http://www.w3.org/2000/svg"
@@ -44,6 +61,11 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
       <svg
         fill="none"
         height={32}
+        style={
+          {
+            "color": "#101828",
+          }
+        }
         viewBox="0 0 15 15"
         width={32}
         xmlns="http://www.w3.org/2000/svg"

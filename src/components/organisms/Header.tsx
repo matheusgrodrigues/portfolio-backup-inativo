@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import styled, { useTheme } from 'styled-components'
+import styled, { useTheme } from 'styled-components';
 
-import { bpHelper } from '@/src/config/theme'
+import { bpHelper } from '@/src/config/theme/ref/breakpoint';
 
-import { Avatar, Icon } from '../atoms'
+import { Avatar, Icon } from '../atoms';
 
 const HeaderStyled = styled.div`
     justify-content: space-between;
@@ -16,25 +16,26 @@ const HeaderStyled = styled.div`
     height: 72px;
     width: 100%;
 
-    ${(props) => bpHelper(props.theme.ref.bp.bp_sm, `height: 82px;`)};
-`
+    ${() => bpHelper('bp_sm', `height: 82px;`)};
+`;
 
 interface HeaderProps {
-    themeToggler: () => void
+    themeToggler: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
-    const { name, ref } = useTheme()
+    const { name, ref } = useTheme();
 
     return (
         <HeaderStyled>
             <Avatar src={'/images/avatar.jpeg'} alt={''} />
             <Icon
                 onClick={themeToggler}
+                width={32}
                 height={32}
                 icon="sun"
                 style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
             />
         </HeaderStyled>
-    )
-}
+    );
+};

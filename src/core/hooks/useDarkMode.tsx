@@ -1,31 +1,31 @@
-'use client'
+'use client';
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react';
 
-type ThemeName = 'light' | 'dark'
+type ThemeName = 'light' | 'dark';
 
 export const useDarkMode = () => {
-    const [theme, setTheme] = useState<ThemeName>('dark')
+    const [theme, setTheme] = useState<ThemeName>('dark');
 
     const setMode = useCallback((mode: ThemeName) => {
-        window.localStorage.setItem('theme', mode)
+        window.localStorage.setItem('theme', mode);
 
-        setTheme(mode)
-    }, [])
+        setTheme(mode);
+    }, []);
 
     const themeToggler = useCallback(() => {
         if (theme === 'light') {
-            setMode('dark')
+            setMode('dark');
         } else {
-            setMode('light')
+            setMode('light');
         }
-    }, [theme])
+    }, [theme]);
 
     useEffect(() => {
-        const localTheme = window.localStorage.getItem('theme')
+        const localTheme = window.localStorage.getItem('theme');
 
-        localTheme && setTheme(localTheme as ThemeName)
-    }, [])
+        localTheme && setTheme(localTheme as ThemeName);
+    }, []);
 
-    return { themeToggler, theme }
-}
+    return { themeToggler, theme };
+};

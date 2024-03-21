@@ -1,13 +1,15 @@
-import { TBreakpoint } from 'styled-components'
+type Breakpoint = 'bp_sm' | 'bp_md' | 'bp_lg' | 'bp_xl';
 
-const bp_sm = '640px'
-const bp_md = '768px'
-const bp_lg = '1024px'
-const bp_xl = '1280px'
+const bp = {
+    bp_sm: '640px',
+    bp_md: '768px',
+    bp_lg: '1024px',
+    bp_xl: '1280px',
+};
 
-export const bp: TBreakpoint = {
-    bp_sm,
-    bp_md,
-    bp_lg,
-    bp_xl,
-}
+export const bpHelper = (breakpoint: Breakpoint, content: string) =>
+    `@media screen and (min-width: ${bp[breakpoint]}) {
+    ${content}
+  }`;
+
+export default bp;

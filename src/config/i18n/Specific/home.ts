@@ -9,6 +9,6 @@ const i18n_home = {
             button_contact: 'Entre em Contato',
         },
     },
-}
+};
 
-export default i18n_home
+export default i18n_home;

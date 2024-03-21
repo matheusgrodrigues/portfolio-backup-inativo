@@ -1,52 +1,52 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from 'react';
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
-import { themeLight } from '@/src/config/theme'
+import { ThemeProvider } from '@/src/config/theme/utils/theme-provider';
+import { themeLight } from '@/src/config/theme';
 
-type DisplayColor = 'gradient' | 'gray900' | 'primary600'
+type DisplayColor = 'gradient' | 'gray900' | 'primary600';
 
 interface DisplayProps {
-    fontWeight: 'semibold'
-    children: ReactNode
-    $variant: 'lg'
-    color: DisplayColor
+    fontWeight: 'semibold';
+    children: ReactNode;
+    $variant: 'lg';
+    color: DisplayColor;
 }
 
 const setDisplayLgStyles = (fontSize: string) => `
 letter-spacing: -0.96px;
 font-size: ${fontSize};
-`
+`;
 
 /* eslint-disable no-unreachable */
 const DisplayStyled = styled('h1').attrs<DisplayProps>(() => ({}))`
     ${(props) => {
-        const { fs_displayLg } = props.theme.ref.font
+        const { fs_displayLg } = props.theme.ref.font;
 
         switch (props.$variant) {
             case 'lg':
-                return setDisplayLgStyles(fs_displayLg)
-                break
+                return setDisplayLgStyles(fs_displayLg);
+                break;
         }
     }};
 
     ${(props) => {
-        const { color_gradient_primary600, color_gray900, color_primary600 } = props.theme.ref.colors
+        const { color_gradient_primary600, color_gray900, color_primary600 } = props.theme.ref.colors;
 
         switch (props.color) {
             case 'gradient':
-                return `color: ${color_gradient_primary600}`
-                break
+                return `color: ${color_gradient_primary600}`;
+                break;
             case 'gray900':
-                return `color: ${color_gray900}`
-                break
+                return `color: ${color_gray900}`;
+                break;
             case 'primary600':
-                return `color: ${color_primary600}`
-                break
+                return `color: ${color_primary600}`;
+                break;
         }
     }};
-`
+`;
 
 export const Display = ({ fontWeight, $variant, children, color }: DisplayProps) => {
     return (
@@ -59,5 +59,5 @@ export const Display = ({ fontWeight, $variant, children, color }: DisplayProps)
                 </ThemeProvider>
             )}
         </>
-    )
-}
+    );
+};

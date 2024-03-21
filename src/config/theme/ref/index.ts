@@ -1,6 +1,6 @@
-import { colors } from './color'
-import { spacing } from './spacing'
-import { font } from './font'
-import { bp } from './breakpoint'
+import spacing from './spacing';
+import colors from './color';
+import font from './font';
+import bp from './breakpoint';
 
-export { colors, spacing, font, bp }
+export { spacing, colors, font, bp };

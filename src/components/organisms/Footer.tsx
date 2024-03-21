@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import process from 'process'
+import process from 'process';
 
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
-import styled, { useTheme } from 'styled-components'
+import styled, { useTheme } from 'styled-components';
 
-import { Icon } from '../atoms/Icon'
+import { Icon } from '../atoms/Icon';
 
 const FooterStyled = styled.footer`
     justify-content: space-between;
@@ -17,14 +17,14 @@ const FooterStyled = styled.footer`
     display: flex;
     height: 72px;
     width: 100%;
-`
+`;
 
 export const Footer = () => {
-    const router = useRouter()
+    const router = useRouter();
 
-    const { name, ref } = useTheme()
+    const { name, ref } = useTheme();
 
-    const date = new Date()
+    const date = new Date();
 
     return (
         <FooterStyled data-testid="footer">
@@ -50,5 +50,5 @@ export const Footer = () => {
                 />
             </div>
         </FooterStyled>
-    )
-}
+    );
+};

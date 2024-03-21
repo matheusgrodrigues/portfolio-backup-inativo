@@ -1,5 +1,5 @@
-'use client'
+'use client';
 
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
-export const ThemeProvider = StyledThemeProvider
+export const ThemeProvider = StyledThemeProvider;

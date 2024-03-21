@@ -1,14 +1,14 @@
-export const color_primary500 = '#9e77ed'
-export const color_primary600 = '#7f56d9'
-export const color_gray500 = '#667085'
-export const color_gray900 = '#101828'
-export const color_gray50 = '#f9fafb'
-export const color_white = '#ffffff'
-export const color_black = '#000000'
+export const color_primary500 = '#9e77ed';
+export const color_primary600 = '#7f56d9';
+export const color_gray500 = '#667085';
+export const color_gray900 = '#101828';
+export const color_gray50 = '#f9fafb';
+export const color_white = '#ffffff';
+export const color_black = '#000000';
 
-export const color_gradient_primary600 = `linear-gradient(90deg, ${color_primary600} 0%, ${color_primary500} 100%);`
+export const color_gradient_primary600 = `linear-gradient(90deg, ${color_primary600} 0%, ${color_primary500} 100%);`;
 
-export const colors = {
+const colors = {
     color_gradient_primary600,
     color_primary500,
     color_primary600,
@@ -17,4 +17,6 @@ export const colors = {
     color_gray50,
     color_white,
     color_black,
-}
+};
+
+export default colors;

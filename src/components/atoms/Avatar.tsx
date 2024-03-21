@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import { styled } from 'styled-components'
+import { styled } from 'styled-components';
 
-import * as RadixAvatar from '@radix-ui/react-avatar'
+import * as RadixAvatar from '@radix-ui/react-avatar';
 
-type AvatarRootVariant = 'md'
+type AvatarRootVariant = 'md';
 
 interface AvatarRootProps extends RadixAvatar.AvatarProps {
-    'data-testid'?: string
-    $variant?: AvatarRootVariant
+    'data-testid'?: string;
+    $variant?: AvatarRootVariant;
 }
 
 const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRootProps>(() => ({
@@ -28,10 +28,10 @@ const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRootProps>(() => ({
     display: inline-flex;
     height: ${({ $variant }) => ($variant === 'md' ? '92px' : '45px')};
     width: ${({ $variant }) => ($variant === 'md' ? '92px' : '45px')};
-`
+`;
 
 interface AvatarImageProps extends RadixAvatar.AvatarImageProps {
-    'data-testid'?: string
+    'data-testid'?: string;
 }
 
 const AvatarImage = styled(RadixAvatar.Image).attrs<AvatarImageProps>(() => ({
@@ -43,20 +43,20 @@ const AvatarImage = styled(RadixAvatar.Image).attrs<AvatarImageProps>(() => ({
     overflow: hidden;
     height: 100%;
     width: 100%;
-`
+`;
 
 export interface AvatarProps extends RadixAvatar.AvatarProps {
-    src: string
-    alt?: string
-    $variant?: AvatarRootVariant
+    src: string;
+    alt?: string;
+    $variant?: AvatarRootVariant;
 }
 
 export function Avatar({ ...props }: AvatarProps) {
-    const { src, alt } = props
+    const { src, alt } = props;
 
     return (
         <AvatarRoot {...props}>
             <AvatarImage src={src} alt={alt} />
         </AvatarRoot>
-    )
+    );
 }
