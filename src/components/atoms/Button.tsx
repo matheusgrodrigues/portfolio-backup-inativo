@@ -8,12 +8,6 @@ interface ButtonProps {
     $color: 'color_white' | 'color_gray500'
 }
 
-const setButtonLgStyles = () => `
-max-width: 172px;
-height: 44px;
-`
-
-/* eslint-disable no-unreachable */
 export const Button = styled.button<ButtonProps>`
     border-radius: 8px;
     border: none;
@@ -21,10 +15,11 @@ export const Button = styled.button<ButtonProps>`
     width: 100%;
 
     ${(props) => {
-        switch (props.$variant) {
-            case 'lg':
-                return setButtonLgStyles()
-                break
+        if (props.$variant === 'lg') {
+            return `
+                height: 44px;
+                width: 172px;
+            `
         }
     }}
 

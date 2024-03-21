@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 
 import { bpHelper } from '@/src/config/theme'
 
@@ -24,10 +24,17 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
+    const { name, ref } = useTheme()
+
     return (
         <HeaderStyled>
             <Avatar src={'/images/avatar.jpeg'} alt={''} />
-            <Icon onClick={themeToggler} height={32} icon="sun" />
+            <Icon
+                onClick={themeToggler}
+                height={32}
+                icon="sun"
+                style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
+            />
         </HeaderStyled>
     )
 }

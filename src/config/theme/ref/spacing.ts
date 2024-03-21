@@ -1,3 +1,23 @@
+interface Spacing {
+    sp4: string
+    sp8: string
+    sp12: string
+    sp16: string
+    sp20: string
+    sp24: string
+    sp32: string
+    sp40: string
+    sp48: string
+    sp64: string
+    sp80: string
+    sp96: string
+    sp128: string
+    sp160: string
+    sp192: string
+    sp224: string
+    sp256: string
+}
+
 const sp4 = '4px'
 const sp8 = '8px'
 const sp12 = '12px'
@@ -16,7 +36,7 @@ const sp192 = '192px'
 const sp224 = '224px'
 const sp256 = '256px'
 
-export const spacing = {
+export const spacing: Spacing = {
     sp4,
     sp8,
     sp12,

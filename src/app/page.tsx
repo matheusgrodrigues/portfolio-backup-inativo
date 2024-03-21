@@ -17,15 +17,16 @@ const BriefDescriptionStyled = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-top: ${({ theme }) => theme.ref.spacing.sp160};
     text-align: center;
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
-    min-height: 100vh;
+    min-height: calc(100vh - 82px);
     display: flex;
     width: 100%;
     gap: ${({ theme }) => theme.ref.spacing.sp32};
 
-    & > [id='footer'] {
+    & > footer {
         margin-top: auto;
     }
 `
@@ -92,9 +93,9 @@ const Home = () => {
                         {buttonContact}
                     </Button>
                 </ActionButtonStyled>
-            </BriefDescriptionStyled>
 
-            <Footer />
+                <Footer />
+            </BriefDescriptionStyled>
         </ThemeProvider>
     )
 }
