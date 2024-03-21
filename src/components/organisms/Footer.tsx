@@ -10,6 +10,7 @@ import { Icon } from '../atoms/Icon'
 
 const FooterStyled = styled.footer`
     justify-content: space-between;
+    align-items: center;
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
     padding: 0 ${({ theme }) => theme.ref.spacing.sp16};

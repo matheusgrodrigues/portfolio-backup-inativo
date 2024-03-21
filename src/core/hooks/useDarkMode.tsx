@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 type ThemeName = 'light' | 'dark'
 
 export const useDarkMode = () => {
-    const [theme, setTheme] = useState<ThemeName>('light')
+    const [theme, setTheme] = useState<ThemeName>('dark')
 
     const setMode = useCallback((mode: ThemeName) => {
         window.localStorage.setItem('theme', mode)
