@@ -8,7 +8,7 @@ export const useDarkMode = () => {
     const [theme, setTheme] = useState<ThemeName>('dark');
 
     const setMode = useCallback((mode: ThemeName) => {
-        window.localStorage.setItem('theme', mode);
+        window.sessionStorage.setItem('theme', mode);
 
         setTheme(mode);
     }, []);
@@ -22,9 +22,9 @@ export const useDarkMode = () => {
     }, [theme]);
 
     useEffect(() => {
-        const localTheme = window.localStorage.getItem('theme');
+        const localTheme = window.sessionStorage.getItem('theme');
 
-        localTheme && setTheme(localTheme as ThemeName);
+        localTheme && setTheme((localTheme as ThemeName) ?? 'dark');
     }, []);
 
     return { themeToggler, theme };
