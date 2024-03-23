@@ -1,9 +1,9 @@
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 
-import { themeLight } from '@/src/config/theme'
-import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
+import { themeLight } from '@/src/config/theme/theme';
+import { ThemeProvider } from '@/src/core/utils/theme-utils/theme-provider';
 
-import { Text } from '@/src/components/atoms/Text'
+import { Text } from '@/src/components/atoms/Text';
 
 describe('Deve renderizar o AText corretamente', () => {
     it('Deve preservar a estrutura visual do componente', () => {
@@ -15,8 +15,8 @@ describe('Deve renderizar o AText corretamente', () => {
                     </Text>
                 </ThemeProvider>
             )
-            .toJSON()
+            .toJSON();
 
-        expect(three).toMatchSnapshot()
-    })
-})
+        expect(three).toMatchSnapshot();
+    });
+});

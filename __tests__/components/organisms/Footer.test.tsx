@@ -1,14 +1,14 @@
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 
-import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
-import { themeLight } from '@/src/config/theme'
+import { ThemeProvider } from '@/src/core/utils/theme-utils/theme-provider';
+import { themeLight } from '@/src/config/theme/theme';
 
-import { Footer } from '@/src/components/organisms/Footer'
+import { Footer } from '@/src/components/organisms/Footer';
 
-import { AppRouterContextProviderMock } from '@/src/core/utils/test-utils/app-router-provider'
+import { AppRouterContextProviderMock } from '@/src/core/utils/test-utils/app-router-provider';
 
 describe('Deve renderizar o OFooter corretamente', () => {
-    const push = jest.fn()
+    const push = jest.fn();
 
     it('Deve preservar o visual do OHeader', () => {
         const three = renderer
@@ -23,8 +23,8 @@ describe('Deve renderizar o OFooter corretamente', () => {
                     </ThemeProvider>
                 </AppRouterContextProviderMock>
             )
-            .toJSON()
+            .toJSON();
 
-        expect(three).toMatchSnapshot()
-    })
-})
+        expect(three).toMatchSnapshot();
+    });
+});

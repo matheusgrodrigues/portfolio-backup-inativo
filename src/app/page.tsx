@@ -5,14 +5,14 @@ import React, { useCallback } from 'react';
 import { DefaultTheme } from 'styled-components/dist/types';
 import styled from 'styled-components';
 
-import { ThemeProvider } from '../config/theme/utils/theme-provider';
-import { darkTheme, themeLight } from '../config/theme';
-import { bpHelper } from '../config/theme/ref/breakpoint';
+import { ThemeProvider } from '../core/utils/theme-utils/theme-provider';
+import { darkTheme, themeLight } from '../config/theme/theme';
+import { bpHelper } from '../config/theme/theme';
 
 import useTranslation from '../core/hooks/useTranslation';
 import { useDarkMode } from '../core/hooks/useDarkMode';
 
-import { Button, Display, Text } from '../components/atoms';
+import { Avatar, Button, Display, Text } from '../components/atoms';
 import { Header, Footer } from '../components/organisms';
 
 const ContainerStyled = styled.div`
@@ -25,13 +25,11 @@ const ContainerStyled = styled.div`
     padding-top: ${({ theme }) => theme.ref.spacing.sp64};
 
     ${({ theme }) => bpHelper('bp_md', `padding-top: ${theme.ref.spacing.sp96};`)}
-    ${({ theme }) => bpHelper('bp_lg', `padding-top: ${theme.ref.spacing.sp128};`)}
-    ${({ theme }) => bpHelper('bp_xl', `padding-top: ${theme.ref.spacing.sp160};`)}   
 
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
 
-    min-height: calc(100vh - 82px);
+    min-height: calc(100vh - 72px);
 
     display: flex;
     width: 100%;
@@ -84,7 +82,9 @@ const Home = () => {
 
             <ContainerStyled>
                 <BriefDescriptionStyled>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
+                        <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
+
                         <div>
                             <Display
                                 fontWeight="semibold"

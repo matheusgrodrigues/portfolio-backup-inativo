@@ -3,8 +3,8 @@ import React, { ReactNode } from 'react';
 import { DefaultTheme } from 'styled-components/dist/types';
 import styled from 'styled-components';
 
-import { ThemeProvider } from '@/src/config/theme/utils/theme-provider';
-import { themeLight } from '@/src/config/theme';
+import { ThemeProvider } from '@/src/core/utils/theme-utils/theme-provider';
+import { themeLight } from '@/src/config/theme/theme';
 
 type DisplayColor = 'primary600' | 'color_white' | 'gradient' | 'gray900';
 

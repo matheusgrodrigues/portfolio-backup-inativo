@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 
+import { FontSizeName, FontWeightName } from '@/src/config/theme/theme';
+
+/*
+type Background = 'color_white' | 'color_gradient_primary600';
+type FontSize = 'fs_textMd';
+type Color = 'color_white' | 'color_gray500'; */
+
 interface ButtonProps {
-    $background: 'color_white' | 'color_gradient_primary600';
-    $fontWeight: 'fw_semibold';
-    $fontSize: 'fs_textMd';
+    $background: Background;
+    $fontWeight: FontWeightName;
+    $fontSize: FontSizeName;
     $variant: 'lg';
-    $color: 'color_white' | 'color_gray500';
+    $color: Color;
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -23,7 +30,7 @@ export const Button = styled.button<ButtonProps>`
         }
     }}
 
-    font-weight: ${(props) => props.theme.ref.font[props.$fontWeight]};
+    font-weight: ${(props) => props.theme.ref.fontWeight[props.$fontWeight]};
     background: ${(props) => props.theme.ref.colors[props.$background]};
     font-size: ${(props) => props.theme.ref.font[props.$fontSize]};
     color: ${(props) => props.theme.ref.colors[props.$color]};

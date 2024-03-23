@@ -1,11 +1,11 @@
 import React, { ReactElement, ReactNode } from 'react';
 
-import { RenderOptions, render as rtlRender } from '@testing-library/react';
+import { RenderOptions, render as testingLibraryRender } from '@testing-library/react';
 
 import { DefaultTheme } from 'styled-components';
 
-import { ThemeProvider } from '../../../config/theme/utils/theme-provider';
-import { themeLight } from '../../../config/theme';
+import { ThemeProvider } from '../theme-utils/theme-provider';
+import { themeLight } from '../../../config/theme/theme';
 
 interface WrapperProps {
     children: ReactNode;
@@ -16,7 +16,7 @@ function render(ui: ReactElement, { ...options }: RenderOptions = {}) {
         <ThemeProvider theme={themeLight as DefaultTheme}>{children}</ThemeProvider>
     );
 
-    return rtlRender(ui, { wrapper, ...options });
+    return testingLibraryRender(ui, { wrapper, ...options });
 }
 
 export * from '@testing-library/react';

@@ -1,9 +1,9 @@
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 
-import { ThemeProvider } from '@/src/config/theme/utils/theme-provider'
-import { themeLight } from '@/src/config/theme'
+import { ThemeProvider } from '@/src/core/utils/theme-utils/theme-provider';
+import { themeLight } from '@/src/config/theme/theme';
 
-import { Button } from '@/src/components/atoms'
+import { Button } from '@/src/components/atoms';
 
 describe('Deve renderizar o Button corretamente', () => {
     it('Deve preservar a estrutura visual do componente', () => {
@@ -21,8 +21,8 @@ describe('Deve renderizar o Button corretamente', () => {
                     </Button>
                 </ThemeProvider>
             )
-            .toJSON()
+            .toJSON();
 
-        expect(three).toMatchSnapshot()
-    })
-})
+        expect(three).toMatchSnapshot();
+    });
+});

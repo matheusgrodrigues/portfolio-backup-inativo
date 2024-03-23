@@ -15,15 +15,13 @@ const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRootProps>(() => ({
     as: 'span',
     'data-testid': 'a-avatar',
 }))`
-    background-color: ${({ theme }) => theme.ref.colors.color_gray500};
+    background-color: ${({ theme }) => theme.ref.colors['color_gray500']};
     justify-content: center;
     vertical-align: middle;
     border-radius: 100%;
     align-items: center;
     user-select: none;
-    box-shadow:
-        0px 4px 6px -2px rgba(16, 24, 40, 0.03),
-        0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+    border: 4px solid ${({ theme }) => theme.ref.colors['color_white']};
     overflow: hidden;
     display: inline-flex;
     height: ${({ $variant }) => ($variant === 'md' ? '92px' : '45px')};
@@ -46,9 +44,9 @@ const AvatarImage = styled(RadixAvatar.Image).attrs<AvatarImageProps>(() => ({
 `;
 
 export interface AvatarProps extends RadixAvatar.AvatarProps {
+    $variant?: AvatarRootVariant;
     src: string;
     alt?: string;
-    $variant?: AvatarRootVariant;
 }
 
 export function Avatar({ ...props }: AvatarProps) {

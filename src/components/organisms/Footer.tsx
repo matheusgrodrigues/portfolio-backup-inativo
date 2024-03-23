@@ -15,7 +15,7 @@ const FooterStyled = styled.footer`
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
     padding: 0 ${({ theme }) => theme.ref.spacing.sp16};
     display: flex;
-    height: 72px;
+    height: 102px;
     width: 100%;
 `;
 
