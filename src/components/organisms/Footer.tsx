@@ -13,7 +13,7 @@ const FooterStyled = styled.footer`
     align-items: center;
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
-    padding: 0 ${({ theme }) => theme.ref.spacing.sp16};
+    padding: 0 ${({ theme }) => theme.ref.spacing.spacing_16};
     display: flex;
     height: 102px;
     width: 100%;
@@ -33,7 +33,7 @@ export const Footer = () => {
                 <a href={`${process.env.NEXT_PUBLIC_SITE_URL}`}>{`${process.env.NEXT_PUBLIC_BRAND_NAME}`}</a>.
             </p>
 
-            <div style={{ display: 'flex', gap: ref.spacing.sp8 }}>
+            <div style={{ display: 'flex', gap: ref.spacing.spacing_8 }}>
                 <Icon
                     callback={() => router.push(`${process.env.NEXT_PUBLIC_GITHUB_URL}`)}
                     height={32}

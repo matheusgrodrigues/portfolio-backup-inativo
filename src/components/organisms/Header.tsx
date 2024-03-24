@@ -9,7 +9,7 @@ const HeaderStyled = styled.div`
     align-items: end;
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
-    padding: 0 ${({ theme }) => theme.ref.spacing.sp32};
+    padding: 0 ${({ theme }) => theme.ref.spacing.spacing_32};
     display: flex;
     height: 72px;
     width: 100%;

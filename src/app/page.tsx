@@ -12,25 +12,20 @@ import { bpHelper } from '../config/theme/theme';
 import useTranslation from '../core/hooks/useTranslation';
 import { useDarkMode } from '../core/hooks/useDarkMode';
 
-import { Avatar, Button, Display, Text } from '../components/atoms';
+import { Avatar, Button } from '../components/atoms';
 import { Header, Footer } from '../components/organisms';
 
 const ContainerStyled = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
-
-    padding-right: ${({ theme }) => theme.ref.spacing.sp20};
-    padding-left: ${({ theme }) => theme.ref.spacing.sp20};
-    padding-top: ${({ theme }) => theme.ref.spacing.sp64};
-
-    ${({ theme }) => bpHelper('bp_md', `padding-top: ${theme.ref.spacing.sp96};`)}
-
+    padding-right: ${({ theme }) => theme.ref.spacing.spacing_20};
+    padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
+    padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
-
+    ${({ theme }) => bpHelper('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
     min-height: calc(100vh - 72px);
-
     display: flex;
     width: 100%;
 
@@ -45,16 +40,14 @@ const BriefDescriptionStyled = styled.div`
     max-width: 700px;
     display: flex;
     width: 100%;
-
-    gap: ${({ theme }) => theme.ref.spacing.sp32};
+    gap: ${({ theme }) => theme.ref.spacing.spacing_32};
 `;
 
 const ActionButtonStyled = styled.div`
     justify-content: center;
     display: flex;
-
-    margin: ${({ theme }) => theme.ref.spacing.sp32} 0;
-    gap: ${({ theme }) => theme.ref.spacing.sp16};
+    margin: ${({ theme }) => theme.ref.spacing.spacing_32} 0;
+    gap: ${({ theme }) => theme.ref.spacing.spacing_16};
 `;
 
 const Home = () => {
@@ -65,11 +58,11 @@ const Home = () => {
     const handleSubmitContactForm = useCallback(() => null, []);
     const handleDownloadCV = useCallback(() => null, []);
 
-    const [displayDescription, displayName, description] = [
+    /*   const [displayDescription, displayName] = [
         t('specific.home.brief_description.display_description'),
         t('specific.home.brief_description.display_name'),
         t('specific.home.brief_description.description'),
-    ];
+    ];*/
 
     const [buttonDownloadCV, buttonContact] = [
         t('specific.home.brief_description.button_download_cv'),
@@ -86,7 +79,7 @@ const Home = () => {
                         <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
 
                         <div>
-                            <Display
+                            {/*  <Display
                                 fontWeight="semibold"
                                 $variant="lg"
                                 color={theme === 'light' ? 'gray900' : 'primary600'}
@@ -100,34 +93,27 @@ const Home = () => {
                                 color={theme === 'light' ? 'gray900' : 'color_white'}
                             >
                                 {displayDescription}
-                            </Display>
+                            </Display> */}
                         </div>
 
-                        <Text fontWeight="semibold" $variant="xl" color={theme === 'light' ? 'gray900' : 'gray50'}>
+                        {/* <Text fontWeight="semibold" $variant="xl" color={theme === 'light' ? 'gray900' : 'gray50'}>
                             {description}
-                        </Text>
+    </Text> */}
                     </div>
 
                     <ActionButtonStyled>
                         <Button
-                            $background="color_white"
-                            $fontWeight="fw_semibold"
-                            $fontSize="fs_textMd"
-                            $variant="lg"
+                            styledProps={{
+                                $color: theme === 'light' ? 'color_gray500' : 'color_white',
+                            }}
                             onClick={handleDownloadCV}
-                            $color="color_gray500"
+                            variant="link"
+                            size="md"
                         >
                             {buttonDownloadCV}
                         </Button>
 
-                        <Button
-                            $background={theme === 'light' ? 'color_white' : 'color_gradient_primary600'}
-                            $fontWeight="fw_semibold"
-                            $fontSize="fs_textMd"
-                            $variant="lg"
-                            onClick={handleSubmitContactForm}
-                            $color={theme === 'light' ? 'color_gray500' : 'color_white'}
-                        >
+                        <Button variant="primary" onClick={handleSubmitContactForm} size="md">
                             {buttonContact}
                         </Button>
                     </ActionButtonStyled>
