@@ -5,7 +5,6 @@ import { SunIcon, LinkedInLogoIcon, GitHubLogoIcon } from '@radix-ui/react-icons
 
 interface IconProps extends RadixIconProps {
     icon: 'linkedin-rounded' | 'github-rounded' | 'github-square' | 'sun';
-    callback?: () => void;
 }
 
 const Icon = ({ icon, ...props }: IconProps) => {

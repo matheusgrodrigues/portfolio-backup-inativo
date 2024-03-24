@@ -7,6 +7,7 @@ import process from 'process';
 import styled, { useTheme } from 'styled-components';
 
 import Icon from '../atoms/Icon';
+import Button from '../atoms/Button';
 
 const FooterStyled = styled.footer`
     justify-content: space-between;
@@ -34,20 +35,23 @@ const Footer = () => {
             </p>
 
             <div style={{ display: 'flex', gap: ref.spacing.spacing_8 }}>
-                <Icon
-                    callback={() => router.push(`${process.env.NEXT_PUBLIC_GITHUB_URL}`)}
-                    height={32}
-                    width={32}
-                    style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
-                    icon="github-square"
-                />
-                <Icon
-                    callback={() => router.push(`${process.env.NEXT_PUBLIC_LINKEDIN_URL}`)}
-                    height={32}
-                    width={32}
-                    style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
-                    icon="linkedin-rounded"
-                />
+                <Button variant="link" onClick={() => router.push(`${process.env.NEXT_PUBLIC_GITHUB_URL}`)}>
+                    <Icon
+                        height={32}
+                        width={32}
+                        style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
+                        icon="github-square"
+                    />
+                </Button>
+
+                <Button variant="link" onClick={() => router.push(`${process.env.NEXT_PUBLIC_LINKEDIN_URL}`)}>
+                    <Icon
+                        height={32}
+                        width={32}
+                        style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
+                        icon="linkedin-rounded"
+                    />
+                </Button>
             </div>
         </FooterStyled>
     );

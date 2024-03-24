@@ -27,9 +27,8 @@ const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
         <HeaderStyled>
             <Button variant="link" onClick={themeToggler}>
                 <Icon
-                    onClick={themeToggler}
-                    width={32}
                     height={32}
+                    width={32}
                     style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
                     icon="sun"
                 />
