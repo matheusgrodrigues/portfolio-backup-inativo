@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 
 import styled from 'styled-components';
 
-import { darkTheme, themeLight, bpHelper } from '../config/theme/theme';
+import { darkTheme, themeLight, screen, lineHeight } from '../config/theme/theme';
 
 import useTranslation from '../core/hooks/useTranslation';
 import ThemeProvider from '../core/utils/theme-utils/theme-provider';
@@ -25,7 +25,7 @@ const ContainerStyled = styled.div`
     padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
     padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
 
-    ${({ theme }) => bpHelper('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
+    ${({ theme }) => screen('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
 
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
@@ -46,6 +46,10 @@ const BriefDescriptionStyled = styled.div`
     display: flex;
     width: 100%;
     gap: ${({ theme }) => theme.ref.spacing.spacing_32};
+
+    & p {
+        line-height: ${({ theme }) => lineHeight(theme.ref.fontSize['fontSize_textXl'])};
+    }
 `;
 
 const ActionButtonStyled = styled.div`
