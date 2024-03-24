@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled, { useTheme } from 'styled-components';
 
-import { Icon } from '../atoms';
+import Icon from '../atoms/Icon';
 
 const HeaderStyled = styled.div`
     justify-content: end;
@@ -19,7 +19,7 @@ interface HeaderProps {
     themeToggler: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
+const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
     const { name, ref } = useTheme();
 
     return (
@@ -34,3 +34,5 @@ export const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
         </HeaderStyled>
     );
 };
+
+export default Header;

@@ -1,41 +1,61 @@
-import React from 'react';
-
-import { ColorName, FontSizeName, FontWeightName } from '@/src/config/theme/theme';
-
-import { ReactNode } from 'react';
+import React, { useCallback } from 'react';
 
 import styled from 'styled-components';
 
+import { FontWeightName, FontSizeName, ColorName } from '@/src/config/theme/theme';
+
 interface TextStyledProps {
-    $fontWeight: FontWeightName;
-    $fontSzie: FontSizeName;
-    $color: ColorName;
+    $fontWeight?: FontWeightName;
+    $fontSize?: FontSizeName;
+    $color?: ColorName;
 }
 
-const TextStyled = styled('p').attrs<TextStyledProps>(() => ({}))`
+// TODO: criar um helper para calcular o line-height: fontSize * 1.5 + px
+const TextStyled = styled.p<TextStyledProps>`
     ${(props) => {
-        if (props.$fontSzie === 'fontSize_displayLg') {
-            return `font-size: ${props.theme.ref.fontSize['fontSize_displayLg']};
-            letter-spacing: -0.96px;`;
-        } else {
-            return `font-size: ${props.theme.ref.fontSize[props.$fontSzie]}`;
+        if (props.$fontSize === 'fontSize_displayLg') {
+            return `letter-spacing: -0.96px;`;
         }
     }};
 
-    ${(props) => `font-weight: ${props.theme.ref.fontWeight[props.$fontWeight]}`}
-
-    ${(props) => `color: ${props.theme.ref.colors[props.$color]}`};
+    font-weight: ${(props) => props.theme.ref.fontWeight[props.$fontWeight!]};
+    font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
+    color: ${(props) => props.theme.ref.colors[props.$color!]};
 `;
 
-interface TextProps {
-    children: ReactNode;
-    styledProps: TextStyledProps;
+interface TextProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {
+    children: React.ReactNode;
+    styledProps?: TextStyledProps;
+    variant?: 'primary';
 }
 
-export const Text = ({ styledProps, children }: TextProps) => {
+const Text: React.FC<TextProps> = ({ styledProps, variant, children, ...props }) => {
+    const getFontWeight = useCallback((): FontWeightName => 'fontWeight_regular', []);
+
+    const getFontSize = useCallback((): FontSizeName => 'fontSize_textXl', []);
+
+    const getColor = useCallback((): ColorName => {
+        if (variant === 'primary') {
+            return 'color_primary600';
+        }
+
+        return 'color_gray900';
+    }, [variant]);
+
+    const prepareStyledProps = useCallback(
+        (): TextStyledProps => ({
+            $fontWeight: styledProps?.$fontWeight ?? getFontWeight(),
+            $fontSize: styledProps?.$fontSize ?? getFontSize(),
+            $color: styledProps?.$color ?? getColor(),
+        }),
+        [styledProps]
+    );
+
     return (
-        <TextStyled {...styledProps} data-testid="a-text">
+        <TextStyled {...prepareStyledProps()} data-testid="a-text" {...props}>
             {children}
         </TextStyled>
     );
 };
+
+export default Text;

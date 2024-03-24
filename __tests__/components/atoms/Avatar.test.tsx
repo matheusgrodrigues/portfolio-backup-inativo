@@ -1,7 +1,9 @@
+import React from 'react';
+
 import { render, screen } from '../../../src/core/utils/test-utils/testing-library-render';
 import '@testing-library/jest-dom';
 
-import { Avatar } from '@/src/components/atoms';
+import Avatar from '@/src/components/atoms/Avatar';
 
 describe('Deve renderizar o Avatar, corretamente', () => {
     const image_src = 'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80';

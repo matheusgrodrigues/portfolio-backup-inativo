@@ -6,7 +6,7 @@ import process from 'process';
 
 import styled, { useTheme } from 'styled-components';
 
-import { Icon } from '../atoms/Icon';
+import Icon from '../atoms/Icon';
 
 const FooterStyled = styled.footer`
     justify-content: space-between;
@@ -19,7 +19,7 @@ const FooterStyled = styled.footer`
     width: 100%;
 `;
 
-export const Footer = () => {
+const Footer = () => {
     const router = useRouter();
 
     const { name, ref } = useTheme();
@@ -52,3 +52,5 @@ export const Footer = () => {
         </FooterStyled>
     );
 };
+
+export default Footer;

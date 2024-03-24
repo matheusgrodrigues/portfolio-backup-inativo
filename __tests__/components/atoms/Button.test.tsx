@@ -1,22 +1,19 @@
+import React from 'react';
+
 import renderer from 'react-test-renderer';
 
-import { ThemeProvider } from '@/src/core/utils/theme-utils/theme-provider';
+import ThemeProvider from '@/src/core/utils/theme-utils/theme-provider';
+
 import { themeLight } from '@/src/config/theme/theme';
 
-import { Button } from '@/src/components/atoms';
+import Button from '@/src/components/atoms/Button';
 
 describe('Deve renderizar o Button corretamente', () => {
     it('Deve preservar a estrutura visual do componente', () => {
         const three = renderer
             .create(
                 <ThemeProvider theme={themeLight}>
-                    <Button
-                        $background="color_gradient_primary600"
-                        $fontWeight="fw_semibold"
-                        $fontSize="fs_textMd"
-                        $variant="lg"
-                        $color="color_gray500"
-                    >
+                    <Button onClick={() => null} variant="link" size="md">
                         AButton
                     </Button>
                 </ThemeProvider>

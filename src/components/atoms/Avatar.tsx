@@ -49,7 +49,7 @@ export interface AvatarProps extends RadixAvatar.AvatarProps {
     alt?: string;
 }
 
-export function Avatar({ ...props }: AvatarProps) {
+function Avatar({ ...props }: AvatarProps) {
     const { src, alt } = props;
 
     return (
@@ -58,3 +58,5 @@ export function Avatar({ ...props }: AvatarProps) {
         </AvatarRoot>
     );
 }
+
+export default Avatar;

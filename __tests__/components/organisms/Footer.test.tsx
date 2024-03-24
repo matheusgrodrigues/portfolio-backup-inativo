@@ -1,11 +1,14 @@
+import React from 'react';
+
 import renderer from 'react-test-renderer';
 
-import { ThemeProvider } from '@/src/core/utils/theme-utils/theme-provider';
+import ThemeProvider from '@/src/core/utils/theme-utils/theme-provider';
+
 import { themeLight } from '@/src/config/theme/theme';
 
-import { Footer } from '@/src/components/organisms/Footer';
+import Footer from '@/src/components/organisms/Footer';
 
-import { AppRouterContextProviderMock } from '@/src/core/utils/test-utils/app-router-provider';
+import AppRouterContextProviderMock from '@/src/core/utils/test-utils/app-router-provider';
 
 describe('Deve renderizar o OFooter corretamente', () => {
     const push = jest.fn();
@@ -15,11 +18,7 @@ describe('Deve renderizar o OFooter corretamente', () => {
             .create(
                 <AppRouterContextProviderMock router={{ push }}>
                     <ThemeProvider theme={themeLight}>
-                        <Footer
-                            linkedinUrl="https://www.linkedin.com/in/matheusgomes/"
-                            githubUrl="https://github.com/matheusgrodrigues"
-                            siteUrl="https://matheusgomesdev.com.br"
-                        />
+                        <Footer />
                     </ThemeProvider>
                 </AppRouterContextProviderMock>
             )

@@ -1,3 +1,5 @@
+import { DefaultTheme } from 'styled-components/dist/types';
+
 const fontFamily = {
     fontFamily_inter: 'Inter',
 };
@@ -116,9 +118,9 @@ declare module 'styled-components' {
 export const themeLight = {
     name: 'light',
     ref: { breakpoint, fontFamily, fontWeight, fontSize, spacing, colors },
-};
+} as DefaultTheme;
 
 export const darkTheme = {
     name: 'dark',
     ref: { breakpoint, fontFamily, fontWeight, fontSize, spacing, colors },
-};
+} as DefaultTheme;

@@ -1,9 +1,11 @@
+import React from 'react';
+
 import renderer from 'react-test-renderer';
 
-import { ThemeProvider } from '@/src/core/utils/theme-utils/theme-provider';
+import ThemeProvider from '@/src/core/utils/theme-utils/theme-provider';
 import { themeLight } from '@/src/config/theme/theme';
 
-import { Header } from '@/src/components/organisms/Header';
+import Header from '@/src/components/organisms/Header';
 
 describe('Deve renderizar o OHeader corretamente', () => {
     it('Deve preservar a estrutura visual do OHeader', () => {
@@ -12,13 +14,7 @@ describe('Deve renderizar o OHeader corretamente', () => {
         const three = renderer
             .create(
                 <ThemeProvider theme={themeLight}>
-                    <Header
-                        handleToggleTheme={toggleTheme}
-                        avatar={{
-                            src: '/images/a-avatar.jpeg',
-                            alt: '',
-                        }}
-                    />
+                    <Header themeToggler={toggleTheme} />
                 </ThemeProvider>
             )
             .toJSON();

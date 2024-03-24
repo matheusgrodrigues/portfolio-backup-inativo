@@ -2,18 +2,20 @@
 
 import React, { useCallback } from 'react';
 
-import { DefaultTheme } from 'styled-components/dist/types';
 import styled from 'styled-components';
 
-import { ThemeProvider } from '../core/utils/theme-utils/theme-provider';
-import { darkTheme, themeLight } from '../config/theme/theme';
-import { bpHelper } from '../config/theme/theme';
+import { darkTheme, themeLight, bpHelper } from '../config/theme/theme';
 
 import useTranslation from '../core/hooks/useTranslation';
-import { useDarkMode } from '../core/hooks/useDarkMode';
+import ThemeProvider from '../core/utils/theme-utils/theme-provider';
+import useDarkMode from '../core/hooks/useDarkMode';
 
-import { Avatar, Button } from '../components/atoms';
-import { Header, Footer } from '../components/organisms';
+import Display from '../components/atoms/Display';
+import Header from '../components/organisms/Header';
+import Footer from '../components/organisms/Footer';
+import Avatar from '../components/atoms/Avatar';
+import Button from '../components/atoms/Button';
+import Text from '../components/atoms/Text';
 
 const ContainerStyled = styled.div`
     justify-content: center;
@@ -22,9 +24,12 @@ const ContainerStyled = styled.div`
     padding-right: ${({ theme }) => theme.ref.spacing.spacing_20};
     padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
     padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
+
+    ${({ theme }) => bpHelper('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
+
     background: ${({ theme }) =>
         theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
-    ${({ theme }) => bpHelper('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
+
     min-height: calc(100vh - 72px);
     display: flex;
     width: 100%;
@@ -58,11 +63,11 @@ const Home = () => {
     const handleSubmitContactForm = useCallback(() => null, []);
     const handleDownloadCV = useCallback(() => null, []);
 
-    /*   const [displayDescription, displayName] = [
+    const [displayDescription, displayName, description] = [
         t('specific.home.brief_description.display_description'),
         t('specific.home.brief_description.display_name'),
         t('specific.home.brief_description.description'),
-    ];*/
+    ];
 
     const [buttonDownloadCV, buttonContact] = [
         t('specific.home.brief_description.button_download_cv'),
@@ -70,7 +75,7 @@ const Home = () => {
     ];
 
     return (
-        <ThemeProvider theme={theme === 'light' ? (themeLight as DefaultTheme) : (darkTheme as DefaultTheme)}>
+        <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>
             <Header themeToggler={themeToggler} />
 
             <ContainerStyled>
@@ -79,26 +84,27 @@ const Home = () => {
                         <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
 
                         <div>
-                            {/*  <Display
-                                fontWeight="semibold"
-                                $variant="lg"
-                                color={theme === 'light' ? 'gray900' : 'primary600'}
-                            >
+                            <Display variant="primary" size="lg">
                                 {displayName}
                             </Display>
 
                             <Display
-                                fontWeight="semibold"
-                                $variant="lg"
-                                color={theme === 'light' ? 'gray900' : 'color_white'}
+                                styledProps={{
+                                    $color: theme === 'light' ? 'color_gray900' : 'color_white',
+                                }}
+                                size="lg"
                             >
                                 {displayDescription}
-                            </Display> */}
+                            </Display>
                         </div>
 
-                        {/* <Text fontWeight="semibold" $variant="xl" color={theme === 'light' ? 'gray900' : 'gray50'}>
+                        <Text
+                            styledProps={{
+                                $color: theme === 'light' ? 'color_gray900' : 'color_white',
+                            }}
+                        >
                             {description}
-    </Text> */}
+                        </Text>
                     </div>
 
                     <ActionButtonStyled>

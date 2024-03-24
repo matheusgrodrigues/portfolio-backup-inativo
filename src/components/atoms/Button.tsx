@@ -21,9 +21,15 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
     font-weight: ${(props) => props.theme.ref.fontWeight[props.$fontWeight!]};
     background: ${(props) => props.theme.ref.colors[props.$background!]};
     font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
+    outline: none;
     height: ${(props) => props.$height};
     width: ${(props) => props.$width};
     color: ${(props) => props.theme.ref.colors[props.$color!]};
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 0.8;
+    }
 `;
 
 type ButtonVariant = 'default' | 'primary' | 'link';
@@ -31,19 +37,19 @@ type ButtonSize = 'md';
 
 interface ButtonProps
     extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-    size?: ButtonSize;
     styledProps?: ButtonStyledProps;
     variant?: ButtonVariant;
+    size?: ButtonSize;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, variant, size, styledProps, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ children, styledProps, variant, size, ...props }) => {
     const getBackground = useCallback((): ColorName => {
         if (variant === 'primary') {
             return 'color_gradient_primary600';
-        } else if (variant === 'default') {
-            return 'color_white';
         } else if (variant === 'link') {
             return 'color_transparent';
+        } else if (variant === 'default') {
+            return 'color_white';
         }
 
         return 'color_white';
@@ -63,8 +69,8 @@ export const Button: React.FC<ButtonProps> = ({ children, variant, size, styledP
 
     const getSize = useCallback(
         (): { height: string; width: string } => ({
-            height: size === 'md' ? '42px' : '42px',
-            width: size === 'md' ? '172px' : '172px',
+            height: size === 'md' ? '42px' : 'auto',
+            width: size === 'md' ? '172px' : 'auto',
         }),
         [size]
     );
@@ -90,8 +96,4 @@ export const Button: React.FC<ButtonProps> = ({ children, variant, size, styledP
     );
 };
 
-export const ButtonTransparent = styled.button`
-    background: transparent;
-    border: none;
-    cursor: pointer;
-`;
+export default Button;

@@ -1,18 +1,18 @@
+import React from 'react';
+
 import renderer from 'react-test-renderer';
 
 import { themeLight } from '@/src/config/theme/theme';
-import { ThemeProvider } from '@/src/core/utils/theme-utils/theme-provider';
+import ThemeProvider from '@/src/core/utils/theme-utils/theme-provider';
 
-import { Text } from '@/src/components/atoms/Text';
+import Text from '@/src/components/atoms/Text';
 
 describe('Deve renderizar o AText corretamente', () => {
     it('Deve preservar a estrutura visual do componente', () => {
         const three = renderer
             .create(
                 <ThemeProvider theme={themeLight}>
-                    <Text $variant="lg" fontWeight="semibold" color="gradient">
-                        A-Text
-                    </Text>
+                    <Text>A-Text</Text>
                 </ThemeProvider>
             )
             .toJSON();

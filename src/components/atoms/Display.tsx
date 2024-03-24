@@ -1,41 +1,63 @@
-import React, { ReactNode } from 'react';
+import React, { useCallback } from 'react';
 
 import styled from 'styled-components';
 
-import { ColorName, FontSizeName, FontWeightName } from '@/src/config/theme/theme';
+import { FontWeightName, FontSizeName, ColorName } from '@/src/config/theme/theme';
 
 interface DisplayStyledProps {
-    fontWeight: FontWeightName;
-    fontSize: FontSizeName;
-    color: ColorName;
+    $fontWeight?: FontWeightName;
+    $fontSize?: FontSizeName;
+    $color?: ColorName;
 }
 
-const DisplayStyled = styled('h1').attrs<DisplayStyledProps>(() => ({}))`
+const DisplayStyled = styled.h1<DisplayStyledProps>`
     ${(props) => {
-        if (props.fontSize === 'fontSize_displayLg') {
+        if (props.$fontSize === 'fontSize_displayLg') {
             return 'letter-spacing: -0.96px;';
         }
     }}
 
-    ${(props) => `font-size: ${props.theme.ref.fontSize[props.fontSize]}`};
-    ${(props) => `color: ${props.theme.ref.colors[props.color]}`}
+    font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
+    color: ${(props) => props.theme.ref.colors[props.$color!]};
 `;
 
-interface DisplayProps {
-    styledProps: DisplayStyledProps;
-    children: ReactNode;
-    variant: 'lg';
+interface DisplayProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
+    children: React.ReactNode;
+    size: 'lg';
+    variant?: 'primary';
+    styledProps?: DisplayStyledProps;
 }
 
-const Display: React.FC<DisplayProps> = ({ styledProps, children, variant }) => {
-    const prepareVariant = (): FontSizeName | undefined => {
-        if (variant === 'lg') {
+const Display: React.FC<DisplayProps> = ({ children, variant, size, styledProps, ...props }) => {
+    const getFontWeight = useCallback((): FontWeightName => 'fontWeight_semibold', []);
+
+    const getFontSize = useCallback((): FontSizeName => {
+        if (size === 'lg') {
             return 'fontSize_displayLg';
         }
-    };
+
+        return 'fontSize_displayLg';
+    }, [size]);
+
+    const getColor = useCallback((): ColorName => {
+        if (variant === 'primary') {
+            return 'color_primary600';
+        }
+
+        return 'color_gray900';
+    }, []);
+
+    const prepareStyledProps = useCallback(
+        (): DisplayStyledProps => ({
+            $fontWeight: styledProps?.$fontWeight ?? getFontWeight(),
+            $fontSize: styledProps?.$fontSize ?? getFontSize(),
+            $color: styledProps?.$color ?? getColor(),
+        }),
+        [styledProps]
+    );
 
     return (
-        <DisplayStyled data-testid="a-display" {...styledProps} fontSize={prepareVariant()!}>
+        <DisplayStyled data-testid="a-display" {...prepareStyledProps()} {...props}>
             {children}
         </DisplayStyled>
     );

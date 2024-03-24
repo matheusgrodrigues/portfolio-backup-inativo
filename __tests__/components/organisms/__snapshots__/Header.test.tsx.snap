@@ -2,14 +2,15 @@
 
 exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visual do OHeader 1`] = `
 <div
-  className="sc-gLLuof RLTKB"
+  className="sc-guDLey jXytko"
 >
   <button
-    className="sc-dmyCSP icUhfv"
+    className="sc-beySPh jJPwpb"
   >
     <svg
       fill="none"
       height={32}
+      onClick={[MockFunction]}
       style={
         {
           "color": "#101828",

@@ -8,10 +8,7 @@ export type AppRouterContextProviderMockProps = {
 };
 
 /* eslint-disable no-undef */
-export const AppRouterContextProviderMock = ({
-    children,
-    router,
-}: AppRouterContextProviderMockProps): React.ReactNode => {
+const AppRouterContextProviderMock = ({ children, router }: AppRouterContextProviderMockProps): React.ReactNode => {
     const mockedRouter: AppRouterInstance = {
         prefetch: jest.fn(),
         forward: jest.fn(),
@@ -23,3 +20,5 @@ export const AppRouterContextProviderMock = ({
     };
     return <AppRouterContext.Provider value={mockedRouter}>{children}</AppRouterContext.Provider>;
 };
+
+export default AppRouterContextProviderMock;

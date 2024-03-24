@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { ThemeName } from '@/src/config/theme/theme';
 
-export const useDarkMode = () => {
+const useDarkMode = () => {
     const [theme, setTheme] = useState<ThemeName>('dark');
 
     const setMode = useCallback((mode: ThemeName) => {
@@ -29,3 +29,5 @@ export const useDarkMode = () => {
 
     return { themeToggler, theme };
 };
+
+export default useDarkMode;
