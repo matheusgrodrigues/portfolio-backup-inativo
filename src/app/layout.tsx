@@ -1,29 +1,24 @@
+import React from 'react';
 
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-// Reset css
-import "./globals.css";
+import './globals.css';
 
-// Font
-import { Inter } from "next/font/google";
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "MatheusGomesDev",
-  description:
-    "Programador Frontend apaixonado por criação de interfaces inovadoras.",
+    description: 'Programador Frontend apaixonado por criação de interfaces inovadoras.',
+    title: 'MatheusGomesDev',
 };
 
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="pt-BR">
-        <body className={inter.className}>{children}</body>
-    </html>
-  );
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <html lang="pt-BR">
+            <body className={inter.className} id="app">
+                {children}
+            </body>
+        </html>
+    );
 }

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deve renderizar o Button corretamente Deve preservar a estrutura visual do componente 1`] = `
+<button
+  className="sc-beySPh djfGSV"
+  onClick={[Function]}
+>
+  AButton
+</button>
+`;
