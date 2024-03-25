@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useContext, useRef } from 'react';
 
 import styled from 'styled-components';
 
 import { darkTheme, themeLight, screen, lineHeight } from '../config/theme/theme';
 
+import { GlobalContext } from '../core/context/GlobalContext';
 import useTranslation from '../core/hooks/useTranslation';
 import ThemeProvider from '../core/utils/theme-utils/theme-provider';
 import useDarkMode from '../core/hooks/useDarkMode';
@@ -23,7 +24,15 @@ interface ModalContactRef {
 }
 
 const ModalContact: React.FC<ModalContactRef> = ({ modalContactRef }) => {
-    return <Modal ref={modalContactRef}>Contato</Modal>;
+    const { toast } = useContext(GlobalContext);
+
+    return (
+        <Modal ref={modalContactRef}>
+            <h1>Layout aqui</h1>
+
+            <Button onClick={toast}>Show toast GlobalContext</Button>
+        </Modal>
+    );
 };
 
 const ContainerStyled = styled.div`
@@ -76,6 +85,7 @@ const Home = () => {
     const modalContactRef = useRef<ModalRef>(null);
 
     const handleSubmitContactForm = useCallback(() => modalContactRef.current?.setIsOpen(true), []);
+
     const handleDownloadCV = useCallback(() => null, []);
 
     const [displayDescription, displayName, description] = [
