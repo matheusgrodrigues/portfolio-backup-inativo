@@ -10,7 +10,6 @@ interface TextStyledProps {
     $color?: ColorName;
 }
 
-// TODO: criar um helper para calcular o line-height: fontSize * 1.5 + px
 const TextStyled = styled.p<TextStyledProps>`
     ${(props) => {
         if (props.$fontSize === 'fontSize_displayLg') {

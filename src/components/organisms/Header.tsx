@@ -2,6 +2,7 @@ import React from 'react';
 
 import styled, { useTheme } from 'styled-components';
 
+import Button from '../atoms/Button';
 import Icon from '../atoms/Icon';
 
 const HeaderStyled = styled.div`
@@ -24,13 +25,14 @@ const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
 
     return (
         <HeaderStyled>
-            <Icon
-                onClick={themeToggler}
-                width={32}
-                height={32}
-                style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
-                icon="sun"
-            />
+            <Button variant="link" onClick={themeToggler}>
+                <Icon
+                    height={32}
+                    width={32}
+                    style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
+                    icon="sun"
+                />
+            </Button>
         </HeaderStyled>
     );
 };

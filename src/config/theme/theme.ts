@@ -92,10 +92,16 @@ const breakpoint = {
     breakpoint_xl: '1280px',
 };
 
-export const bpHelper = (bp: BreakpointName, content: string) =>
+export const screen = (bp: BreakpointName, content: string) =>
     `@media screen and (min-width: ${breakpoint[bp]}) {
     ${content}
   }`;
+
+export const lineHeight = (px: string) => {
+    const pxToNumber = Number(px.replace('px', ''));
+
+    return `${pxToNumber * 1.5}px`;
+};
 
 export type ThemeName = 'light' | 'dark';
 

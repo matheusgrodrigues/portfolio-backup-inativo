@@ -6,11 +6,11 @@ exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visua
 >
   <button
     className="sc-beySPh jJPwpb"
+    onClick={[MockFunction]}
   >
     <svg
       fill="none"
       height={32}
-      onClick={[MockFunction]}
       style={
         {
           "color": "#101828",
