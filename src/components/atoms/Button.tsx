@@ -13,7 +13,7 @@ interface ButtonStyledProps {
     $color?: ColorName;
 }
 
-export const ButtonStyled = styled.button<ButtonStyledProps>`
+const ButtonStyled = styled.button<ButtonStyledProps>`
     border-radius: 8px;
     border: none;
     cursor: pointer;

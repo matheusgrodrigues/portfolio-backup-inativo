@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 
 import styled from 'styled-components';
 
@@ -9,6 +9,7 @@ import { darkTheme, themeLight, screen, lineHeight } from '../config/theme/theme
 import useTranslation from '../core/hooks/useTranslation';
 import ThemeProvider from '../core/utils/theme-utils/theme-provider';
 import useDarkMode from '../core/hooks/useDarkMode';
+import Modal, { ModalRef } from '../core/components/Modal/Modal';
 
 import Display from '../components/atoms/Display';
 import Header from '../components/organisms/Header';
@@ -16,6 +17,14 @@ import Footer from '../components/organisms/Footer';
 import Avatar from '../components/atoms/Avatar';
 import Button from '../components/atoms/Button';
 import Text from '../components/atoms/Text';
+
+interface ModalContactRef {
+    modalContactRef: React.RefObject<ModalRef>;
+}
+
+const ModalContact: React.FC<ModalContactRef> = ({ modalContactRef }) => {
+    return <Modal ref={modalContactRef}>Contato</Modal>;
+};
 
 const ContainerStyled = styled.div`
     justify-content: center;
@@ -64,7 +73,9 @@ const Home = () => {
 
     const { t } = useTranslation();
 
-    const handleSubmitContactForm = useCallback(() => null, []);
+    const modalContactRef = useRef<ModalRef>(null);
+
+    const handleSubmitContactForm = useCallback(() => modalContactRef.current?.setIsOpen(true), []);
     const handleDownloadCV = useCallback(() => null, []);
 
     const [displayDescription, displayName, description] = [
@@ -131,6 +142,8 @@ const Home = () => {
 
                 <Footer />
             </ContainerStyled>
+
+            <ModalContact modalContactRef={modalContactRef} />
         </ThemeProvider>
     );
 };
