@@ -77,7 +77,7 @@ const ActionButton = styled.div`
     gap: ${({ theme }) => theme.ref.spacing.spacing_16};
 `;
 
-export const Home = () => {
+const Home = () => {
     const { themeToggler, theme } = useDarkMode();
 
     const { t } = useTranslation();
