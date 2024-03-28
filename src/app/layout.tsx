@@ -7,7 +7,7 @@ import './globals.css';
 
 import i18n_metadata from '../config/i18n/Metadata/metadata';
 
-import GlobalContextProvider from '../core/context/GlobalContext';
+import UIContextProvider from '../core/context/UIContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="pt-BR">
             <body className={inter.className}>
-                <GlobalContextProvider>{children}</GlobalContextProvider>
+                <UIContextProvider>{children}</UIContextProvider>
             </body>
         </html>
     );

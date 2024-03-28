@@ -8,24 +8,24 @@ import { ThemeName, darkTheme, themeLight } from '@/src/config/theme/theme';
 
 import useDarkMode from '../hooks/useDarkMode';
 
-interface GlobalContextProps {
+interface UIContextProps {
     theme: {
         themeToggler: () => void;
         themeName: ThemeName;
     };
 }
 
-export const GlobalContext = React.createContext({} as GlobalContextProps);
+export const UIContext = React.createContext({} as UIContextProps);
 
-interface GlobalContextProviderProps {
+interface UIContextProviderProps {
     children: React.ReactNode;
 }
 
-const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({ children }) => {
+const UIContextProvider: React.FC<UIContextProviderProps> = ({ children }) => {
     const { themeToggler, theme } = useDarkMode();
 
     return (
-        <GlobalContext.Provider
+        <UIContext.Provider
             value={{
                 theme: {
                     themeToggler,
@@ -34,8 +34,8 @@ const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({ children 
             }}
         >
             <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>{children}</ThemeProvider>
-        </GlobalContext.Provider>
+        </UIContext.Provider>
     );
 };
 
-export default GlobalContextProvider;
+export default UIContextProvider;

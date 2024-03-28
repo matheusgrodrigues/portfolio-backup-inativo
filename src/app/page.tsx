@@ -6,7 +6,7 @@ import styled, { useTheme } from 'styled-components';
 
 import { screen, lineHeight } from '../config/theme/theme';
 
-import { GlobalContext } from '../core/context/GlobalContext';
+import { UIContext } from '../core/context/UIContext';
 import useTranslation from '../core/hooks/useTranslation';
 
 import Display from '../components/atoms/Display';
@@ -64,7 +64,7 @@ const ActionButton = styled.div`
 const Home = () => {
     const modalContactRef = useRef<ModalContactRef>(null);
 
-    const { theme } = useContext(GlobalContext);
+    const { theme } = useContext(UIContext);
 
     const { spacing } = useTheme().ref;
 
