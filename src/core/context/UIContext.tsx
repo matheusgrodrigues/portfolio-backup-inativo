@@ -4,15 +4,12 @@ import React from 'react';
 
 import ThemeProvider from '../utils/theme-utils/theme-provider';
 
-import { ThemeName, darkTheme, themeLight } from '@/src/config/theme/theme';
+import { darkTheme, themeLight } from '@/src/config/theme/theme';
 
 import useDarkMode from '../hooks/useDarkMode';
 
 interface UIContextProps {
-    theme: {
-        themeToggler: () => void;
-        themeName: ThemeName;
-    };
+    themeToggler: () => void;
 }
 
 export const UIContext = React.createContext({} as UIContextProps);
@@ -27,10 +24,7 @@ const UIContextProvider: React.FC<UIContextProviderProps> = ({ children }) => {
     return (
         <UIContext.Provider
             value={{
-                theme: {
-                    themeToggler,
-                    themeName: theme,
-                },
+                themeToggler,
             }}
         >
             <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>{children}</ThemeProvider>

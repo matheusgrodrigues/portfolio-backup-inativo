@@ -5,7 +5,6 @@ import styled, { useTheme } from 'styled-components';
 import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
-import useDarkMode from '@/src/core/hooks/useDarkMode';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
 
 import Display from '../../atoms/Display';
@@ -42,8 +41,7 @@ export interface ModalContactRef {
 const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<ModalContactRef>> = (props, ref) => {
     const modalContactRef = useRef<ModalRef>(null);
 
-    const { spacing } = useTheme().ref;
-    const { theme } = useDarkMode();
+    const theme = useTheme();
 
     const { t } = useTranslation();
 
@@ -68,10 +66,10 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     {tag}
                 </Display>
 
-                <div style={{ margin: `${spacing.spacing_12} 0 ${spacing.spacing_32} 0` }}>
+                <div style={{ margin: `${theme.ref.spacing.spacing_12} 0 ${theme.ref.spacing.spacing_32} 0` }}>
                     <Display
                         styledProps={{
-                            $color: theme === 'light' ? 'color_gray900' : 'color_white',
+                            $color: theme.name === 'light' ? 'color_gray900' : 'color_white',
                         }}
                         size="lg"
                     >
@@ -81,7 +79,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
                 <Text
                     styledProps={{
-                        $color: theme === 'light' ? 'color_gray900' : 'color_white',
+                        $color: theme.name === 'light' ? 'color_gray900' : 'color_white',
                     }}
                 >
                     {description}

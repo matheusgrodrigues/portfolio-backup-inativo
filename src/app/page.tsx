@@ -64,9 +64,9 @@ const ActionButton = styled.div`
 const Home = () => {
     const modalContactRef = useRef<ModalContactRef>(null);
 
-    const { theme } = useContext(UIContext);
+    const { themeToggler } = useContext(UIContext);
 
-    const { spacing } = useTheme().ref;
+    const theme = useTheme();
 
     const { t } = useTranslation();
 
@@ -101,7 +101,7 @@ const Home = () => {
 
     return (
         <>
-            <Header themeToggler={theme.themeToggler} />
+            <Header themeToggler={themeToggler} />
 
             <Container>
                 <BriefDescription>
@@ -110,7 +110,7 @@ const Home = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            gap: spacing.spacing_32,
+                            gap: theme.ref.spacing.spacing_32,
                         }}
                     >
                         <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
