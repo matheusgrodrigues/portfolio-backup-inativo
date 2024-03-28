@@ -86,7 +86,21 @@ const Home = () => {
 
     const handleSubmitContactForm = useCallback(() => modalContactRef.current?.setIsOpen(true), []);
 
-    const handleDownloadCV = useCallback(() => null, []);
+    const handleDownloadCV = useCallback(() => {
+        const fileName = 'curriculo-matheus-gomes-rodrigues-de-jesus';
+
+        const pdfUrl = `/images/${fileName}.pdf`;
+
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = fileName;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+    }, []);
 
     const [displayDescription, displayName, description] = [
         t('specific.home.brief_description.display_description'),
