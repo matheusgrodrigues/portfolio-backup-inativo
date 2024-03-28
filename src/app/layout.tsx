@@ -1,12 +1,12 @@
 import React from 'react';
 
 import type { Metadata } from 'next';
-
 import { Inter } from 'next/font/google';
 
 import './globals.css';
 
 import i18n_metadata from '../config/i18n/Metadata/metadata';
+
 import GlobalContextProvider from '../core/context/GlobalContext';
 
 const inter = Inter({ subsets: ['latin'] });

@@ -19,11 +19,11 @@ import Avatar from '../components/atoms/Avatar';
 import Button from '../components/atoms/Button';
 import Text from '../components/atoms/Text';
 
-interface ModalContactRef {
+interface ModalContactProps {
     modalContactRef: React.RefObject<ModalRef>;
 }
 
-const ModalContact: React.FC<ModalContactRef> = ({ modalContactRef }) => {
+const ModalContact: React.FC<ModalContactProps> = ({ modalContactRef }) => {
     const { toast } = useContext(GlobalContext);
 
     return (
@@ -35,7 +35,7 @@ const ModalContact: React.FC<ModalContactRef> = ({ modalContactRef }) => {
     );
 };
 
-const ContainerStyled = styled.div`
+const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -57,7 +57,7 @@ const ContainerStyled = styled.div`
     }
 `;
 
-const BriefDescriptionStyled = styled.div`
+const BriefDescription = styled.div`
     flex-direction: column;
     text-align: center;
     max-width: 700px;
@@ -70,7 +70,7 @@ const BriefDescriptionStyled = styled.div`
     }
 `;
 
-const ActionButtonStyled = styled.div`
+const ActionButton = styled.div`
     justify-content: center;
     display: flex;
     margin: ${({ theme }) => theme.ref.spacing.spacing_32} 0;
@@ -86,7 +86,21 @@ const Home = () => {
 
     const handleSubmitContactForm = useCallback(() => modalContactRef.current?.setIsOpen(true), []);
 
-    const handleDownloadCV = useCallback(() => null, []);
+    const handleDownloadCV = useCallback(() => {
+        const fileName = 'curriculo-matheus-gomes-rodrigues-de-jesus';
+
+        const pdfUrl = `/images/${fileName}.pdf`;
+
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = fileName;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+    }, []);
 
     const [displayDescription, displayName, description] = [
         t('specific.home.brief_description.display_description'),
@@ -103,8 +117,8 @@ const Home = () => {
         <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>
             <Header themeToggler={themeToggler} />
 
-            <ContainerStyled>
-                <BriefDescriptionStyled>
+            <Container>
+                <BriefDescription>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
                         <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
 
@@ -132,8 +146,9 @@ const Home = () => {
                         </Text>
                     </div>
 
-                    <ActionButtonStyled>
+                    <ActionButton>
                         <Button
+                            data-testid="button-downloadCV"
                             styledProps={{
                                 $color: theme === 'light' ? 'color_gray500' : 'color_white',
                             }}
@@ -144,14 +159,19 @@ const Home = () => {
                             {buttonDownloadCV}
                         </Button>
 
-                        <Button variant="primary" onClick={handleSubmitContactForm} size="md">
+                        <Button
+                            data-testid="button-contact"
+                            variant="primary"
+                            onClick={handleSubmitContactForm}
+                            size="md"
+                        >
                             {buttonContact}
                         </Button>
-                    </ActionButtonStyled>
-                </BriefDescriptionStyled>
+                    </ActionButton>
+                </BriefDescription>
 
                 <Footer />
-            </ContainerStyled>
+            </Container>
 
             <ModalContact modalContactRef={modalContactRef} />
         </ThemeProvider>
