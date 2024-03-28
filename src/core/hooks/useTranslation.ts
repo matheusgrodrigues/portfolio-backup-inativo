@@ -4,7 +4,7 @@ import i18n_translations, { TranslationValue } from '@/src/config/i18n/i18n';
 
 const useTranslation = () => {
     const t = useCallback((searchString: string) => {
-        const splitKeys = searchString.toLowerCase().split('.');
+        const splitKeys = searchString.split('.');
         const fileToSearch = splitKeys[0];
 
         let translation: TranslationValue | undefined = i18n_translations[fileToSearch];

@@ -1,9 +1,18 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React from 'react';
+
+import ThemeProvider from '../utils/theme-utils/theme-provider';
+
+import { ThemeName, darkTheme, themeLight } from '@/src/config/theme/theme';
+
+import useDarkMode from '../hooks/useDarkMode';
 
 interface GlobalContextProps {
-    toast: () => void;
+    theme: {
+        themeToggler: () => void;
+        themeName: ThemeName;
+    };
 }
 
 export const GlobalContext = React.createContext({} as GlobalContextProps);
@@ -13,9 +22,20 @@ interface GlobalContextProviderProps {
 }
 
 const GlobalContextProvider: React.FC<GlobalContextProviderProps> = ({ children }) => {
-    const toast = useCallback((): void => console.log('show toast'), []);
+    const { themeToggler, theme } = useDarkMode();
 
-    return <GlobalContext.Provider value={{ toast }}>{children}</GlobalContext.Provider>;
+    return (
+        <GlobalContext.Provider
+            value={{
+                theme: {
+                    themeToggler,
+                    themeName: theme,
+                },
+            }}
+        >
+            <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>{children}</ThemeProvider>
+        </GlobalContext.Provider>
+    );
 };
 
 export default GlobalContextProvider;

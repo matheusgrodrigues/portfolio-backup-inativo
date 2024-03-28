@@ -23,7 +23,7 @@ const DisplayStyled = styled.h1<DisplayStyledProps>`
 
 interface DisplayProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
     children: React.ReactNode;
-    size: 'lg';
+    size: 'sm' | 'lg';
     variant?: 'primary';
     styledProps?: DisplayStyledProps;
 }
@@ -32,7 +32,9 @@ const Display: React.FC<DisplayProps> = ({ children, variant, size, styledProps,
     const getFontWeight = useCallback((): FontWeightName => 'fontWeight_semibold', []);
 
     const getFontSize = useCallback((): FontSizeName => {
-        if (size === 'lg') {
+        if (size === 'sm') {
+            return 'fontSize_textSm';
+        } else if (size === 'lg') {
             return 'fontSize_displayLg';
         }
 
