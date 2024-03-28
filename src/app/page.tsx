@@ -77,7 +77,7 @@ const ActionButton = styled.div`
     gap: ${({ theme }) => theme.ref.spacing.spacing_16};
 `;
 
-const Home = () => {
+export const Home = () => {
     const { themeToggler, theme } = useDarkMode();
 
     const { t } = useTranslation();
@@ -148,6 +148,7 @@ const Home = () => {
 
                     <ActionButton>
                         <Button
+                            data-testid="button-downloadCV"
                             styledProps={{
                                 $color: theme === 'light' ? 'color_gray500' : 'color_white',
                             }}
@@ -158,7 +159,12 @@ const Home = () => {
                             {buttonDownloadCV}
                         </Button>
 
-                        <Button variant="primary" onClick={handleSubmitContactForm} size="md">
+                        <Button
+                            data-testid="button-contact"
+                            variant="primary"
+                            onClick={handleSubmitContactForm}
+                            size="md"
+                        >
                             {buttonContact}
                         </Button>
                     </ActionButton>

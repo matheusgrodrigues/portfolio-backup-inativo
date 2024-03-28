@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { FontWeightName, FontSizeName, ColorName } from '@/src/config/theme/theme';
 
 interface ButtonStyledProps {
+    $dataTestID?: string;
     $background?: ColorName;
     $fontWeight?: FontWeightName;
     $fontSize?: FontSizeName;
