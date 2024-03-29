@@ -20,7 +20,9 @@ const Form: React.FC<FormProps> = ({ children, onSubmit }) => {
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+            <form onSubmit={methods.handleSubmit(onSubmit)} style={{ width: '100%' }}>
+                {children}
+            </form>
         </FormProvider>
     );
 };

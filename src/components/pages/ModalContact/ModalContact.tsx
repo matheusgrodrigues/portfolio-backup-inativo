@@ -13,6 +13,7 @@ import Input from '../../atoms/Input';
 import Text from '../../atoms/Text';
 
 import Footer from '../../organisms/Footer';
+import Button from '../../atoms/Button';
 
 const Container = styled.div`
     justify-content: center;
@@ -39,13 +40,17 @@ const FormTitle = styled.div`
     text-align: center;
     max-width: 480px;
     margin: 0 auto;
+    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
     width: 100%;
 `;
 
 const FormContainer = styled.div`
+    flex-direction: column;
     max-width: 480px;
+    display: flex;
     margin: 0 auto;
     width: 100%;
+    gap: ${(props) => props.theme.ref.spacing['spacing_24']};
 `;
 
 export interface ModalContactRef {
@@ -103,13 +108,18 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <FormContainer>
-                    <Form onSubmit={onSubmit}>
+                <Form onSubmit={onSubmit}>
+                    <FormContainer>
                         <Input name="nome" />
+                        <Input name="email" />
+                        <Input name="telefone" />
+                        <Input name="mensagem" />
 
-                        <button>submit</button>
-                    </Form>
-                </FormContainer>
+                        <p>checkbox</p>
+
+                        <Button>Enviar mensagem</Button>
+                    </FormContainer>
+                </Form>
 
                 <Footer />
             </Container>

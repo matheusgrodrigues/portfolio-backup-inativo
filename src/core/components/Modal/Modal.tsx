@@ -12,6 +12,18 @@ export interface ModalRef {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const Overlay = styled(Dialog.Overlay)`
+    background: rgba(0 0 0 / 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+`;
+
 const Content = styled(Dialog.Content)`
     background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
     box-shadow:
@@ -61,20 +73,22 @@ const Modal: React.ForwardRefRenderFunction<ModalRef, DialogProps> = ({ children
     return (
         <Dialog.Root open={isOpen}>
             <Dialog.Portal>
-                <Content>
-                    <Header>
-                        <Button variant="link" onClick={() => setIsOpen(false)}>
-                            <Icon
-                                icon="close"
-                                width={32}
-                                height={32}
-                                color={`${theme.name === 'light' ? theme.ref.colors['gray900'] : theme.ref.colors['white']}`}
-                            />
-                        </Button>
-                    </Header>
+                <Overlay>
+                    <Content>
+                        <Header>
+                            <Button variant="link" onClick={() => setIsOpen(false)}>
+                                <Icon
+                                    icon="close"
+                                    width={32}
+                                    height={32}
+                                    color={`${theme.name === 'light' ? theme.ref.colors['gray900'] : theme.ref.colors['white']}`}
+                                />
+                            </Button>
+                        </Header>
 
-                    {children}
-                </Content>
+                        {children}
+                    </Content>
+                </Overlay>
             </Dialog.Portal>
         </Dialog.Root>
     );
