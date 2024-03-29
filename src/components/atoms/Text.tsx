@@ -31,7 +31,7 @@ interface TextProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLPar
 const Text: React.FC<TextProps> = ({ styledProps, variant, children, ...props }) => {
     const getFontWeight = useCallback((): FontWeightName => 'regular', []);
 
-    const getFontSize = useCallback((): FontSizeName => 'xl', []);
+    const getFontSize = useCallback((): FontSizeName => 'lg', []);
 
     const getColor = useCallback((): ColorName => {
         if (variant === 'primary') {

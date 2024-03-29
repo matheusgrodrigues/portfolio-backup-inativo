@@ -36,6 +36,13 @@ const Container = styled.div`
 `;
 
 const FormTitle = styled.div`
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+`;
+
+const FormContainer = styled.div`
     max-width: 480px;
     margin: 0 auto;
     width: 100%;
@@ -81,7 +88,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             styledProps={{
                                 $color: theme.name === 'light' ? 'gray900' : 'white',
                             }}
-                            size="lg"
+                            size="xl"
                         >
                             {title}
                         </Display>
@@ -96,11 +103,13 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form onSubmit={onSubmit}>
-                    <Input name="nome" />
+                <FormContainer>
+                    <Form onSubmit={onSubmit}>
+                        <Input name="nome" />
 
-                    <button>submit</button>
-                </Form>
+                        <button>submit</button>
+                    </Form>
+                </FormContainer>
 
                 <Footer />
             </Container>

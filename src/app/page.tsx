@@ -27,10 +27,9 @@ const Container = styled.div`
     padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
     padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
 
-    ${({ theme }) => screen('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
+    ${({ theme }) => screen('md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
 
-    background: ${({ theme }) =>
-        theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900']};
+    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
 
     min-height: calc(100vh - 72px);
     display: flex;
@@ -50,7 +49,7 @@ const BriefDescription = styled.div`
     gap: ${({ theme }) => theme.ref.spacing.spacing_32};
 
     & p {
-        line-height: ${({ theme }) => lineHeight(theme.ref.fontSize['fontSize_textXl'])};
+        line-height: ${({ theme }) => lineHeight(theme.ref.fontSize['lg'])};
     }
 `;
 
@@ -58,7 +57,7 @@ const ActionButton = styled.div`
     justify-content: center;
     display: flex;
     margin: ${({ theme }) => theme.ref.spacing.spacing_32} 0;
-    gap: ${({ theme }) => theme.ref.spacing.16px};
+    gap: ${({ theme }) => theme.ref.spacing.spacing_16};
 `;
 
 const Home = () => {
@@ -116,7 +115,7 @@ const Home = () => {
                         <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
 
                         <div>
-                            <Display variant="primary" size="lg">
+                            <Display variant="primary" size="xl">
                                 {displayName}
                             </Display>
 
@@ -124,7 +123,7 @@ const Home = () => {
                                 styledProps={{
                                     $color: theme.themeName === 'light' ? 'gray900' : 'white',
                                 }}
-                                size="lg"
+                                size="xl"
                             >
                                 {displayDescription}
                             </Display>
@@ -143,7 +142,7 @@ const Home = () => {
                         <Button
                             data-testid="button-downloadCV"
                             styledProps={{
-                                $color: theme.themeName === 'light' ? 'color_gray500' : 'white',
+                                $color: theme.themeName === 'light' ? 'gray500' : 'white',
                             }}
                             onClick={handleDownloadCV}
                             variant="link"

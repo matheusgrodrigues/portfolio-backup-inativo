@@ -23,7 +23,7 @@ const DisplayStyled = styled.h1<DisplayStyledProps>`
 
 interface DisplayProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
     children: React.ReactNode;
-    size: 'sm' | 'lg';
+    size: 'sm' | 'lg' | 'xl';
     variant?: 'primary';
     styledProps?: DisplayStyledProps;
 }
@@ -36,6 +36,8 @@ const Display: React.FC<DisplayProps> = ({ children, variant, size, styledProps,
             return 'sm';
         } else if (size === 'lg') {
             return 'lg';
+        } else if (size == 'xl') {
+            return 'xl';
         }
 
         return 'lg';
