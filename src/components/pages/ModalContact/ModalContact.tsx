@@ -6,9 +6,10 @@ import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { Field } from '@/src/core/components/Form/Form';
+import Form, { FieldValues, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
+import Input from '../../atoms/Input';
 import Text from '../../atoms/Text';
 
 import Footer from '../../organisms/Footer';
@@ -58,7 +59,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
     const modalContactRef = useRef<ModalRef>(null);
 
-    const handleSubmit = useCallback(() => console.log('submit'), []);
+    const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => console.log('submit', data), []);
 
     useImperativeHandle(
         ref,
@@ -96,8 +97,9 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form onSubmit={handleSubmit} control={control}>
-                    <Field name="nome" />
+                <Form onSubmit={onSubmit}>
+                    <Input name="nome" />
+
                     <button>submit</button>
                 </Form>
 

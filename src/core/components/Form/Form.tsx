@@ -1,17 +1,25 @@
 import React from 'react';
 
-import { SubmitHandler, useForm, Form, FormProps } from 'react-hook-form';
+import { UseFormRegisterReturn, UseFormRegister, SubmitHandler, FieldValues, useForm } from 'react-hook-form';
 
-interface FieldProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
+interface FormProps
+    extends Omit<React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>, 'onSubmit'> {
+    children: React.ReactNode;
+    onSubmit: SubmitHandler<FieldValues>;
+}
 
-const Field: React.FC<FieldProps> = ({ name, ...props }) => {
-    const { register } = useForm();
+const Form: React.FC<FormProps> = ({ children, onSubmit, ...props }) => {
+    const { handleSubmit } = useForm<FieldValues>();
 
-    return <input {...props} {...register(`${name}`)} />;
+    return (
+        <form onSubmit={handleSubmit(onSubmit)} {...props}>
+            {children}
+        </form>
+    );
 };
 
-export type { SubmitHandler, FormProps };
+export type { UseFormRegisterReturn, UseFormRegister, SubmitHandler, FieldValues };
 
-export { useForm, Field };
+export { useForm };
 
 export default Form;
