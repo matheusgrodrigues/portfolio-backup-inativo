@@ -12,7 +12,7 @@ interface DisplayStyledProps {
 
 const DisplayStyled = styled.h1<DisplayStyledProps>`
     ${(props) => {
-        if (props.$fontSize === 'fontSize_displayLg') {
+        if (props.$fontSize === 'lg') {
             return 'letter-spacing: -0.96px;';
         }
     }}
@@ -29,24 +29,24 @@ interface DisplayProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
 }
 
 const Display: React.FC<DisplayProps> = ({ children, variant, size, styledProps, ...props }) => {
-    const getFontWeight = useCallback((): FontWeightName => 'fontWeight_semibold', []);
+    const getFontWeight = useCallback((): FontWeightName => 'semibold', []);
 
     const getFontSize = useCallback((): FontSizeName => {
         if (size === 'sm') {
-            return 'fontSize_textSm';
+            return 'sm';
         } else if (size === 'lg') {
-            return 'fontSize_displayLg';
+            return 'lg';
         }
 
-        return 'fontSize_displayLg';
+        return 'lg';
     }, [size]);
 
     const getColor = useCallback((): ColorName => {
         if (variant === 'primary') {
-            return 'color_primary600';
+            return 'primary600';
         }
 
-        return 'color_gray900';
+        return 'gray900';
     }, []);
 
     const prepareStyledProps = useCallback(

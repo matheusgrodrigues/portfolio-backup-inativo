@@ -13,8 +13,7 @@ export interface ModalRef {
 }
 
 const Content = styled(Dialog.Content)`
-    background: ${({ theme }) =>
-        theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
+    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
     box-shadow:
         hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
         hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
@@ -69,7 +68,7 @@ const Modal: React.ForwardRefRenderFunction<ModalRef, DialogProps> = ({ children
                                 icon="close"
                                 width={32}
                                 height={32}
-                                color={`${theme.name === 'light' ? theme.ref.colors['color_gray900'] : theme.ref.colors['color_white']}`}
+                                color={`${theme.name === 'light' ? theme.ref.colors['gray900'] : theme.ref.colors['white']}`}
                             />
                         </Button>
                     </Header>

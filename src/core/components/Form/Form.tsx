@@ -1,6 +1,13 @@
 import React from 'react';
 
-import { UseFormRegisterReturn, UseFormRegister, SubmitHandler, FieldValues, useForm } from 'react-hook-form';
+import {
+    UseFormRegisterReturn,
+    UseFormRegister,
+    SubmitHandler,
+    FieldValues,
+    useForm,
+    FormProvider,
+} from 'react-hook-form';
 
 interface FormProps
     extends Omit<React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>, 'onSubmit'> {
@@ -8,13 +15,13 @@ interface FormProps
     onSubmit: SubmitHandler<FieldValues>;
 }
 
-const Form: React.FC<FormProps> = ({ children, onSubmit, ...props }) => {
-    const { handleSubmit } = useForm<FieldValues>();
+const Form: React.FC<FormProps> = ({ children, onSubmit }) => {
+    const methods = useForm<FieldValues>();
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} {...props}>
-            {children}
-        </form>
+        <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+        </FormProvider>
     );
 };
 

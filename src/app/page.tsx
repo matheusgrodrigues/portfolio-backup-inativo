@@ -30,7 +30,7 @@ const Container = styled.div`
     ${({ theme }) => screen('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
 
     background: ${({ theme }) =>
-        theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
+        theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900']};
 
     min-height: calc(100vh - 72px);
     display: flex;
@@ -58,7 +58,7 @@ const ActionButton = styled.div`
     justify-content: center;
     display: flex;
     margin: ${({ theme }) => theme.ref.spacing.spacing_32} 0;
-    gap: ${({ theme }) => theme.ref.spacing.spacing_16};
+    gap: ${({ theme }) => theme.ref.spacing.16px};
 `;
 
 const Home = () => {
@@ -122,7 +122,7 @@ const Home = () => {
 
                             <Display
                                 styledProps={{
-                                    $color: theme.themeName === 'light' ? 'color_gray900' : 'color_white',
+                                    $color: theme.themeName === 'light' ? 'gray900' : 'white',
                                 }}
                                 size="lg"
                             >
@@ -132,7 +132,7 @@ const Home = () => {
 
                         <Text
                             styledProps={{
-                                $color: theme.themeName === 'light' ? 'color_gray900' : 'color_white',
+                                $color: theme.themeName === 'light' ? 'gray900' : 'white',
                             }}
                         >
                             {description}
@@ -143,7 +143,7 @@ const Home = () => {
                         <Button
                             data-testid="button-downloadCV"
                             styledProps={{
-                                $color: theme.themeName === 'light' ? 'color_gray500' : 'color_white',
+                                $color: theme.themeName === 'light' ? 'color_gray500' : 'white',
                             }}
                             onClick={handleDownloadCV}
                             variant="link"

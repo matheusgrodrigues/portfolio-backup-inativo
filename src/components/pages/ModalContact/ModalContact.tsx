@@ -22,10 +22,9 @@ const Container = styled.div`
     padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
     padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
 
-    ${({ theme }) => screen('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
+    ${({ theme }) => screen('md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
 
-    background: ${({ theme }) =>
-        theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
+    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
 
     min-height: calc(100vh - 72px);
     display: flex;
@@ -80,7 +79,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     <div style={{ margin: `${theme.ref.spacing.spacing_12} 0 ${theme.ref.spacing.spacing_32} 0` }}>
                         <Display
                             styledProps={{
-                                $color: theme.name === 'light' ? 'color_gray900' : 'color_white',
+                                $color: theme.name === 'light' ? 'gray900' : 'white',
                             }}
                             size="lg"
                         >
@@ -90,7 +89,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
                     <Text
                         styledProps={{
-                            $color: theme.name === 'light' ? 'color_gray900' : 'color_white',
+                            $color: theme.name === 'light' ? 'gray900' : 'white',
                         }}
                     >
                         {description}

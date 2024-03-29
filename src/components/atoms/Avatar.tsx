@@ -15,13 +15,13 @@ const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRootProps>(() => ({
     as: 'span',
     'data-testid': 'a-avatar',
 }))`
-    background-color: ${({ theme }) => theme.ref.colors['color_gray500']};
+    background-color: ${({ theme }) => theme.ref.colors['gray500']};
     justify-content: center;
     vertical-align: middle;
     border-radius: 100%;
     align-items: center;
     user-select: none;
-    border: 4px solid ${({ theme }) => theme.ref.colors['color_white']};
+    border: 4px solid ${({ theme }) => theme.ref.colors['white']};
     overflow: hidden;
     display: inline-flex;
     height: ${({ $variant }) => ($variant === 'md' ? '92px' : '45px')};

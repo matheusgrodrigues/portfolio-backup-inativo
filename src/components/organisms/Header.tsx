@@ -8,8 +8,7 @@ import Icon from '../atoms/Icon';
 const HeaderStyled = styled.div`
     justify-content: end;
     align-items: end;
-    background: ${({ theme }) =>
-        theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
+    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
     padding: 0 ${({ theme }) => theme.ref.spacing.spacing_32};
     display: flex;
     height: 72px;
@@ -29,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ themeToggler }) => {
                 <Icon
                     height={32}
                     width={32}
-                    style={{ color: name === 'dark' ? ref.colors['color_white'] : ref.colors['color_gray900'] }}
+                    style={{ color: name === 'dark' ? ref.colors['white'] : ref.colors['gray900'] }}
                     icon="sun"
                 />
             </Button>
