@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle, useRef } from 'react';
+import React, { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
 
 import styled, { useTheme } from 'styled-components';
 
@@ -6,13 +6,14 @@ import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
+import Form, { Field } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
 import Text from '../../atoms/Text';
 
 import Footer from '../../organisms/Footer';
 
-const ModalContactContainer = styled.div`
+const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -34,13 +35,17 @@ const ModalContactContainer = styled.div`
     }
 `;
 
+const FormTitle = styled.div`
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+`;
+
 export interface ModalContactRef {
     setIsOpen: (state: boolean) => void;
 }
 
 const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<ModalContactRef>> = (props, ref) => {
-    const modalContactRef = useRef<ModalRef>(null);
-
     const theme = useTheme();
 
     const { t } = useTranslation();
@@ -50,6 +55,10 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         t('specific.modalContact.title'),
         t('specific.modalContact.description'),
     ];
+
+    const modalContactRef = useRef<ModalRef>(null);
+
+    const handleSubmit = useCallback(() => console.log('submit'), []);
 
     useImperativeHandle(
         ref,
@@ -61,32 +70,39 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
     return (
         <Modal ref={modalContactRef}>
-            <ModalContactContainer>
-                <Display variant="primary" size="sm">
-                    {tag}
-                </Display>
+            <Container>
+                <FormTitle>
+                    <Display variant="primary" size="sm">
+                        {tag}
+                    </Display>
 
-                <div style={{ margin: `${theme.ref.spacing.spacing_12} 0 ${theme.ref.spacing.spacing_32} 0` }}>
-                    <Display
+                    <div style={{ margin: `${theme.ref.spacing.spacing_12} 0 ${theme.ref.spacing.spacing_32} 0` }}>
+                        <Display
+                            styledProps={{
+                                $color: theme.name === 'light' ? 'color_gray900' : 'color_white',
+                            }}
+                            size="lg"
+                        >
+                            {title}
+                        </Display>
+                    </div>
+
+                    <Text
                         styledProps={{
                             $color: theme.name === 'light' ? 'color_gray900' : 'color_white',
                         }}
-                        size="lg"
                     >
-                        {title}
-                    </Display>
-                </div>
+                        {description}
+                    </Text>
+                </FormTitle>
 
-                <Text
-                    styledProps={{
-                        $color: theme.name === 'light' ? 'color_gray900' : 'color_white',
-                    }}
-                >
-                    {description}
-                </Text>
+                <Form onSubmit={handleSubmit} control={control}>
+                    <Field name="nome" />
+                    <button>submit</button>
+                </Form>
 
                 <Footer />
-            </ModalContactContainer>
+            </Container>
         </Modal>
     );
 };

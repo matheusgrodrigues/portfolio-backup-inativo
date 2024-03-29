@@ -22,7 +22,7 @@ const Content = styled(Dialog.Content)`
 
     animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
     position: fixed;
-    padding: 25px;
+    padding: ${({ theme }) => theme.ref.spacing.spacing_32};
     height: 100%;
     width: 100%;
     left: 50%;
