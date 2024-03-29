@@ -56,8 +56,8 @@ const BriefDescription = styled.div`
 const ActionButton = styled.div`
     justify-content: center;
     display: flex;
-    margin: ${({ theme }) => theme.ref.spacing.spacing_32} 0;
-    gap: ${({ theme }) => theme.ref.spacing.spacing_16};
+    margin: ${({ theme }) => theme.ref.spacing['spacing_32']} 0;
+    gap: ${({ theme }) => theme.ref.spacing['spacing_24']};
 `;
 
 const Home = () => {
@@ -146,7 +146,6 @@ const Home = () => {
                             }}
                             onClick={handleDownloadCV}
                             variant="link"
-                            size="md"
                         >
                             {buttonDownloadCV}
                         </Button>
