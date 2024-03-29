@@ -9,19 +9,17 @@ import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
 import Form, { FieldValues, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
+import Button from '../../atoms/Button';
 import Input from '../../atoms/Input';
 import Text from '../../atoms/Text';
 
 import Footer from '../../organisms/Footer';
-import Button from '../../atoms/Button';
 
 const Container = styled.div`
     justify-content: center;
     flex-direction: column;
-    align-items: center;
     padding-right: ${({ theme }) => theme.ref.spacing.spacing_20};
     padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
-    padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
 
     ${({ theme }) => screen('md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
 
