@@ -20,7 +20,7 @@
         "react": "latest",
         "react-dom": "latest",
         "react-hook-form": "^7.51.2",
-        "react-input-mask": "^2.0.4",
+        "react-number-format": "^5.3.4",
         "styled-components": "^6.0.8"
     },
     "devDependencies": {

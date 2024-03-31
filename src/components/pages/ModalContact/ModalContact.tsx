@@ -17,6 +17,7 @@ import CheckboxWithLabel from '../../molecules/CheckboxWithLabel';
 import InputWithLabel from '../../molecules/InputWithLabel';
 
 import Footer from '../../organisms/Footer';
+import InputMaskWithLabel from '../../molecules/InputMaskWithLabel';
 
 const Container = styled.div`
     justify-content: center;
@@ -142,7 +143,12 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                         <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
 
-                        <InputWithLabel maxLength={11} label={`${inputLabel_telefone}`} name={inputName_telefone} />
+                        <InputMaskWithLabel
+                            maxLength={11}
+                            type="telefone"
+                            label={`${inputLabel_telefone}`}
+                            name={inputName_telefone}
+                        />
 
                         <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
 

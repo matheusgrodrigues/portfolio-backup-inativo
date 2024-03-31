@@ -27,7 +27,7 @@ const InputMaskWithLabel: React.FC<InputMaskWithLabelProps> = ({ label, name, ..
                 {label}
             </Label>
 
-            <InputMask id={name} {...props} {...register(`${name}`)} ref={null} />
+            <InputMask id={name} {...props} {...register(`${name}`)} />
         </InputMaskWithLabelContainer>
     );
 };

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 
 import styled from 'styled-components';
 
-const InputStyled = styled.input`
+import { PatternFormat } from 'react-number-format';
+
+const InputMaskStyled = styled.input`
     background-color: ${(props) => props.theme.ref.colors['white']};
     border-radius: ${(props) => props.theme.ref.borderRadius.radius_8};
     font-weight: ${(props) => props.theme.ref.fontWeight['regular']};
@@ -16,10 +18,34 @@ const InputStyled = styled.input`
 `;
 
 export interface InputMaskProps
-    extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
+    extends Omit<
+        React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+        'defaultValue' | 'value' | 'type'
+    > {
+    defaultValue?: 'string' | 'number' | null | undefined;
+    value?: 'string' | 'number' | null | undefined;
+    type: 'telefone';
+}
 
-const InputMask: React.FC<InputMaskProps> = ({ name, ...props }) => (
-    <InputStyled {...props} data-testid={`input-${name}-testid`} />
-);
+const InputMask: React.ForwardRefRenderFunction<React.RefAttributes<object>, InputMaskProps> = (
+    { type, name, ...props },
+    ref
+) => {
+    useImperativeHandle(ref, () => ({}), []);
 
-export default InputMask;
+    return (
+        <>
+            {type === 'telefone' && (
+                <PatternFormat
+                    allowEmptyFormatting
+                    customInput={(props) => <InputMaskStyled name={name} {...props} />}
+                    format="+1 (###) #### ###"
+                    value={props.value}
+                    mask="_"
+                />
+            )}
+        </>
+    );
+};
+
+export default forwardRef(InputMask);

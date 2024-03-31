@@ -26,7 +26,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, name, ...props }
             <Label data-testid={`label-${name}-testid`} htmlFor={name}>
                 {label}
             </Label>
-            <Input id={name} {...props} {...register(`${name}`)} ref={null} />
+            <Input id={name} {...props} {...register(`${name}`)} />
         </InputWithLabelContainer>
     );
 };

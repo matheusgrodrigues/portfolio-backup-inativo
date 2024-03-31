@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 
 import styled from 'styled-components';
 
@@ -18,8 +18,13 @@ const InputStyled = styled.input`
 export interface InputProps
     extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
 
-const Input: React.FC<InputProps> = ({ name, ...props }) => (
-    <InputStyled {...props} data-testid={`input-${name}-testid`} />
-);
+const Input: React.ForwardRefRenderFunction<React.RefAttributes<HTMLInputElement>, InputProps> = (
+    { name, ...props },
+    ref
+) => {
+    useImperativeHandle(ref, () => ({}), []);
 
-export default Input;
+    return <InputStyled {...props} data-testid={`input-${name}-testid`} />;
+};
+
+export default forwardRef(Input);
