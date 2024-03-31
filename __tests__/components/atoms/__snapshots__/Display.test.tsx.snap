@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o Display corretamente Deve preservar a UI do componente 1`] = `
 <p
-  className="sc-beySPh fHzSsh"
+  className="sc-beySPh jSZPYW"
   data-testid="a-text"
 >
   A-Text

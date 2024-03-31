@@ -2,38 +2,22 @@
 
 import React, { useCallback, useContext, useRef } from 'react';
 
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
-import { darkTheme, themeLight, screen, lineHeight } from '../config/theme/theme';
+import { screen, lineHeight } from '../config/theme/theme';
 
-import { GlobalContext } from '../core/context/GlobalContext';
+import { UIContext } from '../core/context/UIContext';
 import useTranslation from '../core/hooks/useTranslation';
-import ThemeProvider from '../core/utils/theme-utils/theme-provider';
-import useDarkMode from '../core/hooks/useDarkMode';
-import Modal, { ModalRef } from '../core/components/Modal/Modal';
 
 import Display from '../components/atoms/Display';
-import Header from '../components/organisms/Header';
-import Footer from '../components/organisms/Footer';
 import Avatar from '../components/atoms/Avatar';
 import Button from '../components/atoms/Button';
 import Text from '../components/atoms/Text';
 
-interface ModalContactProps {
-    modalContactRef: React.RefObject<ModalRef>;
-}
+import Header from '../components/organisms/Header';
+import Footer from '../components/organisms/Footer';
 
-const ModalContact: React.FC<ModalContactProps> = ({ modalContactRef }) => {
-    const { toast } = useContext(GlobalContext);
-
-    return (
-        <Modal ref={modalContactRef}>
-            <h1>Layout aqui</h1>
-
-            <Button onClick={toast}>Show toast GlobalContext</Button>
-        </Modal>
-    );
-};
+import ModalContact, { ModalContactRef } from '../components/pages/ModalContact/ModalContact';
 
 const Container = styled.div`
     justify-content: center;
@@ -43,10 +27,9 @@ const Container = styled.div`
     padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
     padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
 
-    ${({ theme }) => screen('breakpoint_md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
+    ${({ theme }) => screen('md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
 
-    background: ${({ theme }) =>
-        theme.name === 'light' ? theme.ref.colors['color_white'] : theme.ref.colors['color_gray900']};
+    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
 
     min-height: calc(100vh - 72px);
     display: flex;
@@ -66,23 +49,36 @@ const BriefDescription = styled.div`
     gap: ${({ theme }) => theme.ref.spacing.spacing_32};
 
     & p {
-        line-height: ${({ theme }) => lineHeight(theme.ref.fontSize['fontSize_textXl'])};
+        line-height: ${({ theme }) => lineHeight(theme.ref.fontSize['lg'])};
     }
 `;
 
 const ActionButton = styled.div`
     justify-content: center;
     display: flex;
-    margin: ${({ theme }) => theme.ref.spacing.spacing_32} 0;
-    gap: ${({ theme }) => theme.ref.spacing.spacing_16};
+    margin: ${({ theme }) => theme.ref.spacing['spacing_32']} 0;
+    gap: ${({ theme }) => theme.ref.spacing['spacing_24']};
 `;
 
 const Home = () => {
-    const { themeToggler, theme } = useDarkMode();
+    const modalContactRef = useRef<ModalContactRef>(null);
+
+    const { themeToggler } = useContext(UIContext);
+
+    const theme = useTheme();
 
     const { t } = useTranslation();
 
-    const modalContactRef = useRef<ModalRef>(null);
+    const [displayDescription, displayName, description] = [
+        t('specific.home.brief_description.display_description'),
+        t('specific.home.brief_description.display_name'),
+        t('specific.home.brief_description.description'),
+    ];
+
+    const [buttonDownloadCV, buttonContact] = [
+        t('specific.home.brief_description.button_download_cv'),
+        t('specific.home.brief_description.button_contact'),
+    ];
 
     const handleSubmitContactForm = useCallback(() => modalContactRef.current?.setIsOpen(true), []);
 
@@ -102,36 +98,32 @@ const Home = () => {
         document.body.removeChild(link);
     }, []);
 
-    const [displayDescription, displayName, description] = [
-        t('specific.home.brief_description.display_description'),
-        t('specific.home.brief_description.display_name'),
-        t('specific.home.brief_description.description'),
-    ];
-
-    const [buttonDownloadCV, buttonContact] = [
-        t('specific.home.brief_description.button_download_cv'),
-        t('specific.home.brief_description.button_contact'),
-    ];
-
     return (
-        <ThemeProvider theme={theme === 'light' ? themeLight : darkTheme}>
+        <>
             <Header themeToggler={themeToggler} />
 
             <Container>
                 <BriefDescription>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            gap: theme.ref.spacing.spacing_32,
+                        }}
+                    >
                         <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
 
                         <div>
-                            <Display variant="primary" size="lg">
+                            <Display variant="primary" size="xl">
                                 {displayName}
                             </Display>
 
                             <Display
                                 styledProps={{
-                                    $color: theme === 'light' ? 'color_gray900' : 'color_white',
+                                    $color: theme.themeName === 'light' ? 'gray900' : 'white',
                                 }}
-                                size="lg"
+                                size="xl"
                             >
                                 {displayDescription}
                             </Display>
@@ -139,7 +131,7 @@ const Home = () => {
 
                         <Text
                             styledProps={{
-                                $color: theme === 'light' ? 'color_gray900' : 'color_white',
+                                $color: theme.themeName === 'light' ? 'gray900' : 'white',
                             }}
                         >
                             {description}
@@ -150,11 +142,10 @@ const Home = () => {
                         <Button
                             data-testid="button-downloadCV"
                             styledProps={{
-                                $color: theme === 'light' ? 'color_gray500' : 'color_white',
+                                $color: theme.themeName === 'light' ? 'gray500' : 'white',
                             }}
                             onClick={handleDownloadCV}
                             variant="link"
-                            size="md"
                         >
                             {buttonDownloadCV}
                         </Button>
@@ -173,8 +164,8 @@ const Home = () => {
                 <Footer />
             </Container>
 
-            <ModalContact modalContactRef={modalContactRef} />
-        </ThemeProvider>
+            <ModalContact ref={modalContactRef} />
+        </>
     );
 };
 

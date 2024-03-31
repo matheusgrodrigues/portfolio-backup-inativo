@@ -31,7 +31,7 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
     }
   >
     <button
-      className="sc-beySPh jJPwpb"
+      className="sc-beySPh khRjVQ"
       onClick={[Function]}
     >
       <svg
@@ -55,7 +55,7 @@ exports[`Deve renderizar o OFooter corretamente Deve preservar o visual do OHead
       </svg>
     </button>
     <button
-      className="sc-beySPh jJPwpb"
+      className="sc-beySPh khRjVQ"
       onClick={[Function]}
     >
       <svg

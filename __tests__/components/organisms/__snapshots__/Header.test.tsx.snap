@@ -5,7 +5,7 @@ exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visua
   className="sc-guDLey jXytko"
 >
   <button
-    className="sc-beySPh jJPwpb"
+    className="sc-beySPh khRjVQ"
     onClick={[MockFunction]}
   >
     <svg

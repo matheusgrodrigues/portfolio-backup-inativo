@@ -46,37 +46,37 @@ interface ButtonProps
 const Button: React.FC<ButtonProps> = ({ children, styledProps, variant, size, ...props }) => {
     const getBackground = useCallback((): ColorName => {
         if (variant === 'primary') {
-            return 'color_gradient_primary600';
+            return 'gradient_primary600';
         } else if (variant === 'link') {
-            return 'color_transparent';
+            return 'transparent';
         } else if (variant === 'default') {
-            return 'color_white';
+            return 'white';
+        } else if (variant == 'primary') {
+            return 'gradient_primary600';
         }
 
-        return 'color_white';
+        return 'white';
     }, [variant]);
 
-    const getFontWeight = useCallback(
-        (): FontWeightName => (size === 'md' ? 'fontWeight_semibold' : 'fontWeight_semibold'),
-        [size]
-    );
+    const getFontWeight = useCallback((): FontWeightName => (size === 'md' ? 'semibold' : 'semibold'), [size]);
+
     const getFontSize = useCallback((): FontSizeName => {
         if (size === 'md') {
-            return 'fontSize_textMd';
+            return 'md';
         }
 
-        return 'fontSize_textMd';
+        return 'md';
     }, [size]);
 
     const getSize = useCallback(
         (): { height: string; width: string } => ({
-            height: size === 'md' ? '42px' : 'auto',
+            height: size === 'md' ? '42px' : '48px',
             width: size === 'md' ? '172px' : 'auto',
         }),
         [size]
     );
 
-    const getColor = useCallback((): ColorName => (variant === 'primary' ? 'color_white' : 'color_gray500'), []);
+    const getColor = useCallback((): ColorName => (variant === 'primary' ? 'white' : 'gray500'), []);
 
     const prepareStyledProps = useCallback(
         (): ButtonStyledProps => ({

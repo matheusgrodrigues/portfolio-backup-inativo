@@ -12,7 +12,7 @@ interface TextStyledProps {
 
 const TextStyled = styled.p<TextStyledProps>`
     ${(props) => {
-        if (props.$fontSize === 'fontSize_displayLg') {
+        if (props.$fontSize === 'lg') {
             return `letter-spacing: -0.96px;`;
         }
     }};
@@ -29,16 +29,16 @@ interface TextProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLPar
 }
 
 const Text: React.FC<TextProps> = ({ styledProps, variant, children, ...props }) => {
-    const getFontWeight = useCallback((): FontWeightName => 'fontWeight_regular', []);
+    const getFontWeight = useCallback((): FontWeightName => 'regular', []);
 
-    const getFontSize = useCallback((): FontSizeName => 'fontSize_textXl', []);
+    const getFontSize = useCallback((): FontSizeName => 'lg', []);
 
     const getColor = useCallback((): ColorName => {
         if (variant === 'primary') {
-            return 'color_primary600';
+            return 'primary600';
         }
 
-        return 'color_gray900';
+        return 'gray900';
     }, [variant]);
 
     const prepareStyledProps = useCallback(

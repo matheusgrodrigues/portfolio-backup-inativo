@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o AText corretamente Deve preservar a estrutura visual do componente 1`] = `
 <p
-  className="sc-beySPh fHzSsh"
+  className="sc-beySPh jSZPYW"
   data-testid="a-text"
 >
   A-Text

@@ -1,48 +1,9 @@
 import { DefaultTheme } from 'styled-components/dist/types';
 
-const fontFamily = {
-    fontFamily_inter: 'Inter',
-};
-
-export type FontSizeName = 'fontSize_textSm' | 'fontSize_textMd' | 'fontSize_textXl' | 'fontSize_displayLg';
-
-const fontSize = {
-    fontSize_textSm: '14px',
-    fontSize_textMd: '16px',
-    fontSize_textXl: '20px',
-    fontSize_displayLg: '48px',
-};
-
-export type FontWeightName = 'fontWeight_semibold' | 'fontWeight_regular' | 'fontWeight_medium';
-
-const fontWeight = {
-    fontWeight_regular: '400',
-    fontWeight_medium: '500',
-    fontWeight_semibold: '600',
-};
-
-export type ColorName =
-    | 'color_gradient_primary600'
-    | 'color_primary500'
-    | 'color_primary600'
-    | 'color_gray500'
-    | 'color_gray900'
-    | 'color_gray50'
-    | 'color_white'
-    | 'color_black'
-    | 'color_transparent';
-
-const colors = {
-    color_gradient_primary600: `linear-gradient(90deg, #7f56d9 0%, #9e77ed 100%);`,
-    color_primary500: '#9e77ed',
-    color_primary600: '#7f56d9',
-    color_gray500: '#667085',
-    color_gray900: '#101828',
-    color_gray50: '#f9fafb',
-    color_white: '#ffffff',
-    color_black: '#000000',
-    color_transparent: 'transparent',
-};
+export type BorderRadiusName = '8px';
+export type FontWeightName = 'semibold' | 'regular' | 'medium';
+export type BreakpointName = 'sm' | 'md' | 'lg' | 'xl';
+export type FontSizeName = 'sm' | 'md' | 'lg' | 'xl';
 
 export type SpacingName =
     | 'spacing_4'
@@ -63,39 +24,90 @@ export type SpacingName =
     | 'spacing_224'
     | 'spacing_256';
 
-const spacing = {
-    spacing_4: '4px',
-    spacing_8: '8px',
-    spacing_12: '12px',
-    spacing_16: '16px',
-    spacing_20: '20px',
-    spacing_24: '24px',
-    spacing_32: '32px',
-    spacing_40: '40px',
-    spacing_48: '48px',
-    spacing_64: '64px',
-    spacing_80: '80px',
-    spacing_96: '96px',
-    spacing_128: '128px',
-    spacing_160: '160px',
-    spacing_192: '192px',
-    spacing_224: '224px',
-    spacing_256: '256px',
+export type ColorName =
+    | 'transparent'
+    | 'white'
+    | 'black'
+    | 'gray50'
+    | 'gray500'
+    | 'gray900'
+    | 'primary500'
+    | 'primary600'
+    | 'gradient_primary600';
+
+export type ThemeName = 'light' | 'dark';
+
+const ref = {
+    borderRadius: {
+        radius_6: '6px',
+        radius_8: '8px',
+    },
+    breakpoint: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+    },
+    fontFamily: {
+        inter: 'Inter',
+    },
+    fontWeight: {
+        regular: '400',
+        medium: '500',
+        semibold: '600',
+    },
+    fontSize: {
+        sm: '14px',
+        md: '16px',
+        lg: '20px',
+        xl: '48px',
+    },
+    spacing: {
+        spacing_4: '4px',
+        spacing_8: '8px',
+        spacing_12: '12px',
+        spacing_16: '16px',
+        spacing_20: '20px',
+        spacing_24: '24px',
+        spacing_32: '32px',
+        spacing_40: '40px',
+        spacing_48: '48px',
+        spacing_64: '64px',
+        spacing_80: '80px',
+        spacing_96: '96px',
+        spacing_128: '128px',
+        spacing_160: '160px',
+        spacing_192: '192px',
+        spacing_224: '224px',
+        spacing_256: '256px',
+    },
+    colors: {
+        transparent: 'transparent',
+        white: '#ffffff',
+        black: '#000000',
+        gray50: '#f9fafb',
+        gray500: '#667085',
+        gray900: '#101828',
+        primary500: '#9e77ed',
+        primary600: '#7f56d9',
+        gradient_primary600: `linear-gradient(90deg, #7f56d9 0%, #9e77ed 100%);`,
+    },
 };
 
-type BreakpointName = 'breakpoint_sm' | 'breakpoint_md' | 'breakpoint_lg' | 'breakpoint_xl';
-
-const breakpoint = {
-    breakpoint_sm: '640px',
-    breakpoint_md: '768px',
-    breakpoint_lg: '1024px',
-    breakpoint_xl: '1280px',
-};
-
-export const screen = (bp: BreakpointName, content: string) =>
-    `@media screen and (min-width: ${breakpoint[bp]}) {
-    ${content}
-  }`;
+declare module 'styled-components' {
+    export interface DefaultTheme {
+        name: ThemeName;
+        ref: {
+            borderRadius: typeof ref.borderRadius;
+            breakpoint: typeof ref.breakpoint;
+            fontFamily: typeof ref.fontFamily;
+            fontWeight: typeof ref.fontWeight;
+            fontSize: typeof ref.fontSize;
+            spacing: typeof ref.spacing;
+            colors: typeof ref.colors;
+        };
+    }
+}
 
 export const lineHeight = (px: string) => {
     const pxToNumber = Number(px.replace('px', ''));
@@ -103,30 +115,17 @@ export const lineHeight = (px: string) => {
     return `${pxToNumber * 1.5}px`;
 };
 
-export type ThemeName = 'light' | 'dark';
+export const screen = (bp: BreakpointName, content: string) =>
+    `@media screen and (min-width: ${ref.breakpoint[bp]}) {
+    ${content}
+  }`;
 
-type Theme = {
-    name: ThemeName;
-    ref: {
-        breakpoint: typeof breakpoint;
-        fontFamily: typeof fontFamily;
-        fontWeight: typeof fontWeight;
-        fontSize: typeof fontSize;
-        spacing: typeof spacing;
-        colors: typeof colors;
-    };
+export const themeLight: DefaultTheme = {
+    name: 'light',
+    ref,
 };
 
-declare module 'styled-components' {
-    export interface DefaultTheme extends Theme {}
-}
-
-export const themeLight = {
-    name: 'light',
-    ref: { breakpoint, fontFamily, fontWeight, fontSize, spacing, colors },
-} as DefaultTheme;
-
-export const darkTheme = {
+export const darkTheme: DefaultTheme = {
     name: 'dark',
-    ref: { breakpoint, fontFamily, fontWeight, fontSize, spacing, colors },
-} as DefaultTheme;
+    ref,
+};
