@@ -23,7 +23,9 @@ const TextareaWithLabel: React.FC<TextareaWithLabelProps> = ({ label, name, ...p
 
     return (
         <TextareaWithLabelContainer>
-            <Label htmlFor={name}>{label}</Label>
+            <Label data-testid={`label-${name}-testid`} htmlFor={name}>
+                {label}
+            </Label>
             <Textarea id={name} {...props} {...register(`${name}`)} ref={null} />
         </TextareaWithLabelContainer>
     );

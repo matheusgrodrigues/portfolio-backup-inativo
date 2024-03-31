@@ -18,6 +18,8 @@ const TextareaStyled = styled.textarea`
 export interface TextareaProps
     extends React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {}
 
-const Textarea: React.FC<TextareaProps> = ({ ...props }) => <TextareaStyled {...props} />;
+const Textarea: React.FC<TextareaProps> = ({ name, ...props }) => (
+    <TextareaStyled {...props} data-testid={`input-${name}-testid`} />
+);
 
 export default Textarea;

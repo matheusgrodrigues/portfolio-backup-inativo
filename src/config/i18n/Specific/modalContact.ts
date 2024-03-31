@@ -1,8 +1,31 @@
 const i18n_modalContact = {
     modalContact: {
-        tag: 'Contato',
-        title: 'Entrar em Contato',
-        description: 'Entrarei em contato com você ainda hoje!',
+        inputLabel: {
+            receber_informacoes:
+                'Gostaria de estar atualizado sobre os próximos projetos e receber informações a respeito.',
+            telefone: 'Telefone',
+            mensagem: 'Mensagem',
+            email: 'E-mail',
+            nome: 'Nome',
+        },
+
+        inputName: {
+            receber_informacoes: 'receber_informacoes',
+            telefone: 'telefone',
+            mensagem: 'mensagem',
+            email: 'email',
+            nome: 'nome',
+        },
+
+        button: {
+            enviar_mensagem: 'Enviar mensagem',
+        },
+
+        title: {
+            description: 'Entrarei em contato com você ainda hoje!',
+            contato: 'Entrar em Contato',
+            tag: 'Contato',
+        },
     },
 };
 

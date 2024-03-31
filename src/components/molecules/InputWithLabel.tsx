@@ -23,7 +23,9 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, name, ...props }
 
     return (
         <InputWithLabelContainer>
-            <Label htmlFor={name}>{label}</Label>
+            <Label data-testid={`label-${name}-testid`} htmlFor={name}>
+                {label}
+            </Label>
             <Input id={name} {...props} {...register(`${name}`)} ref={null} />
         </InputWithLabelContainer>
     );

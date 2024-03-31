@@ -2,9 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-interface InputStyledProps {}
-
-const InputStyled = styled.input<InputStyledProps>`
+const InputStyled = styled.input`
     background-color: ${(props) => props.theme.ref.colors['white']};
     border-radius: ${(props) => props.theme.ref.borderRadius.radius_8};
     font-weight: ${(props) => props.theme.ref.fontWeight['regular']};
@@ -20,6 +18,8 @@ const InputStyled = styled.input<InputStyledProps>`
 export interface InputProps
     extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
 
-const Input: React.FC<InputProps> = ({ ...props }) => <InputStyled {...props} />;
+const Input: React.FC<InputProps> = ({ name, ...props }) => (
+    <InputStyled {...props} data-testid={`input-${name}-testid`} />
+);
 
 export default Input;

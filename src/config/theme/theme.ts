@@ -39,6 +39,7 @@ export type ThemeName = 'light' | 'dark';
 
 const ref = {
     borderRadius: {
+        radius_6: '6px',
         radius_8: '8px',
     },
     breakpoint: {

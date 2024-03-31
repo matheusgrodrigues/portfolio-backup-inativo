@@ -12,10 +12,11 @@ import Display from '../../atoms/Display';
 import Button from '../../atoms/Button';
 import Text from '../../atoms/Text';
 
+import TextareaWithLabel from '../../molecules/TextareaWithLabel';
+import CheckboxWithLabel from '../../molecules/CheckboxWithLabel';
 import InputWithLabel from '../../molecules/InputWithLabel';
 
 import Footer from '../../organisms/Footer';
-import TextareaWithLabel from '../../molecules/TextareaWithLabel';
 
 const Container = styled.div`
     justify-content: center;
@@ -37,10 +38,10 @@ const Container = styled.div`
 `;
 
 const FormTitle = styled.div`
+    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
     text-align: center;
     max-width: 480px;
     margin: 0 auto;
-    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
     width: 100%;
 `;
 
@@ -51,6 +52,10 @@ const FormContainer = styled.div`
     margin: 0 auto;
     width: 100%;
     gap: ${(props) => props.theme.ref.spacing['spacing_24']};
+
+    & > button {
+        margin-top: ${(props) => props.theme.ref.spacing['spacing_8']};
+    }
 `;
 
 export interface ModalContactRef {
@@ -60,15 +65,39 @@ export interface ModalContactRef {
 const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<ModalContactRef>> = (props, ref) => {
     const theme = useTheme();
 
+    const modalContactRef = useRef<ModalRef>(null);
+
     const { t } = useTranslation();
 
-    const [tag, title, description] = [
-        t('specific.modalContact.tag'),
-        t('specific.modalContact.title'),
-        t('specific.modalContact.description'),
+    const [description, title, tag] = [
+        t('specific.modalContact.title.description'),
+        t('specific.modalContact.title.contato'),
+        t('specific.modalContact.title.tag'),
     ];
 
-    const modalContactRef = useRef<ModalRef>(null);
+    const [
+        inputLabel_receber_informacoes,
+        inputLabel_telefone,
+        inputLabel_mensagem,
+        inputLabel_email,
+        inputLabel_nome,
+    ] = [
+        t('specific.modalContact.inputLabel.receber_informacoes'),
+        t('specific.modalContact.inputLabel.telefone'),
+        t('specific.modalContact.inputLabel.mensagem'),
+        t('specific.modalContact.inputLabel.email'),
+        t('specific.modalContact.inputLabel.nome'),
+    ];
+
+    const [inputName_receber_informacoes, inputName_telefone, inputName_mensagem, inputName_email, inputName_nome] = [
+        t('specific.modalContact.inputName.receber_informacoes'),
+        t('specific.modalContact.inputName.telefone'),
+        t('specific.modalContact.inputName.mensagem'),
+        t('specific.modalContact.inputName.email'),
+        t('specific.modalContact.inputName.nome'),
+    ];
+
+    const [btn_enviar_mensagem] = [t('specific.modalContact.button.enviar_mensagem')];
 
     const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => console.log('submit', data), []);
 
@@ -110,14 +139,18 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
                 <Form onSubmit={onSubmit}>
                     <FormContainer>
-                        <InputWithLabel label="nome" name="nome" maxLength={100} />
-                        <InputWithLabel label="email" name="email" maxLength={100} />
-                        <InputWithLabel label="telefone" name="telefone" maxLength={11} />
-                        <TextareaWithLabel label="mensagem" name="mensagem" maxLength={100} />
+                        <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
+                        <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
+                        <InputWithLabel maxLength={11} label={`${inputLabel_telefone}`} name={inputName_telefone} />
 
-                        <p>checkbox</p>
+                        <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
 
-                        <Button variant="primary">Enviar mensagem</Button>
+                        <CheckboxWithLabel
+                            label={`${inputLabel_receber_informacoes}`}
+                            name={inputName_receber_informacoes}
+                        />
+
+                        <Button variant="primary">{btn_enviar_mensagem}</Button>
                     </FormContainer>
                 </Form>
 
