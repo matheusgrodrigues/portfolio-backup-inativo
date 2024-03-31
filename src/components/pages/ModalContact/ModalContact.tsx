@@ -117,7 +117,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
                         <p>checkbox</p>
 
-                        <Button>Enviar mensagem</Button>
+                        <Button variant="primary">Enviar mensagem</Button>
                     </FormContainer>
                 </Form>
 

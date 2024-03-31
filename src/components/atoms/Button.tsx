@@ -51,12 +51,15 @@ const Button: React.FC<ButtonProps> = ({ children, styledProps, variant, size, .
             return 'transparent';
         } else if (variant === 'default') {
             return 'white';
+        } else if (variant == 'primary') {
+            return 'gradient_primary600';
         }
 
         return 'white';
     }, [variant]);
 
     const getFontWeight = useCallback((): FontWeightName => (size === 'md' ? 'semibold' : 'semibold'), [size]);
+
     const getFontSize = useCallback((): FontSizeName => {
         if (size === 'md') {
             return 'md';
@@ -67,7 +70,7 @@ const Button: React.FC<ButtonProps> = ({ children, styledProps, variant, size, .
 
     const getSize = useCallback(
         (): { height: string; width: string } => ({
-            height: size === 'md' ? '42px' : 'auto',
+            height: size === 'md' ? '42px' : '48px',
             width: size === 'md' ? '172px' : 'auto',
         }),
         [size]
