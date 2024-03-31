@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { useFormContext } from 'react-hook-form';
 import styled from 'styled-components';
 
 interface InputStyledProps {}
@@ -18,13 +17,9 @@ const InputStyled = styled.input<InputStyledProps>`
     color: ${(props) => props.theme.ref.colors['gray500']};
 `;
 
-interface InputProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
+export interface InputProps
+    extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
 
-// TODO: isolar o register em um component Field, para separar UI da regra de negocio.
-const Input: React.FC<InputProps> = ({ name, ...props }) => {
-    const { register } = useFormContext();
-
-    return <InputStyled {...props} {...register(`${name}`)} />;
-};
+const Input: React.FC<InputProps> = ({ ...props }) => <InputStyled {...props} />;
 
 export default Input;

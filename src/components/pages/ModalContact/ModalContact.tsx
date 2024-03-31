@@ -10,8 +10,9 @@ import Form, { FieldValues, SubmitHandler } from '@/src/core/components/Form/For
 
 import Display from '../../atoms/Display';
 import Button from '../../atoms/Button';
-import Input from '../../atoms/Input';
 import Text from '../../atoms/Text';
+
+import InputWithLabel from '../../molecules/InputWithLabel';
 
 import Footer from '../../organisms/Footer';
 
@@ -108,10 +109,10 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
                 <Form onSubmit={onSubmit}>
                     <FormContainer>
-                        <Input name="nome" />
-                        <Input name="email" />
-                        <Input name="telefone" />
-                        <Input name="mensagem" />
+                        <InputWithLabel label="nome" name="nome" maxLength={100} />
+                        <InputWithLabel label="email" name="email" maxLength={100} />
+                        <InputWithLabel label="telefone" name="telefone" maxLength={11} />
+                        <InputWithLabel label="mensagem" name="mensagem" maxLength={100} />
 
                         <p>checkbox</p>
 

@@ -3,10 +3,11 @@ import React from 'react';
 import {
     UseFormRegisterReturn,
     UseFormRegister,
+    useFormContext,
     SubmitHandler,
+    FormProvider,
     FieldValues,
     useForm,
-    FormProvider,
 } from 'react-hook-form';
 
 interface FormProps
@@ -29,6 +30,6 @@ const Form: React.FC<FormProps> = ({ children, onSubmit }) => {
 
 export type { UseFormRegisterReturn, UseFormRegister, SubmitHandler, FieldValues };
 
-export { useForm };
+export { useFormContext, useForm };
 
 export default Form;
