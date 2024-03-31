@@ -141,6 +141,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     <FormContainer>
                         <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
+
                         <InputWithLabel maxLength={11} label={`${inputLabel_telefone}`} name={inputName_telefone} />
 
                         <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
