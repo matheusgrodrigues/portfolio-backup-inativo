@@ -26,8 +26,6 @@ interface CheckboxWithLabelProps extends CheckboxProps {
 const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ label, name, ...props }) => {
     const { register } = useFormContext();
 
-    //   const checkboxRef = useRef<HTMLButtonElement>(null);
-
     return (
         <CheckboxWithLabelContainer>
             <Checkbox id={name} {...props} {...register(`${name}`)} />
