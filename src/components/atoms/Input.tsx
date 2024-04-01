@@ -24,7 +24,7 @@ const Input: React.ForwardRefRenderFunction<React.RefAttributes<HTMLInputElement
 ) => {
     useImperativeHandle(ref, () => ({}), []);
 
-    return <InputStyled {...props} data-testid={`input-${name}-testid`} />;
+    return <InputStyled data-testid={`input-${name}-testid`} {...props} />;
 };
 
 export default forwardRef(Input);

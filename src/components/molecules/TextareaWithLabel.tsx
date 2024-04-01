@@ -2,8 +2,6 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { useFormContext } from '@/src/core/components/Form/Form';
-
 import Label from '../atoms/Label';
 import Textarea, { TextareaProps } from '../atoms/Textarea';
 
@@ -19,14 +17,12 @@ interface TextareaWithLabelProps extends TextareaProps {
 
 // TODO: criar um componente para o register, para separar UI das regras de negócio.
 const TextareaWithLabel: React.FC<TextareaWithLabelProps> = ({ label, name, ...props }) => {
-    const { register } = useFormContext();
-
     return (
         <TextareaWithLabelContainer>
             <Label data-testid={`label-${name}-testid`} htmlFor={name}>
                 {label}
             </Label>
-            <Textarea id={name} {...props} {...register(`${name}`)} ref={null} />
+            <Textarea id={name} {...props} ref={null} />
         </TextareaWithLabelContainer>
     );
 };

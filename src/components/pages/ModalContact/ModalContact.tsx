@@ -6,18 +6,19 @@ import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { FieldValues, SubmitHandler } from '@/src/core/components/Form/Form';
+import Form, { SubmitHandler, FieldValues } from '@/src/core/components/Form/Form';
+import Field from '@/src/core/components/Field/Field';
 
 import Display from '../../atoms/Display';
 import Button from '../../atoms/Button';
 import Text from '../../atoms/Text';
 
+import InputMaskWithLabel from '../../molecules/InputMaskWithLabel';
 import TextareaWithLabel from '../../molecules/TextareaWithLabel';
 import CheckboxWithLabel from '../../molecules/CheckboxWithLabel';
 import InputWithLabel from '../../molecules/InputWithLabel';
 
 import Footer from '../../organisms/Footer';
-import InputMaskWithLabel from '../../molecules/InputMaskWithLabel';
 
 const Container = styled.div`
     justify-content: center;
@@ -44,19 +45,6 @@ const FormTitle = styled.div`
     max-width: 480px;
     margin: 0 auto;
     width: 100%;
-`;
-
-const FormContainer = styled.div`
-    flex-direction: column;
-    max-width: 480px;
-    display: flex;
-    margin: 0 auto;
-    width: 100%;
-    gap: ${(props) => props.theme.ref.spacing['spacing_24']};
-
-    & > button {
-        margin-top: ${(props) => props.theme.ref.spacing['spacing_8']};
-    }
 `;
 
 export interface ModalContactRef {
@@ -100,7 +88,9 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
     const [btn_enviar_mensagem] = [t('specific.modalContact.button.enviar_mensagem')];
 
-    const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => console.log('submit', data), []);
+    const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => {
+        console.log('submit', data);
+    }, []);
 
     useImperativeHandle(
         ref,
@@ -138,27 +128,43 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form onSubmit={onSubmit}>
-                    <FormContainer>
-                        <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
-                        <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
+                <Form
+                    onSubmit={onSubmit}
+                    style={{
+                        width: '100%',
+                        maxWidth: '480px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        margin: '0 auto',
+                        gap: theme.ref.spacing['spacing_24'],
+                    }}
+                >
+                    <Field
+                        name={inputName_nome}
+                        render={(props, register) => (
+                            <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} {...props} {...register} />
+                        )}
+                    />
 
-                        <InputMaskWithLabel
-                            maxLength={11}
-                            type="telefone"
-                            label={`${inputLabel_telefone}`}
-                            name={inputName_telefone}
-                        />
+                    <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
 
-                        <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
+                    <InputMaskWithLabel
+                        maxLength={11}
+                        type="telefone"
+                        label={`${inputLabel_telefone}`}
+                        name={inputName_telefone}
+                    />
 
-                        <CheckboxWithLabel
-                            label={`${inputLabel_receber_informacoes}`}
-                            name={inputName_receber_informacoes}
-                        />
+                    <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
 
-                        <Button variant="primary">{btn_enviar_mensagem}</Button>
-                    </FormContainer>
+                    <CheckboxWithLabel
+                        label={`${inputLabel_receber_informacoes}`}
+                        name={inputName_receber_informacoes}
+                    />
+
+                    <Button variant="primary" style={{ marginTop: theme.ref.spacing['spacing_8'] }}>
+                        {btn_enviar_mensagem}
+                    </Button>
                 </Form>
 
                 <Footer />
