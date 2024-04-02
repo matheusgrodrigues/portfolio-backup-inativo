@@ -6,7 +6,7 @@ import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { FieldValues, SubmitHandler, useForm } from '@/src/core/components/Form/Form';
+import Form, { FieldValues, FormRef, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
 import Button from '../../atoms/Button';
@@ -66,13 +66,6 @@ export interface ModalContactRef {
 const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<ModalContactRef>> = (props, ref) => {
     const theme = useTheme();
 
-    const methods = useForm<{
-        nome: string;
-        email: string;
-    }>();
-
-    const { handleSubmit } = methods;
-
     const modalContactRef = useRef<ModalRef>(null);
 
     const { t } = useTranslation();
@@ -119,6 +112,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         []
     );
 
+    const formRef = useRef<FormRef>(null);
     return (
         <Modal ref={modalContactRef}>
             <Container>
@@ -147,9 +141,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form onSubmit={onSubmit}>
-                    <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
-
+                <Form onSubmit={onSubmit} ref={formRef}>
                     <FormContainer>
                         <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
@@ -168,7 +160,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             name={inputName_receber_informacoes}
                         />
 
-                        <Button onClick={handleSubmit(onSubmit)} variant="primary">
+                        <Button type="submit" variant="primary">
                             {btn_enviar_mensagem}
                         </Button>
                     </FormContainer>

@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 
 import {
     UseFormRegisterReturn,
     UseFormRegister,
     useFormContext,
+    UseFormReturn,
+    useController,
     SubmitHandler,
+    FormProvider,
     FieldValues,
     useForm,
-    FormProvider,
-    useController,
 } from 'react-hook-form';
+
+export interface FormRef extends UseFormReturn<FieldValues, any, undefined> {}
 
 interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
     children: React.ReactNode;
     onSubmit: SubmitHandler<FieldValues>;
 }
 
-export const Form: React.FC<FormProps> = ({ children, onSubmit, ...props }) => {
+const Form: React.ForwardRefRenderFunction<FormRef, FormProps> = ({ onSubmit, children, ...props }, ref) => {
     const methods = useForm<FieldValues>();
+
+    useImperativeHandle(ref, () => ({ ...methods }), []);
 
     return (
         <FormProvider {...methods}>
@@ -32,4 +37,4 @@ export type { UseFormRegisterReturn, UseFormRegister, SubmitHandler, FieldValues
 
 export { useFormContext, useForm, useController };
 
-export default Form;
+export default forwardRef(Form);
