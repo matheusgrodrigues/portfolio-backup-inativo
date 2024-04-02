@@ -18,6 +18,7 @@ import CheckboxWithLabel from '../../molecules/CheckboxWithLabel';
 import InputWithLabel from '../../molecules/InputWithLabel';
 
 import Footer from '../../organisms/Footer';
+import formModalContactRules from './Rules';
 
 const Container = styled.div`
     justify-content: center;
@@ -141,7 +142,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form onSubmit={onSubmit} ref={formRef}>
+                <Form validationSchema={formModalContactRules} onSubmit={onSubmit} ref={formRef}>
                     <FormContainer>
                         <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />

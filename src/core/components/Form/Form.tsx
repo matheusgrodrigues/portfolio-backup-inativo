@@ -1,5 +1,9 @@
 import React, { forwardRef, useImperativeHandle } from 'react';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import * as yup from 'yup';
+
 import {
     UseFormRegisterReturn,
     UseFormRegister,
@@ -16,12 +20,18 @@ import {
 export interface FormRef extends UseFormReturn<FieldValues, any, undefined> {}
 
 interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
+    validationSchema: yup.ObjectSchema<{ [key: string]: any }>;
     children: React.ReactNode;
     onSubmit: SubmitHandler<FieldValues>;
 }
 
-const Form: React.ForwardRefRenderFunction<FormRef, FormProps> = ({ onSubmit, children, ...props }, ref) => {
-    const methods = useForm<FieldValues>();
+const Form: React.ForwardRefRenderFunction<FormRef, FormProps> = (
+    { validationSchema, onSubmit, children, ...props },
+    ref
+) => {
+    const methods = useForm<FieldValues>({
+        resolver: yupResolver(validationSchema),
+    });
 
     useImperativeHandle(ref, () => ({ ...methods }), []);
 

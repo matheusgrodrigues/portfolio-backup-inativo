@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Field from '@/src/core/components/Field/Field';
+import Field from '@/src/core/components/Form/Field';
 
 import Label from '../atoms/Label';
 import Textarea, { TextareaProps } from '../atoms/Textarea';

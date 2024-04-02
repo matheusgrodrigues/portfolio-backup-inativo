@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import Field from '@/src/core/components/Field/Field';
+import Field from '@/src/core/components/Form/Field';
 
 import Label from '../atoms/Label';
 import Input, { InputProps } from '../atoms/Input';
@@ -24,7 +24,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, name }) => {
                 {label}
             </Label>
 
-            <Field name={`${name}`} render={<Input />} />
+            <Field name={`${name}`} render={<Input ref={null} />} />
         </InputWithLabelContainer>
     );
 };
