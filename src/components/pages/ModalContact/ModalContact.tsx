@@ -6,8 +6,7 @@ import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { SubmitHandler, FieldValues } from '@/src/core/components/Form/Form';
-import Field from '@/src/core/components/Field/Field';
+import Form, { FieldValues, SubmitHandler, useForm } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
 import Button from '../../atoms/Button';
@@ -47,12 +46,32 @@ const FormTitle = styled.div`
     width: 100%;
 `;
 
+const FormContainer = styled.div`
+    flex-direction: column;
+    max-width: 480px;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    gap: ${(props) => props.theme.ref.spacing['spacing_24']};
+
+    & > button {
+        margin-top: ${(props) => props.theme.ref.spacing['spacing_8']};
+    }
+`;
+
 export interface ModalContactRef {
     setIsOpen: (state: boolean) => void;
 }
 
 const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<ModalContactRef>> = (props, ref) => {
     const theme = useTheme();
+
+    const methods = useForm<{
+        nome: string;
+        email: string;
+    }>();
+
+    const { handleSubmit } = methods;
 
     const modalContactRef = useRef<ModalRef>(null);
 
@@ -128,43 +147,31 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form
-                    onSubmit={onSubmit}
-                    style={{
-                        width: '100%',
-                        maxWidth: '480px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        margin: '0 auto',
-                        gap: theme.ref.spacing['spacing_24'],
-                    }}
-                >
-                    <Field
-                        name={inputName_nome}
-                        render={(props, register) => (
-                            <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} {...props} {...register} />
-                        )}
-                    />
+                <Form onSubmit={onSubmit}>
+                    <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
 
-                    <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
+                    <FormContainer>
+                        <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
+                        <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
 
-                    <InputMaskWithLabel
-                        maxLength={11}
-                        type="telefone"
-                        label={`${inputLabel_telefone}`}
-                        name={inputName_telefone}
-                    />
+                        <InputMaskWithLabel
+                            maxLength={11}
+                            type="telefone"
+                            label={`${inputLabel_telefone}`}
+                            name={inputName_telefone}
+                        />
 
-                    <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
+                        <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
 
-                    <CheckboxWithLabel
-                        label={`${inputLabel_receber_informacoes}`}
-                        name={inputName_receber_informacoes}
-                    />
+                        <CheckboxWithLabel
+                            label={`${inputLabel_receber_informacoes}`}
+                            name={inputName_receber_informacoes}
+                        />
 
-                    <Button variant="primary" style={{ marginTop: theme.ref.spacing['spacing_8'] }}>
-                        {btn_enviar_mensagem}
-                    </Button>
+                        <Button onClick={handleSubmit(onSubmit)} variant="primary">
+                            {btn_enviar_mensagem}
+                        </Button>
+                    </FormContainer>
                 </Form>
 
                 <Footer />

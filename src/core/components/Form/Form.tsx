@@ -7,6 +7,8 @@ import {
     SubmitHandler,
     FieldValues,
     useForm,
+    FormProvider,
+    useController,
 } from 'react-hook-form';
 
 interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
@@ -15,29 +17,19 @@ interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTM
 }
 
 export const Form: React.FC<FormProps> = ({ children, onSubmit, ...props }) => {
-    const { handleSubmit, register } = useForm<FieldValues>();
+    const methods = useForm<FieldValues>();
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} {...props}>
-            {Array.isArray(children)
-                ? children.map((child) => {
-                      return child.props.name
-                          ? React.createElement(child.type, {
-                                ...{
-                                    ...child.props,
-                                    register,
-                                    key: child.props.name,
-                                },
-                            })
-                          : child;
-                  })
-                : children}
-        </form>
+        <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit)} {...props}>
+                {children}
+            </form>
+        </FormProvider>
     );
 };
 
 export type { UseFormRegisterReturn, UseFormRegister, SubmitHandler, FieldValues };
 
-export { useFormContext, useForm };
+export { useFormContext, useForm, useController };
 
 export default Form;
