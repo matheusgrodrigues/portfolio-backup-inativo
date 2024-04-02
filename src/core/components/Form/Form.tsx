@@ -9,6 +9,7 @@ import {
     SubmitHandler,
     FormProvider,
     FieldValues,
+    Controller,
     useForm,
 } from 'react-hook-form';
 
@@ -35,6 +36,6 @@ const Form: React.ForwardRefRenderFunction<FormRef, FormProps> = ({ onSubmit, ch
 
 export type { UseFormRegisterReturn, UseFormRegister, SubmitHandler, FieldValues };
 
-export { useFormContext, useForm, useController };
+export { useFormContext, useForm, useController, Controller };
 
 export default forwardRef(Form);

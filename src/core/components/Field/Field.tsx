@@ -1,16 +1,23 @@
 import React from 'react';
 
-import { UseFormRegisterReturn, UseFormRegister, FieldValues } from '@/src/core/components/Form/Form';
+import { Controller, useFormContext } from '@/src/core/components/Form/Form';
 
-interface FieldProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-    register?: UseFormRegister<FieldValues>;
-    render: (
-        inputProps: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-        data: UseFormRegisterReturn
-    ) => React.ReactElement;
+interface FieldProps {
+    render: React.ReactElement;
+    name: string;
+    id?: string;
 }
 
-export const Field: React.FC<FieldProps> = ({ render, register, ...props }) => {
-    return render(props, register!(`${props.name}`));
+export const Field: React.FC<FieldProps> = ({ name, render, id }) => {
+    const { control } = useFormContext();
+
+    return (
+        <Controller
+            defaultValue={''}
+            control={control}
+            render={({ field }) => React.cloneElement(render, { ...field, id: id ?? name })}
+            name={name}
+        />
+    );
 };
 export default Field;

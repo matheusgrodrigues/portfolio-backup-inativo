@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { useForm } from '@/src/core/components/Form/Form';
+import Field from '@/src/core/components/Field/Field';
 
 import Label from '../atoms/Label';
 import Checkbox, { CheckboxProps } from '../atoms/Checkbox';
@@ -22,13 +22,11 @@ interface CheckboxWithLabelProps extends CheckboxProps {
     label: string;
 }
 
-// TODO: criar um componente para o register, para separar UI das regras de negócio.
-const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ label, name, ...props }) => {
-    const { register } = useForm();
-
+const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ label, name }) => {
     return (
         <CheckboxWithLabelContainer>
-            <Checkbox id={name} {...props} {...register(`${name}`)} />
+            <Field name={`${name}`} render={<Checkbox />} />
+
             <Label data-testid={`label-${name}-testid`} htmlFor={name}>
                 {label}
             </Label>

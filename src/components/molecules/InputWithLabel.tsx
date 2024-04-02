@@ -2,9 +2,10 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import Field from '@/src/core/components/Field/Field';
+
 import Label from '../atoms/Label';
 import Input, { InputProps } from '../atoms/Input';
-import { Controller, useFormContext } from 'react-hook-form';
 
 const InputWithLabelContainer = styled.div`
     display: flex;
@@ -16,21 +17,14 @@ interface InputWithLabelProps extends InputProps {
     label: string;
 }
 
-// TODO: criar um componente para o register, para separar UI das regras de negócio.
 const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, name }) => {
-    const { control } = useFormContext();
-
     return (
         <InputWithLabelContainer>
             <Label data-testid={`label-${name}-testid`} htmlFor={name}>
                 {label}
             </Label>
-            <Controller
-                defaultValue={''}
-                control={control}
-                name={`${name}`}
-                render={({ field }) => <Input id={name} {...field} />}
-            />
+
+            <Field name={`${name}`} render={<Input />} />
         </InputWithLabelContainer>
     );
 };

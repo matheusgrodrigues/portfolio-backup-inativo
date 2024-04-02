@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 
 import styled from 'styled-components';
 
@@ -18,8 +18,10 @@ const TextareaStyled = styled.textarea`
 export interface TextareaProps
     extends React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {}
 
-const Textarea: React.FC<TextareaProps> = ({ name, ...props }) => (
-    <TextareaStyled {...props} data-testid={`input-${name}-testid`} />
-);
+const Textarea: React.ForwardRefRenderFunction<object, TextareaProps> = ({ name, ...props }, ref) => {
+    useImperativeHandle(ref, () => ({}), []);
 
-export default Textarea;
+    return <TextareaStyled {...props} data-testid={`input-${name}-testid`} />;
+};
+
+export default forwardRef(Textarea);
