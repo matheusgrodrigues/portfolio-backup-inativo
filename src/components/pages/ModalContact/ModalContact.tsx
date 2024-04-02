@@ -6,18 +6,19 @@ import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { FieldValues, SubmitHandler } from '@/src/core/components/Form/Form';
+import Form, { FieldValues, FormRef, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
 import Button from '../../atoms/Button';
 import Text from '../../atoms/Text';
 
+import InputMaskWithLabel from '../../molecules/InputMaskWithLabel';
 import TextareaWithLabel from '../../molecules/TextareaWithLabel';
 import CheckboxWithLabel from '../../molecules/CheckboxWithLabel';
 import InputWithLabel from '../../molecules/InputWithLabel';
 
 import Footer from '../../organisms/Footer';
-import InputMaskWithLabel from '../../molecules/InputMaskWithLabel';
+import formModalContactRules from './Rules';
 
 const Container = styled.div`
     justify-content: center;
@@ -100,7 +101,9 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
     const [btn_enviar_mensagem] = [t('specific.modalContact.button.enviar_mensagem')];
 
-    const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => console.log('submit', data), []);
+    const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => {
+        console.log('submit', data);
+    }, []);
 
     useImperativeHandle(
         ref,
@@ -110,6 +113,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         []
     );
 
+    const formRef = useRef<FormRef>(null);
     return (
         <Modal ref={modalContactRef}>
             <Container>
@@ -138,7 +142,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form onSubmit={onSubmit}>
+                <Form validationSchema={formModalContactRules} onSubmit={onSubmit} ref={formRef}>
                     <FormContainer>
                         <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
@@ -157,7 +161,9 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             name={inputName_receber_informacoes}
                         />
 
-                        <Button variant="primary">{btn_enviar_mensagem}</Button>
+                        <Button type="submit" variant="primary">
+                            {btn_enviar_mensagem}
+                        </Button>
                     </FormContainer>
                 </Form>
 

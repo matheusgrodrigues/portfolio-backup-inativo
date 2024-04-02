@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { useFormContext } from '@/src/core/components/Form/Form';
+import Field from '@/src/core/components/Form/Field';
 
 import Label from '../atoms/Label';
 import InputMask, { InputMaskProps } from '../atoms/InputMask';
@@ -17,17 +17,14 @@ interface InputMaskWithLabelProps extends InputMaskProps {
     label: string;
 }
 
-// TODO: criar um componente para o register, para separar UI das regras de negócio.
 const InputMaskWithLabel: React.FC<InputMaskWithLabelProps> = ({ label, name, ...props }) => {
-    const { register } = useFormContext();
-
     return (
         <InputMaskWithLabelContainer>
             <Label data-testid={`label-${name}-testid`} htmlFor={name}>
                 {label}
             </Label>
 
-            <InputMask id={name} {...props} {...register(`${name}`)} />
+            <Field name={`${name}`} render={<InputMask type="telefone" ref={null} />} {...props} />
         </InputMaskWithLabelContainer>
     );
 };
