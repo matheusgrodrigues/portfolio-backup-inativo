@@ -1,7 +1,18 @@
 import React from 'react';
 
-import { Controller, useFormContext } from '@/src/core/components/Form/Form';
+import styled from 'styled-components';
+
 import { ErrorMessage } from '@hookform/error-message';
+
+import { Controller, useFormContext } from '@/src/core/components/Form/Form';
+
+const LabelError = styled.p`
+    color: red;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+`;
 
 interface FieldProps {
     render: React.ReactElement;
@@ -28,7 +39,7 @@ export const Field: React.FC<FieldProps> = ({ name, render, id }) => {
                             <ErrorMessage
                                 errors={formState.errors}
                                 name={name}
-                                render={({ message }) => <p style={{ color: 'red' }}>{message}</p>}
+                                render={({ message }) => <LabelError>{message}</LabelError>}
                             />
                         )}
                     </>

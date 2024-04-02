@@ -1,12 +1,14 @@
 import * as yup from 'yup';
 
-import i18n_validationFields from '@/src/config/i18n/Errors/Fields';
+yup.setLocale({ ...i18n_validationFields });
+
+import i18n_validationFields from '@/src/config/i18n/Validation/Fields';
 
 const formModalContactRules = yup.object({
-    nome: yup.string().required(i18n_validationFields.required['nome']),
-    email: yup.string().required(i18n_validationFields.required['email']),
-    telefone: yup.string().required(i18n_validationFields.required['telefone']),
-    mensagem: yup.string().required(i18n_validationFields.required['mensagem']),
+    nome: yup.string().required(),
+    email: yup.string().required(),
+    // telefone: yup.string().required(),
+    mensagem: yup.string().required(),
 });
 
 export default formModalContactRules;
