@@ -21,7 +21,7 @@ export interface TextareaProps
 const Textarea: React.ForwardRefRenderFunction<object, TextareaProps> = ({ name, ...props }, ref) => {
     useImperativeHandle(ref, () => ({}), []);
 
-    return <TextareaStyled {...props} data-testid={`input-${name}-testid`} />;
+    return <TextareaStyled data-testid={`input-${name}`} {...props} />;
 };
 
 export default forwardRef(Textarea);

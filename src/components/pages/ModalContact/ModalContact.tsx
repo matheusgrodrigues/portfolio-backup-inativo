@@ -78,29 +78,35 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         t('specific.modalContact.title.tag'),
     ];
 
-    const [
-        inputLabel_receber_informacoes,
-        inputLabel_telefone,
-        inputLabel_mensagem,
-        inputLabel_email,
-        inputLabel_nome,
-    ] = [
-        t('specific.modalContact.inputLabel.receber_informacoes'),
-        t('specific.modalContact.inputLabel.telefone'),
-        t('specific.modalContact.inputLabel.mensagem'),
-        t('specific.modalContact.inputLabel.email'),
+    const [inputLabel_nome, inputName_nome] = [
         t('specific.modalContact.inputLabel.nome'),
-    ];
-
-    const [inputName_receber_informacoes, inputName_telefone, inputName_mensagem, inputName_email, inputName_nome] = [
-        t('specific.modalContact.inputName.receber_informacoes'),
-        t('specific.modalContact.inputName.telefone'),
-        t('specific.modalContact.inputName.mensagem'),
-        t('specific.modalContact.inputName.email'),
         t('specific.modalContact.inputName.nome'),
     ];
 
-    const [btn_enviar_mensagem] = [t('specific.modalContact.button.enviar_mensagem')];
+    const [inputLabel_email, inputName_email] = [
+        t('specific.modalContact.inputLabel.email'),
+        t('specific.modalContact.inputName.email'),
+    ];
+
+    const [inputLabel_telefone, inputName_telefone] = [
+        t('specific.modalContact.inputLabel.telefone'),
+        t('specific.modalContact.inputName.telefone'),
+    ];
+
+    const [inputLabel_mensagem, inputName_mensagem] = [
+        t('specific.modalContact.inputLabel.mensagem'),
+        t('specific.modalContact.inputName.mensagem'),
+    ];
+
+    const [inputLabel_receber_informacoes, inputName_receber_informacoes] = [
+        t('specific.modalContact.inputLabel.receber_informacoes'),
+        t('specific.modalContact.inputName.receber_informacoes'),
+    ];
+
+    const [button_submit, inputTestID_buttonSubmit] = [
+        t('specific.modalContact.button.button_submit'),
+        t('specific.modalContact.inputTestID.buttonSubmit'),
+    ];
 
     const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => {
         console.log('submit', data);
@@ -145,12 +151,13 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                 <Form validationSchema={formModalContactRules} onSubmit={onSubmit}>
                     <FormContainer>
                         <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
+
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
 
                         <InputMaskWithLabel
-                            mask={'(99) 99999-9999'}
                             label={`${inputLabel_telefone}`}
                             name={inputName_telefone}
+                            mask={'(99) 99999-9999'}
                         />
 
                         <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
@@ -160,8 +167,8 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             name={inputName_receber_informacoes}
                         />
 
-                        <Button type="submit" variant="primary">
-                            {btn_enviar_mensagem}
+                        <Button data-testid={inputTestID_buttonSubmit} type="submit" variant="primary">
+                            {button_submit}
                         </Button>
                     </FormContainer>
                 </Form>

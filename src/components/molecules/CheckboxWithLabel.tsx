@@ -27,7 +27,7 @@ const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ label, name }) =>
         <CheckboxWithLabelContainer>
             <Field name={`${name}`} type="checkbox" render={<Checkbox />} />
 
-            <Label data-testid={`label-${name}-testid`} htmlFor={name}>
+            <Label data-testid={`label-${name}`} htmlFor={name}>
                 {label}
             </Label>
         </CheckboxWithLabelContainer>

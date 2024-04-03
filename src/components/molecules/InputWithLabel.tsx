@@ -17,14 +17,14 @@ interface InputWithLabelProps extends InputProps {
     label: string;
 }
 
-const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, name }) => {
+const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, name, ...props }) => {
     return (
         <InputWithLabelContainer>
-            <Label data-testid={`label-${name}-testid`} htmlFor={name}>
+            <Label data-testid={`label-${name}`} htmlFor={name}>
                 {label}
             </Label>
 
-            <Field name={`${name}`} render={<Input ref={null} />} />
+            <Field name={`${name}`} render={<Input {...props} ref={null} />} />
         </InputWithLabelContainer>
     );
 };
