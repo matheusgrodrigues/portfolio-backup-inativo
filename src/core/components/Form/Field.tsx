@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
+
+import styled from 'styled-components';
+
+import { ErrorMessage } from '@hookform/error-message';
 
 import { Controller, useFormContext } from '@/src/core/components/Form/Form';
-import { ErrorMessage } from '@hookform/error-message';
+
+const LabelError = styled.p`
+    margin-top: ${(props) => props.theme.ref.spacing['spacing_4']};
+    font-size: ${(props) => props.theme.ref.fontSize['sm']};
+    color: red;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+`;
 
 interface FieldProps {
     render: React.ReactElement;
     name: string;
+    type?: HTMLInputTypeAttribute;
     id?: string;
 }
 
-export const Field: React.FC<FieldProps> = ({ name, render, id }) => {
+export const Field: React.FC<FieldProps> = ({ render, name, type, id }) => {
     const { control, formState } = useFormContext();
 
     return (
@@ -17,10 +31,15 @@ export const Field: React.FC<FieldProps> = ({ name, render, id }) => {
             defaultValue={''}
             control={control}
             render={({ field }) => {
+                const props =
+                    type === 'checkbox'
+                        ? { ...field, ref: null, checked: field.value, onCheckedChange: field.onChange }
+                        : { ...field, ref: null };
+
                 return (
                     <>
                         {React.cloneElement(render, {
-                            ...{ ...field, ref: null },
+                            ...props,
                             id: id ?? name,
                         })}
 
@@ -28,7 +47,7 @@ export const Field: React.FC<FieldProps> = ({ name, render, id }) => {
                             <ErrorMessage
                                 errors={formState.errors}
                                 name={name}
-                                render={({ message }) => <p style={{ color: 'red' }}>{message}</p>}
+                                render={({ message }) => <LabelError>{message}</LabelError>}
                             />
                         )}
                     </>
