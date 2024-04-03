@@ -20,7 +20,7 @@ interface InputMaskWithLabelProps extends InputCustomMaskProps {
 const InputMaskWithLabel: React.FC<InputMaskWithLabelProps> = ({ mask, label, name, ...props }) => {
     return (
         <InputMaskWithLabelContainer>
-            <Label data-testid={`label-${name}-testid`} htmlFor={name}>
+            <Label data-testid={`label-${name}`} htmlFor={name}>
                 {label}
             </Label>
 

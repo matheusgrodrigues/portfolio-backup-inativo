@@ -2,7 +2,7 @@
 
 exports[`Deve renderizar o OHeader corretamente Deve preservar a estrutura visual do OHeader 1`] = `
 <div
-  className="sc-guDLey jXytko"
+  className="sc-guDLey eDPdiN"
 >
   <button
     className="sc-beySPh khRjVQ"

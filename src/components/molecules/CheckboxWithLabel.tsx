@@ -22,12 +22,12 @@ interface CheckboxWithLabelProps extends CheckboxProps {
     label: string;
 }
 
-const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ label, name }) => {
+const CheckboxWithLabel: React.FC<CheckboxWithLabelProps> = ({ label, name, ...props }) => {
     return (
         <CheckboxWithLabelContainer>
-            <Field name={`${name}`} type="checkbox" render={<Checkbox />} />
+            <Field name={`${name}`} type="checkbox" render={<Checkbox {...props} />} />
 
-            <Label data-testid={`label-${name}-testid`} htmlFor={name}>
+            <Label data-testid={`label-${name}`} htmlFor={name}>
                 {label}
             </Label>
         </CheckboxWithLabelContainer>

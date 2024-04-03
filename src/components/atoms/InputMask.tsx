@@ -25,7 +25,7 @@ const InputCustomMask: React.ForwardRefRenderFunction<React.RefAttributes<object
 ) => {
     useImperativeHandle(ref, () => ({}), []);
 
-    return <InputMaskStyled mask={mask} type={type} name={name} {...props} />;
+    return <InputMaskStyled data-testid={`input-${name}`} mask={mask} type={type} name={name} {...props} />;
 };
 
 export default forwardRef(InputCustomMask);

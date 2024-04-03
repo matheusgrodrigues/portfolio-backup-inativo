@@ -33,7 +33,7 @@ const Checkbox: React.ForwardRefRenderFunction<React.RefAttributes<HTMLInputElem
     useImperativeHandle(ref, () => ({}), []);
 
     return (
-        <CheckboxRoot {...props}>
+        <CheckboxRoot data-testid={`input-${props.name}`} {...props}>
             <CheckboxIndicator>
                 <Icon icon="check" width={23} height={23} />
             </CheckboxIndicator>

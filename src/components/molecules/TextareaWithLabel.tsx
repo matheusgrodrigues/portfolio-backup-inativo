@@ -20,7 +20,7 @@ interface TextareaWithLabelProps extends TextareaProps {
 const TextareaWithLabel: React.FC<TextareaWithLabelProps> = ({ label, name, ...props }) => {
     return (
         <TextareaWithLabelContainer>
-            <Label data-testid={`label-${name}-testid`} htmlFor={name}>
+            <Label data-testid={`label-${name}`} htmlFor={name}>
                 {label}
             </Label>
 
