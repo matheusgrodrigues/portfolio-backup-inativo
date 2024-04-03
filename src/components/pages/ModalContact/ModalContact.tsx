@@ -148,8 +148,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
 
                         <InputMaskWithLabel
-                            maxLength={11}
-                            type="telefone"
+                            mask={'(99) 99999-9999'}
                             label={`${inputLabel_telefone}`}
                             name={inputName_telefone}
                         />
