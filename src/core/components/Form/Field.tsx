@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 
 import styled from 'styled-components';
 
@@ -17,10 +17,11 @@ const LabelError = styled.p`
 interface FieldProps {
     render: React.ReactElement;
     name: string;
+    type?: HTMLInputTypeAttribute;
     id?: string;
 }
 
-export const Field: React.FC<FieldProps> = ({ name, render, id }) => {
+export const Field: React.FC<FieldProps> = ({ render, name, type, id }) => {
     const { control, formState } = useFormContext();
 
     return (
@@ -28,10 +29,15 @@ export const Field: React.FC<FieldProps> = ({ name, render, id }) => {
             defaultValue={''}
             control={control}
             render={({ field }) => {
+                const props =
+                    type === 'checkbox'
+                        ? { ...field, ref: null, checked: field.value, onCheckedChange: field.onChange }
+                        : { ...field, ref: null };
+
                 return (
                     <>
                         {React.cloneElement(render, {
-                            ...{ ...field, ref: null },
+                            ...props,
                             id: id ?? name,
                         })}
 
