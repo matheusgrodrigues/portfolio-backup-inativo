@@ -26,8 +26,6 @@ const Content = styled(Dialog.Content)`
     animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
     position: fixed;
 
-    ${({ theme }) => screen('md', `padding: ${theme.ref.spacing.spacing_32};`)}
-
     height: 100%;
     width: 100%;
     left: 50%;
@@ -52,7 +50,7 @@ const Header = styled.header`
 
     padding: ${(props) => props.theme.ref.spacing.spacing_32};
 
-    ${() => screen('md', `padding: 0;`)}
+    ${({ theme }) => screen('md', `padding: ${theme.ref.spacing.spacing_24};`)}
 `;
 
 const Modal: React.ForwardRefRenderFunction<ModalRef, DialogProps> = ({ children }, ref) => {

@@ -6,7 +6,7 @@ import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { FieldValues, FormRef, SubmitHandler } from '@/src/core/components/Form/Form';
+import Form, { FieldValues, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
 import Button from '../../atoms/Button';
@@ -18,6 +18,7 @@ import CheckboxWithLabel from '../../molecules/CheckboxWithLabel';
 import InputWithLabel from '../../molecules/InputWithLabel';
 
 import Footer from '../../organisms/Footer';
+
 import formModalContactRules from './Rules';
 
 const Container = styled.div`
@@ -40,10 +41,10 @@ const Container = styled.div`
 `;
 
 const FormTitle = styled.div`
-    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
     text-align: center;
     max-width: 480px;
     margin: 0 auto;
+    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
     width: 100%;
 `;
 
@@ -113,7 +114,6 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         []
     );
 
-    const formRef = useRef<FormRef>(null);
     return (
         <Modal ref={modalContactRef}>
             <Container>
@@ -142,7 +142,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form validationSchema={formModalContactRules} onSubmit={onSubmit} ref={formRef}>
+                <Form validationSchema={formModalContactRules} onSubmit={onSubmit}>
                     <FormContainer>
                         <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
@@ -166,7 +166,11 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </FormContainer>
                 </Form>
 
-                <Footer />
+                <Footer
+                    style={{
+                        marginTop: theme.ref.spacing['spacing_96'],
+                    }}
+                />
             </Container>
         </Modal>
     );
