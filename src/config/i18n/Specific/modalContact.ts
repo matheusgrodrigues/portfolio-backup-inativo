@@ -18,11 +18,6 @@ const i18n_modalContact = {
         },
 
         inputTestID: {
-            receber_informacoes: 'receber_informacoes-testid',
-            telefone: 'telefone-testid',
-            mensagem: 'mensagem-testid',
-            email: 'email-testid',
-            nome: 'nome-testid',
             buttonSubmit: 'button-submit-testid',
         },
 
