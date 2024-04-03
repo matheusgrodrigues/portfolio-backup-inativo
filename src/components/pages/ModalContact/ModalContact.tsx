@@ -6,7 +6,7 @@ import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { FieldValues, FormRef, SubmitHandler } from '@/src/core/components/Form/Form';
+import Form, { FieldValues, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
 import Button from '../../atoms/Button';
@@ -114,7 +114,6 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         []
     );
 
-    const formRef = useRef<FormRef>(null);
     return (
         <Modal ref={modalContactRef}>
             <Container>
@@ -143,7 +142,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </Text>
                 </FormTitle>
 
-                <Form validationSchema={formModalContactRules} onSubmit={onSubmit} ref={formRef}>
+                <Form validationSchema={formModalContactRules} onSubmit={onSubmit}>
                     <FormContainer>
                         <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
                         <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />

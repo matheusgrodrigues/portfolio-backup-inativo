@@ -5,29 +5,29 @@ import { useCallback, useEffect, useState } from 'react';
 import { ThemeName } from '@/src/config/theme/theme';
 
 const useDarkMode = () => {
-    const [theme, setTheme] = useState<ThemeName>('dark');
+    const [themeName, setThemeName] = useState<ThemeName>('dark');
 
     const setMode = useCallback((mode: ThemeName) => {
         window.sessionStorage.setItem('theme', mode);
 
-        setTheme(mode);
+        setThemeName(mode);
     }, []);
 
     const themeToggler = useCallback(() => {
-        if (theme === 'light') {
+        if (themeName === 'light') {
             setMode('dark');
         } else {
             setMode('light');
         }
-    }, [theme]);
+    }, [themeName]);
 
     useEffect(() => {
         const localTheme = window.sessionStorage.getItem('theme');
 
-        localTheme && setTheme((localTheme as ThemeName) ?? 'dark');
+        localTheme && setThemeName((localTheme as ThemeName) ?? 'dark');
     }, []);
 
-    return { themeToggler, theme };
+    return { themeToggler, themeName };
 };
 
 export default useDarkMode;

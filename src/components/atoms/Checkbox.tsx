@@ -35,7 +35,7 @@ const Checkbox: React.ForwardRefRenderFunction<React.RefAttributes<HTMLInputElem
     return (
         <CheckboxRoot {...props}>
             <CheckboxIndicator>
-                <Icon icon="check" />
+                <Icon icon="check" width={23} height={23} />
             </CheckboxIndicator>
         </CheckboxRoot>
     );

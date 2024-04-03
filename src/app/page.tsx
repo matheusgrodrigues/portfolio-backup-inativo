@@ -61,11 +61,11 @@ const ActionButton = styled.div`
 `;
 
 const Home = () => {
-    const modalContactRef = useRef<ModalContactRef>(null);
-
-    const { themeToggler } = useContext(UIContext);
-
     const theme = useTheme();
+
+    const { themeToggler, themeName } = useContext(UIContext);
+
+    const modalContactRef = useRef<ModalContactRef>(null);
 
     const { t } = useTranslation();
 
@@ -109,7 +109,7 @@ const Home = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            gap: theme.ref.spacing.spacing_32,
+                            gap: theme.ref.spacing['spacing_32'],
                         }}
                     >
                         <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
@@ -121,7 +121,7 @@ const Home = () => {
 
                             <Display
                                 styledProps={{
-                                    $color: theme.themeName === 'light' ? 'gray900' : 'white',
+                                    $color: themeName === 'light' ? 'gray900' : 'white',
                                 }}
                                 size="xl"
                             >
@@ -131,7 +131,7 @@ const Home = () => {
 
                         <Text
                             styledProps={{
-                                $color: theme.themeName === 'light' ? 'gray900' : 'white',
+                                $color: themeName === 'light' ? 'gray900' : 'white',
                             }}
                         >
                             {description}
@@ -142,7 +142,7 @@ const Home = () => {
                         <Button
                             data-testid="button-downloadCV"
                             styledProps={{
-                                $color: theme.themeName === 'light' ? 'gray500' : 'white',
+                                $color: themeName === 'light' ? 'gray500' : 'white',
                             }}
                             onClick={handleDownloadCV}
                             variant="link"
