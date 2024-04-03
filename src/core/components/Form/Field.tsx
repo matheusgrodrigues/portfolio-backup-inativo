@@ -34,7 +34,7 @@ export const Field: React.FC<FieldProps> = ({ render, name, type, id }) => {
                 const props =
                     type === 'checkbox'
                         ? { ...field, ref: null, checked: field.value, onCheckedChange: field.onChange }
-                        : { ...field, ref: null };
+                        : { ...field, ref: null, onChange: field.onChange };
 
                 return (
                     <>
