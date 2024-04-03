@@ -32,31 +32,45 @@ describe('Deve renderizar o formulario de contato corretamente', () => {
         fireEvent.click(screen.getByTestId('button-contact'));
     });
 
-    it('Deve carregar o campo nome', () => {
-        const field = screen.getByTestId('input-nome');
+    it('Deve carregar o label e o campo nome', () => {
+        const [label, field] = [screen.getByTestId('label-nome'), screen.getByTestId('input-nome')];
 
+        expect(label).toBeInTheDocument();
         expect(field).toBeInTheDocument();
     });
 
-    it('Deve carregar o campo email', () => {
-        const field = screen.getByTestId('input-email');
+    it('Deve carregar o label e o campo email', () => {
+        const [label, field] = [screen.getByTestId('label-email'), screen.getByTestId('input-email')];
 
+        expect(label).toBeInTheDocument();
         expect(field).toBeInTheDocument();
     });
 
-    it('Deve carregar o campo telefone', () => {
-        const field = screen.getByTestId('input-telefone');
+    it('Deve carregar o label e o campo telefone', () => {
+        const [label, field] = [screen.getByTestId('label-telefone'), screen.getByTestId('input-telefone')];
 
+        expect(label).toBeInTheDocument();
         expect(field).toBeInTheDocument();
     });
 
-    it('Deve carregar o campo mensagem', () => {
-        const field = screen.getByTestId('input-mensagem');
+    it('Deve carregar o label e o campo mensagem', () => {
+        const [label, field] = [screen.getByTestId('label-mensagem'), screen.getByTestId('input-mensagem')];
 
+        expect(label).toBeInTheDocument();
         expect(field).toBeInTheDocument();
     });
 
-    it('Deve carregar o botão submit', () => {
+    it('Deve carregar o label e o campo receber informações', () => {
+        const [label, field] = [
+            screen.getByTestId('label-receber_informacoes'),
+            screen.getByTestId('input-receber_informacoes'),
+        ];
+
+        expect(label).toBeInTheDocument();
+        expect(field).toBeInTheDocument();
+    });
+
+    it('Deve carregar o label e o botão submit', () => {
         const field = screen.getByTestId('button-submit-testid');
 
         expect(field).toBeInTheDocument();
