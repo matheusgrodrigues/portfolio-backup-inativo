@@ -18,6 +18,7 @@ import CheckboxWithLabel from '../../molecules/CheckboxWithLabel';
 import InputWithLabel from '../../molecules/InputWithLabel';
 
 import Footer from '../../organisms/Footer';
+
 import formModalContactRules from './Rules';
 
 const Container = styled.div`
@@ -40,10 +41,10 @@ const Container = styled.div`
 `;
 
 const FormTitle = styled.div`
-    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
     text-align: center;
     max-width: 480px;
     margin: 0 auto;
+    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
     width: 100%;
 `;
 
@@ -166,7 +167,11 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                     </FormContainer>
                 </Form>
 
-                <Footer />
+                <Footer
+                    style={{
+                        marginTop: theme.ref.spacing['spacing_96'],
+                    }}
+                />
             </Container>
         </Modal>
     );
