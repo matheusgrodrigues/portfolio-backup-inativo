@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 yup.setLocale({ ...i18n_validationFields });
 
-import i18n_validationFields from '@/src/config/i18n/Validation/Fields';
+import i18n_validationFields from '@/src/config/i18n/Validation/fields';
 
 const formModalContactRules = yup.object({
     nome: yup.string().required(),
