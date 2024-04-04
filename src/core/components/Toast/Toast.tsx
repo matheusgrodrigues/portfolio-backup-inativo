@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle } from 'react';
+import React, { forwardRef, useImperativeHandle, useMemo } from 'react';
 
 import styled from 'styled-components';
 
@@ -6,8 +6,9 @@ import * as RadixToast from '@radix-ui/react-toast';
 
 import { lineHeight, screen } from '@/src/config/theme/theme';
 
+import Icon from '@/src/components/atoms/Icon';
+
 const ToastRoot = styled(RadixToast.Root)`
-    background-color: ${({ theme }) => theme.ref.colors['white']};
     border-radius: ${({ theme }) => theme.ref.borderRadius['radius_6']};
     box-shadow:
         hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
@@ -68,14 +69,15 @@ const ToastRoot = styled(RadixToast.Root)`
 const ToastTitle = styled(RadixToast.Title)`
     margin-bottom: ${({ theme }) => theme.ref.spacing['spacing_8']};
     font-weight: ${({ theme }) => theme.ref.fontWeight['semibold']};
-    color: ${({ theme }) => theme.ref.colors['gray900']};
     font-size: ${({ theme }) => theme.ref.fontSize['md']};
+    display: flex;
+    align-items: center;
+    gap: ${({ theme }) => theme.ref.spacing['spacing_8']};
 `;
 
 const ToastDescription = styled(RadixToast.Description)`
     margin: 0;
 
-    color: ${({ theme }) => theme.ref.colors['gray900']};
     font-size: ${({ theme }) => theme.ref.fontSize['sm']};
     line-height: ${({ theme }) => lineHeight(`${theme.ref.fontSize['sm']}`)};
 `;
@@ -100,25 +102,50 @@ const ToastViewport = styled(RadixToast.ToastViewport)`
     outline: none;
 `;
 
-export interface ToastRef {
-    show: (content: { title: string; description: string }) => void;
-}
+type ToastType = 'success' | 'error' | 'primary';
 
-type ToastContent = {
+interface ToastContent {
+    type: ToastType;
     title: string;
     description: string;
-};
+}
+
+export interface ToastRef {
+    show: (content: ToastContent) => void;
+}
 
 const Toast: React.ForwardRefRenderFunction<ToastRef, object> = (props, ref) => {
     const [open, setOpen] = React.useState(false);
-    const [content, setContent] = React.useState<ToastContent>({ title: '', description: '' });
+    const [content, setContent] = React.useState<ToastContent>({ type: 'success', title: '', description: '' });
+
+    const cssProperties: React.CSSProperties = useMemo(
+        () => ({
+            backgroundColor:
+                content.type === 'success'
+                    ? 'rgb(237, 247, 237)'
+                    : content.type === 'error'
+                      ? 'rgb(253, 237, 237)'
+                      : content.type === 'primary'
+                        ? 'rgb(229, 246, 253)'
+                        : '',
+            color:
+                content.type === 'success'
+                    ? 'rgb(30, 70, 32)'
+                    : content.type === 'error'
+                      ? 'rgb(95, 33, 32)'
+                      : content.type === 'primary'
+                        ? 'rgb(1, 67, 97)'
+                        : '',
+        }),
+        [content]
+    );
 
     useImperativeHandle(
         ref,
         () => ({
-            show: ({ title, description }) => {
+            show: ({ type, title, description }) => {
                 setOpen(true);
-                setContent({ title, description });
+                setContent({ type, title, description });
             },
         }),
         []
@@ -126,8 +153,14 @@ const Toast: React.ForwardRefRenderFunction<ToastRef, object> = (props, ref) => 
 
     return (
         <RadixToast.Provider swipeDirection="down" duration={3000}>
-            <ToastRoot open={open} onOpenChange={setOpen}>
-                <ToastTitle>{content.title}</ToastTitle>
+            <ToastRoot open={open} onOpenChange={setOpen} style={cssProperties}>
+                <ToastTitle style={cssProperties}>
+                    {content.type === 'primary' && <Icon icon="info-circled-icon" />}
+                    {content.type === 'success' && <Icon icon="check-circled-icon" />}
+                    {content.type === 'error' && <Icon icon="cross-circled-icon" />}
+
+                    {content.title}
+                </ToastTitle>
                 <ToastDescription asChild>
                     <>{content.description}</>
                 </ToastDescription>

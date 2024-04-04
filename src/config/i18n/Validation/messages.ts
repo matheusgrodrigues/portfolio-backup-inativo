@@ -5,7 +5,8 @@ const i18n_messages = {
             error: 'Erro',
         },
         message: {
-            send_success: 'Mensagem enviada com sucesso !',
+            success: 'Mensagem enviada com sucesso !',
+            error: 'Ocorreu um erro ao enviar a mensagem.',
         },
     },
 };
