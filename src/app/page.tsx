@@ -104,7 +104,7 @@ const Home = () => {
                 onClick={() =>
                     toast.current?.show({
                         title: `${t('validation.messages.title.success')}`,
-                        description: `${t('validation.messages.message.send_success')}`,
+                        description: `${t('validation.messages.message.send_success')} ${t('validation.messages.message.send_success')}${t('validation.messages.message.send_success')}${t('validation.messages.message.send_success')}${t('validation.messages.message.send_success')}${t('validation.messages.message.send_success')}${t('validation.messages.message.send_success')}${t('validation.messages.message.send_success')}${t('validation.messages.message.send_success')}`,
                     })
                 }
             >

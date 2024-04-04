@@ -4,29 +4,28 @@ import styled from 'styled-components';
 
 import * as RadixToast from '@radix-ui/react-toast';
 
+import { lineHeight } from '@/src/config/theme/theme';
+
 const ToastRoot = styled(RadixToast.Root)`
-    background-color: white;
-    border-radius: 6px;
+    background-color: ${({ theme }) => theme.ref.colors['white']};
+    border-radius: ${({ theme }) => theme.ref.borderRadius['radius_6']};
     box-shadow:
         hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
         hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
-    padding: 15px;
-    display: grid;
-    grid-template-areas: 'title action' 'description action';
-    grid-template-columns: auto max-content;
-    column-gap: 15px;
-    align-items: center;
+    padding: ${({ theme }) => theme.ref.spacing['spacing_16']};
+    display: flex;
+    flex-direction: column;
 
     &[data-state='open'] {
         animation: slideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     &[data-state='closed'] {
-        animation: hide 100ms ease-in;
+        animation: swipeOut 100ms ease-out;
     }
 
     &[data-swipe='move'] {
-        transform: translateX(var(--radix-toast-swipe-move-x));
+        transform: translateX(${({ theme }) => theme.ref.spacing['spacing_32']});
     }
 
     &[data-swipe='cancel'] {
@@ -49,7 +48,7 @@ const ToastRoot = styled(RadixToast.Root)`
 
     @keyframes slideIn {
         from {
-            transform: translateX(calc(100% + var(--viewport-padding)));
+            transform: translateX(calc(100% + ${({ theme }) => theme.ref.spacing['spacing_12']}));
         }
         to {
             transform: translateX(0);
@@ -58,38 +57,38 @@ const ToastRoot = styled(RadixToast.Root)`
 
     @keyframes swipeOut {
         from {
-            transform: translateX(var(--radix-toast-swipe-end-x));
+            transform: translateX(-${({ theme }) => theme.ref.spacing['spacing_32']});
         }
         to {
-            transform: translateX(calc(100% + var(--viewport-padding)));
+            transform: translateX(calc(100% + ${({ theme }) => theme.ref.spacing['spacing_32']}));
         }
     }
 `;
 
 const ToastTitle = styled(RadixToast.Title)`
-    grid-area: title;
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: var(--slate-12);
-    font-size: 15px;
+    margin-bottom: ${({ theme }) => theme.ref.spacing['spacing_8']};
+    font-weight: ${({ theme }) => theme.ref.fontWeight['semibold']};
+    color: ${({ theme }) => theme.ref.colors['gray900']};
+    font-size: ${({ theme }) => theme.ref.fontSize['md']};
 `;
 
 const ToastDescription = styled(RadixToast.Description)`
-    grid-area: description;
     margin: 0;
-    color: var(--slate-11);
-    font-size: 13px;
-    line-height: 1.3;
+
+    color: ${({ theme }) => theme.ref.colors['gray900']};
+    font-size: ${({ theme }) => theme.ref.fontSize['sm']};
+    line-height: ${({ theme }) => lineHeight(`${theme.ref.fontSize['sm']}`)};
 `;
 
 const ToastViewport = styled(RadixToast.ToastViewport)`
+    top: ${({ theme }) => theme.ref.spacing['spacing_32']};
+    right: ${({ theme }) => theme.ref.spacing['spacing_12']};
+
     position: fixed;
-    bottom: 0;
-    right: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 390px;
+    width: 480px;
     max-width: 100vw;
     margin: 0;
     list-style: none;
@@ -122,7 +121,7 @@ const Toast: React.ForwardRefRenderFunction<ToastRef, object> = (props, ref) => 
     );
 
     return (
-        <RadixToast.Provider swipeDirection="down" duration={3333}>
+        <RadixToast.Provider swipeDirection="down" duration={6000}>
             <ToastRoot open={open} onOpenChange={setOpen}>
                 <ToastTitle>{content.title}</ToastTitle>
                 <ToastDescription asChild>
