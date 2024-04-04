@@ -10,7 +10,7 @@ import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
 import Form, { FieldValues, FormRef, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
-import Button from '../../atoms/Button';
+import Button, { ButtonRef } from '../../atoms/Button';
 import Text from '../../atoms/Text';
 
 import InputMaskWithLabel from '../../molecules/InputMaskWithLabel';
@@ -76,6 +76,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
     const { toast } = useContext(UIContext);
 
     const modalContactRef = useRef<ModalRef>(null);
+    const btnSubmitRef = useRef<ButtonRef>(null);
     const formRef = useRef<FormRef>(null);
 
     const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => {
@@ -87,9 +88,13 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
             type: 'success',
         });
 
-        formRef.current?.reset();
+        btnSubmitRef.current?.setIsLoading(true);
 
-        console.log(emailService.sendEmail(data));
+        setTimeout(() => {
+            btnSubmitRef.current?.setIsLoading(false);
+            formRef.current?.reset();
+            console.log(emailService.sendEmail(data));
+        }, 3000);
     }, []);
 
     useImperativeHandle(
@@ -99,6 +104,8 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         }),
         []
     );
+
+    btnSubmitRef.current?.setIsLoading(true);
 
     return (
         <Modal ref={modalContactRef}>
@@ -163,6 +170,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             data-testid={`${t('specific.modalContact.inputTestID.buttonSubmit')}`}
                             variant="primary"
                             type="submit"
+                            ref={btnSubmitRef}
                         >
                             {`${t('specific.modalContact.button.button_submit')}`}
                         </Button>
