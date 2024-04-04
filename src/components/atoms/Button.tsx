@@ -107,7 +107,7 @@ const Button: React.ForwardRefRenderFunction<ButtonRef, ButtonProps> = (
             {...props}
             style={{
                 opacity: isLoading ? 0.6 : 1,
-                cursor: isLoading ? 'default' : 'pointer',
+                cursor: isLoading ? 'not-allowed' : 'pointer',
             }}
         >
             {children}

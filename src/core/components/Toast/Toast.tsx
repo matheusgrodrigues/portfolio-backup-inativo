@@ -26,11 +26,11 @@ const ToastRoot = styled(RadixToast.Root)`
     }
 
     &[data-swipe='move'] {
-        transform: translateX(${({ theme }) => theme.ref.spacing['spacing_32']});
+        transform: translateY(${({ theme }) => theme.ref.spacing['spacing_32']});
     }
 
     &[data-swipe='cancel'] {
-        transform: translateX(0);
+        transform: translateY(0);
         transition: transform 200ms ease-out;
     }
 
@@ -49,19 +49,19 @@ const ToastRoot = styled(RadixToast.Root)`
 
     @keyframes slideIn {
         from {
-            transform: translateX(calc(100% + ${({ theme }) => theme.ref.spacing['spacing_12']}));
+            transform: translateY(calc(100% + ${({ theme }) => theme.ref.spacing['spacing_12']}));
         }
         to {
-            transform: translateX(0);
+            transform: translateY(0);
         }
     }
 
     @keyframes swipeOut {
         from {
-            transform: translateX(-${({ theme }) => theme.ref.spacing['spacing_32']});
+            transform: translateY(-${({ theme }) => theme.ref.spacing['spacing_32']});
         }
         to {
-            transform: translateX(calc(100% + ${({ theme }) => theme.ref.spacing['spacing_32']}));
+            transform: translateY(calc(100% + ${({ theme }) => theme.ref.spacing['spacing_32']}));
         }
     }
 `;
@@ -83,7 +83,7 @@ const ToastDescription = styled(RadixToast.Description)`
 `;
 
 const ToastViewport = styled(RadixToast.ToastViewport)`
-    top: ${({ theme }) => theme.ref.spacing['spacing_32']};
+    bottom: ${({ theme }) => theme.ref.spacing['spacing_32']};
     right: 0;
 
     padding: ${({ theme }) => theme.ref.spacing['spacing_12']};
