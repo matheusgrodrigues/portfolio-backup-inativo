@@ -63,7 +63,7 @@ const ActionButton = styled.div`
 const Home = () => {
     const theme = useTheme();
 
-    const { themeToggler, themeName } = useContext(UIContext);
+    const { themeToggler, themeName, toast } = useContext(UIContext);
 
     const modalContactRef = useRef<ModalContactRef>(null);
 
@@ -100,6 +100,18 @@ const Home = () => {
 
     return (
         <>
+            <button
+                onClick={() =>
+                    toast.current?.show({
+                        type: 'success',
+                        title: `${t('validation.messages.title.success')}`,
+                        description: `${t('validation.messages.message.success')}`,
+                    })
+                }
+            >
+                Show TOast
+            </button>
+
             <Header themeToggler={themeToggler} />
 
             <Container>

@@ -20,6 +20,7 @@ import InputWithLabel from '../../molecules/InputWithLabel';
 import Footer from '../../organisms/Footer';
 
 import formModalContactRules from './Rules';
+import EmailService from '@/services/EmailService';
 
 const Container = styled.div`
     justify-content: center;
@@ -109,7 +110,9 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
     ];
 
     const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => {
-        console.log('submit', data);
+        const emailService = new EmailService();
+
+        console.log(emailService.sendEmail(data));
     }, []);
 
     useImperativeHandle(
