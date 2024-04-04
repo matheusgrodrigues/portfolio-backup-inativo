@@ -88,14 +88,14 @@ const ToastViewport = styled(RadixToast.ToastViewport)`
 
     padding: ${({ theme }) => theme.ref.spacing['spacing_12']};
 
-    ${({ theme }) => screen('md', `right: ${theme.ref.spacing['spacing_12']}`)};
+    ${({ theme }) => screen('md', `right: ${theme.ref.spacing['spacing_32']}`)};
 
     position: fixed;
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    max-width: 480px;
+    max-width: 342px;
     margin: 0;
     list-style: none;
     z-index: 2147483647;

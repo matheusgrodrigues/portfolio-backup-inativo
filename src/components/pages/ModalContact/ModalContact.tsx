@@ -79,7 +79,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
     const btnSubmitRef = useRef<ButtonRef>(null);
     const formRef = useRef<FormRef>(null);
 
-    const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => {
+    const onSubmit: SubmitHandler<FieldValues> = useCallback(async () => {
         const emailService = new EmailService();
 
         toast.current?.show({
@@ -90,11 +90,15 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
 
         btnSubmitRef.current?.setIsLoading(true);
 
+        const send = emailService.sendEmail({});
+
+        console.log(send);
+        /*
         setTimeout(() => {
             btnSubmitRef.current?.setIsLoading(false);
             formRef.current?.reset();
             console.log(emailService.sendEmail(data));
-        }, 3000);
+        }, 3000); */
     }, []);
 
     useImperativeHandle(
