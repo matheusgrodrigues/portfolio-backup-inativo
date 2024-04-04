@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import * as RadixToast from '@radix-ui/react-toast';
 
-import { lineHeight } from '@/src/config/theme/theme';
+import { lineHeight, screen } from '@/src/config/theme/theme';
 
 const ToastRoot = styled(RadixToast.Root)`
     background-color: ${({ theme }) => theme.ref.colors['white']};
@@ -82,14 +82,18 @@ const ToastDescription = styled(RadixToast.Description)`
 
 const ToastViewport = styled(RadixToast.ToastViewport)`
     top: ${({ theme }) => theme.ref.spacing['spacing_32']};
-    right: ${({ theme }) => theme.ref.spacing['spacing_12']};
+    right: 0;
+
+    padding: ${({ theme }) => theme.ref.spacing['spacing_12']};
+
+    ${({ theme }) => screen('md', `right: ${theme.ref.spacing['spacing_12']}`)};
 
     position: fixed;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 480px;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 480px;
     margin: 0;
     list-style: none;
     z-index: 2147483647;
@@ -121,7 +125,7 @@ const Toast: React.ForwardRefRenderFunction<ToastRef, object> = (props, ref) => 
     );
 
     return (
-        <RadixToast.Provider swipeDirection="down" duration={6000}>
+        <RadixToast.Provider swipeDirection="down" duration={3000}>
             <ToastRoot open={open} onOpenChange={setOpen}>
                 <ToastTitle>{content.title}</ToastTitle>
                 <ToastDescription asChild>
