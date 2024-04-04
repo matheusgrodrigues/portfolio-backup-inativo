@@ -9,7 +9,7 @@
         "start": "next start",
         "lint": "next lint",
         "test": "jest --watch",
-        "prettier:write": "npx prettier src/ --write"
+        "prettier:write": "npx prettier --write 'src/' '__tests__/'"
     },
     "dependencies": {
         "@hookform/error-message": "^2.0.1",
