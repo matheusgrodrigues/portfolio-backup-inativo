@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { forwardRef, useCallback, useImperativeHandle, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -36,6 +36,10 @@ const ButtonStyled = styled.button<ButtonStyledProps>`
 type ButtonVariant = 'default' | 'primary' | 'link';
 type ButtonSize = 'md';
 
+export interface ButtonRef {
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 interface ButtonProps
     extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     styledProps?: ButtonStyledProps;
@@ -43,7 +47,12 @@ interface ButtonProps
     size?: ButtonSize;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, styledProps, variant, size, ...props }) => {
+const Button: React.ForwardRefRenderFunction<ButtonRef, ButtonProps> = (
+    { children, styledProps, variant, size, ...props },
+    ref
+) => {
+    const [isLoading, setIsLoading] = useState(false);
+
     const getBackground = useCallback((): ColorName => {
         if (variant === 'primary') {
             return 'gradient_primary600';
@@ -90,11 +99,21 @@ const Button: React.FC<ButtonProps> = ({ children, styledProps, variant, size, .
         [styledProps]
     );
 
+    useImperativeHandle(ref, () => ({ setIsLoading }), []);
+
     return (
-        <ButtonStyled {...prepareStyledProps()} {...props}>
+        <ButtonStyled
+            {...prepareStyledProps()}
+            {...props}
+            disabled={isLoading}
+            style={{
+                opacity: isLoading ? 0.6 : 1,
+                cursor: isLoading ? 'progress' : 'pointer',
+            }}
+        >
             {children}
         </ButtonStyled>
     );
 };
 
-export default Button;
+export default forwardRef(Button);

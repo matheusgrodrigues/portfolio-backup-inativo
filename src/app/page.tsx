@@ -6,8 +6,8 @@ import styled, { useTheme } from 'styled-components';
 
 import { screen, lineHeight } from '../config/theme/theme';
 
-import { UIContext } from '../core/context/UIContext';
 import useTranslation from '../core/hooks/useTranslation';
+import { UIContext } from '../core/context/UIContext';
 
 import Display from '../components/atoms/Display';
 import Avatar from '../components/atoms/Avatar';
@@ -63,24 +63,11 @@ const ActionButton = styled.div`
 const Home = () => {
     const theme = useTheme();
 
-    const { themeToggler, themeName, toast } = useContext(UIContext);
-
-    const modalContactRef = useRef<ModalContactRef>(null);
-
     const { t } = useTranslation();
 
-    const [displayDescription, displayName, description] = [
-        t('specific.home.brief_description.display_description'),
-        t('specific.home.brief_description.display_name'),
-        t('specific.home.brief_description.description'),
-    ];
+    const { themeToggler, themeName } = useContext(UIContext);
 
-    const [buttonDownloadCV, buttonContact] = [
-        t('specific.home.brief_description.button_download_cv'),
-        t('specific.home.brief_description.button_contact'),
-    ];
-
-    const handleSubmitContactForm = useCallback(() => modalContactRef.current?.setIsOpen(true), []);
+    const modalContactRef = useRef<ModalContactRef>(null);
 
     const handleDownloadCV = useCallback(() => {
         const fileName = 'curriculo-matheus-gomes-rodrigues-de-jesus';
@@ -100,18 +87,6 @@ const Home = () => {
 
     return (
         <>
-            <button
-                onClick={() =>
-                    toast.current?.show({
-                        type: 'success',
-                        title: `${t('validation.messages.title.success')}`,
-                        description: `${t('validation.messages.message.success')}`,
-                    })
-                }
-            >
-                Show TOast
-            </button>
-
             <Header themeToggler={themeToggler} />
 
             <Container>
@@ -128,7 +103,7 @@ const Home = () => {
 
                         <div>
                             <Display variant="primary" size="xl">
-                                {displayName}
+                                {`${t('specific.home.brief_description.display_name')}`}
                             </Display>
 
                             <Display
@@ -137,7 +112,7 @@ const Home = () => {
                                 }}
                                 size="xl"
                             >
-                                {displayDescription}
+                                {`${t('specific.home.brief_description.display_description')}`}
                             </Display>
                         </div>
 
@@ -146,7 +121,7 @@ const Home = () => {
                                 $color: themeName === 'light' ? 'gray900' : 'white',
                             }}
                         >
-                            {description}
+                            {`${t('specific.home.brief_description.description')}`}
                         </Text>
                     </div>
 
@@ -159,16 +134,16 @@ const Home = () => {
                             onClick={handleDownloadCV}
                             variant="link"
                         >
-                            {buttonDownloadCV}
+                            {`${t('specific.home.brief_description.button_download_cv')}`}
                         </Button>
 
                         <Button
                             data-testid="button-contact"
                             variant="primary"
-                            onClick={handleSubmitContactForm}
+                            onClick={() => modalContactRef.current?.setIsOpen(true)}
                             size="md"
                         >
-                            {buttonContact}
+                            {`${t('specific.home.brief_description.button_contact')}`}
                         </Button>
                     </ActionButton>
                 </BriefDescription>

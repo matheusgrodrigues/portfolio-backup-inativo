@@ -1,15 +1,16 @@
-import React, { forwardRef, useCallback, useImperativeHandle, useRef } from 'react';
+import React, { useImperativeHandle, useCallback, useContext, forwardRef, useRef } from 'react';
 
 import styled, { useTheme } from 'styled-components';
 
 import { screen } from '@/src/config/theme/theme';
 
 import useTranslation from '@/src/core/hooks/useTranslation';
+import { UIContext } from '@/src/core/context/UIContext';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { FieldValues, SubmitHandler } from '@/src/core/components/Form/Form';
+import Form, { FormRef, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
-import Button from '../../atoms/Button';
+import Button, { ButtonRef } from '../../atoms/Button';
 import Text from '../../atoms/Text';
 
 import InputMaskWithLabel from '../../molecules/InputMaskWithLabel';
@@ -20,6 +21,9 @@ import InputWithLabel from '../../molecules/InputWithLabel';
 import Footer from '../../organisms/Footer';
 
 import formModalContactRules from './Rules';
+
+import { EmailBodySchema } from '@/schemas/EmailSchema';
+
 import EmailService from '@/services/EmailService';
 
 const Container = styled.div`
@@ -69,50 +73,41 @@ export interface ModalContactRef {
 const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<ModalContactRef>> = (props, ref) => {
     const theme = useTheme();
 
-    const modalContactRef = useRef<ModalRef>(null);
-
     const { t } = useTranslation();
 
-    const [description, title, tag] = [
-        t('specific.modalContact.title.description'),
-        t('specific.modalContact.title.contato'),
-        t('specific.modalContact.title.tag'),
-    ];
+    const { toast } = useContext(UIContext);
 
-    const [inputLabel_nome, inputName_nome] = [
-        t('specific.modalContact.inputLabel.nome'),
-        t('specific.modalContact.inputName.nome'),
-    ];
+    const modalContactRef = useRef<ModalRef>(null);
+    const btnSubmitRef = useRef<ButtonRef>(null);
+    const formRef = useRef<FormRef>(null);
 
-    const [inputLabel_email, inputName_email] = [
-        t('specific.modalContact.inputLabel.email'),
-        t('specific.modalContact.inputName.email'),
-    ];
-
-    const [inputLabel_telefone, inputName_telefone] = [
-        t('specific.modalContact.inputLabel.telefone'),
-        t('specific.modalContact.inputName.telefone'),
-    ];
-
-    const [inputLabel_mensagem, inputName_mensagem] = [
-        t('specific.modalContact.inputLabel.mensagem'),
-        t('specific.modalContact.inputName.mensagem'),
-    ];
-
-    const [inputLabel_receber_informacoes, inputName_receber_informacoes] = [
-        t('specific.modalContact.inputLabel.receber_informacoes'),
-        t('specific.modalContact.inputName.receber_informacoes'),
-    ];
-
-    const [button_submit, inputTestID_buttonSubmit] = [
-        t('specific.modalContact.button.button_submit'),
-        t('specific.modalContact.inputTestID.buttonSubmit'),
-    ];
-
-    const onSubmit: SubmitHandler<FieldValues> = useCallback((data) => {
+    const onSubmit: SubmitHandler<EmailBodySchema> = useCallback(async (data) => {
         const emailService = new EmailService();
 
-        console.log(emailService.sendEmail(data));
+        btnSubmitRef.current?.setIsLoading(true);
+
+        try {
+            await emailService.sendEmail(data);
+
+            toast.current?.show({
+                description: `${t('validation.messages.message.success')}`,
+                title: `${t('validation.messages.title.success')}`,
+                type: 'success',
+            });
+
+            btnSubmitRef.current?.setIsLoading(false);
+            formRef.current?.reset();
+
+            setTimeout(() => modalContactRef.current?.setIsOpen(false), 3);
+        } catch (error) {
+            toast.current?.show({
+                description: `${t('validation.messages.message.error')}`,
+                title: `${t('validation.messages.title.error')}`,
+                type: 'error',
+            });
+
+            btnSubmitRef.current?.setIsLoading(false);
+        }
     }, []);
 
     useImperativeHandle(
@@ -123,12 +118,14 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         []
     );
 
+    btnSubmitRef.current?.setIsLoading(true);
+
     return (
         <Modal ref={modalContactRef}>
             <Container>
                 <FormTitle>
                     <Display variant="primary" size="sm">
-                        {tag}
+                        {t('specific.modalContact.title.tag')}
                     </Display>
 
                     <div style={{ margin: `${theme.ref.spacing.spacing_12} 0 ${theme.ref.spacing.spacing_32} 0` }}>
@@ -138,7 +135,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             }}
                             size="xl"
                         >
-                            {title}
+                            {t('specific.modalContact.title.contato')}
                         </Display>
                     </div>
 
@@ -147,31 +144,48 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             $color: theme.name === 'light' ? 'gray900' : 'white',
                         }}
                     >
-                        {description}
+                        {t('specific.modalContact.title.description')}
                     </Text>
                 </FormTitle>
 
-                <Form validationSchema={formModalContactRules} onSubmit={onSubmit}>
+                <Form validationSchema={formModalContactRules} onSubmit={onSubmit} ref={formRef}>
                     <FormContainer>
-                        <InputWithLabel maxLength={100} label={`${inputLabel_nome}`} name={inputName_nome} />
+                        <InputWithLabel
+                            maxLength={100}
+                            label={`${t('specific.modalContact.inputLabel.nome')}`}
+                            name={t('specific.modalContact.inputName.nome')}
+                        />
 
-                        <InputWithLabel maxLength={100} label={`${inputLabel_email}`} name={inputName_email} />
+                        <InputWithLabel
+                            maxLength={100}
+                            label={`${t('specific.modalContact.inputLabel.email')}`}
+                            name={t('specific.modalContact.inputName.email')}
+                        />
 
                         <InputMaskWithLabel
-                            label={`${inputLabel_telefone}`}
-                            name={inputName_telefone}
+                            label={`${t('specific.modalContact.inputLabel.telefone')}`}
+                            name={t('specific.modalContact.inputName.telefone')}
                             mask={'(99) 99999-9999'}
                         />
 
-                        <TextareaWithLabel maxLength={100} label={`${inputLabel_mensagem}`} name={inputName_mensagem} />
-
-                        <CheckboxWithLabel
-                            label={`${inputLabel_receber_informacoes}`}
-                            name={inputName_receber_informacoes}
+                        <TextareaWithLabel
+                            maxLength={100}
+                            label={`${t('specific.modalContact.inputLabel.mensagem')}`}
+                            name={t('specific.modalContact.inputName.mensagem')}
                         />
 
-                        <Button data-testid={inputTestID_buttonSubmit} type="submit" variant="primary">
-                            {button_submit}
+                        <CheckboxWithLabel
+                            label={`${t('specific.modalContact.inputLabel.receber_informacoes')}`}
+                            name={t('specific.modalContact.inputName.receber_informacoes')}
+                        />
+
+                        <Button
+                            data-testid={`${t('specific.modalContact.inputTestID.buttonSubmit')}`}
+                            variant="primary"
+                            type="submit"
+                            ref={btnSubmitRef}
+                        >
+                            {`${t('specific.modalContact.button.button_submit')}`}
                         </Button>
                     </FormContainer>
                 </Form>
