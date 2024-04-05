@@ -10,13 +10,23 @@ const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
     mensagem,
     receber_informacoes,
 }) => (
-    <div>
-        <h1>Welcome, {nome}!</h1>
-        <h1>Welcome, {email}!</h1>
-        <h1>Welcome, {telefone}!</h1>
-        <h1>Welcome, {mensagem}!</h1>
-        <h1>Welcome, {receber_informacoes}!</h1>
-    </div>
+    <ul>
+        <li>
+            <strong>Nome</strong>: {nome}
+        </li>
+        <li>
+            <strong>E-mail</strong>: {email}
+        </li>
+        <li>
+            <strong>Telefone</strong>: {telefone}
+        </li>
+        <li>
+            <strong>Mensagem</strong>: {mensagem}
+        </li>
+        <li>
+            <strong>Receber Informações</strong>: {receber_informacoes ? 'Sim' : 'Não'}
+        </li>
+    </ul>
 );
 
 export default EmailTemplate;
