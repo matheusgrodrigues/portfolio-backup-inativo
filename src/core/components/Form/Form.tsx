@@ -22,7 +22,7 @@ export interface FormRef extends UseFormReturn<FieldValues, any, undefined> {}
 interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
     validationSchema: yup.ObjectSchema<{ [key: string]: any }>;
     children: React.ReactNode;
-    onSubmit: SubmitHandler<FieldValues>;
+    onSubmit: SubmitHandler<any>;
 }
 
 const Form: React.ForwardRefRenderFunction<FormRef, FormProps> = (

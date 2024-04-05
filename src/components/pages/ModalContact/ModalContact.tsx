@@ -7,7 +7,7 @@ import { screen } from '@/src/config/theme/theme';
 import useTranslation from '@/src/core/hooks/useTranslation';
 import { UIContext } from '@/src/core/context/UIContext';
 import Modal, { ModalRef } from '@/src/core/components/Modal/Modal';
-import Form, { FieldValues, FormRef, SubmitHandler } from '@/src/core/components/Form/Form';
+import Form, { FormRef, SubmitHandler } from '@/src/core/components/Form/Form';
 
 import Display from '../../atoms/Display';
 import Button, { ButtonRef } from '../../atoms/Button';
@@ -21,6 +21,8 @@ import InputWithLabel from '../../molecules/InputWithLabel';
 import Footer from '../../organisms/Footer';
 
 import formModalContactRules from './Rules';
+
+import { EmailBodySchema } from '@/schemas/EmailSchema';
 
 import EmailService from '@/services/EmailService';
 
@@ -79,26 +81,33 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
     const btnSubmitRef = useRef<ButtonRef>(null);
     const formRef = useRef<FormRef>(null);
 
-    const onSubmit: SubmitHandler<FieldValues> = useCallback(async (data) => {
+    const onSubmit: SubmitHandler<EmailBodySchema> = useCallback(async (data) => {
         const emailService = new EmailService();
-
-        toast.current?.show({
-            description: `${t('validation.messages.message.success')}`,
-            title: `${t('validation.messages.title.success')}`,
-            type: 'success',
-        });
 
         btnSubmitRef.current?.setIsLoading(true);
 
-        const send = await emailService.sendEmail(data);
+        try {
+            await emailService.sendEmail(data);
 
-        console.log(send);
-        /*
-        setTimeout(() => {
+            toast.current?.show({
+                description: `${t('validation.messages.message.success')}`,
+                title: `${t('validation.messages.title.success')}`,
+                type: 'success',
+            });
+
             btnSubmitRef.current?.setIsLoading(false);
             formRef.current?.reset();
-            console.log(emailService.sendEmail(data));
-        }, 3000); */
+
+            setTimeout(() => modalContactRef.current?.setIsOpen(false), 3);
+        } catch (error) {
+            toast.current?.show({
+                description: `${t('validation.messages.message.error')}`,
+                title: `${t('validation.messages.title.error')}`,
+                type: 'error',
+            });
+
+            btnSubmitRef.current?.setIsLoading(false);
+        }
     }, []);
 
     useImperativeHandle(

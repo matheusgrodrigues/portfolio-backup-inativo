@@ -1,24 +1,20 @@
 import axios from 'axios';
 
+import { EmailBodySchema } from '@/schemas/EmailSchema';
+
 class EmailService {
     url: string;
 
     constructor() {
-        this.url = 'http://localhost:3000/api/send/route';
+        this.url = `${process.env.NEXT_PUBLIC_API_URL}`;
     }
 
-    async sendEmail(data: object): Promise<object> {
-        try {
-            const req = await axios.post(this.url, {
-                ...data,
-            });
+    async sendEmail(data: EmailBodySchema): Promise<void> {
+        const req = await axios.post(`${this.url}/send/route`, {
+            ...data,
+        });
 
-            return req.data;
-        } catch {
-            () => {};
-        }
-
-        return {};
+        return req.data;
     }
 }
 

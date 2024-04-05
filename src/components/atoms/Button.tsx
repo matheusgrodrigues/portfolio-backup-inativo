@@ -105,9 +105,10 @@ const Button: React.ForwardRefRenderFunction<ButtonRef, ButtonProps> = (
         <ButtonStyled
             {...prepareStyledProps()}
             {...props}
+            disabled={isLoading}
             style={{
                 opacity: isLoading ? 0.6 : 1,
-                cursor: isLoading ? 'not-allowed' : 'pointer',
+                cursor: isLoading ? 'progress' : 'pointer',
             }}
         >
             {children}
