@@ -24,7 +24,7 @@ const TextareaWithLabel: React.FC<TextareaWithLabelProps> = ({ label, name, ...p
                 {label}
             </Label>
 
-            <Field name={`${name}`} render={<Textarea />} {...props} />
+            <Field name={`${name}`} render={<Textarea {...props} ref={null} />} />
         </TextareaWithLabelContainer>
     );
 };

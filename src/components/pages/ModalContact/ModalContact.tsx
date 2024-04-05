@@ -160,6 +160,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             maxLength={100}
                             label={`${t('specific.modalContact.inputLabel.email')}`}
                             name={t('specific.modalContact.inputName.email')}
+                            type="email"
                         />
 
                         <InputMaskWithLabel
@@ -185,7 +186,7 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
                             type="submit"
                             ref={btnSubmitRef}
                         >
-                            {`${t('specific.modalContact.button.button_submit')}`}
+                            {`${t('specific.modalContact.inputName.button_submit')}`}
                         </Button>
                     </FormContainer>
                 </Form>
