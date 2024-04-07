@@ -125,6 +125,8 @@ const Home = () => {
                         </Text>
                     </div>
 
+                    <Text variant="primary">{`${t('specific.home.brief_description.cta_description')}`}</Text>
+
                     <ActionButton>
                         <Button
                             data-testid="button-downloadCV"
