@@ -36,11 +36,12 @@ const Footer: React.FC<FooterProps> = ({ ...props }) => {
     return (
         <FooterStyled data-testid="footer" {...props}>
             <p style={{ color: name === 'dark' ? ref.colors['white'] : ref.colors['gray900'] }}>
-                © {date.getFullYear()} <a href={`${process.env.SITE_URL}`}>{`${process.env.BRAND_NAME}`}</a>.
+                © {date.getFullYear()}{' '}
+                <a href={`${process.env.SITE_URL}`}>{`${process.env.NEXT_PUBLIC_BRAND_NAME}`}</a>.
             </p>
 
             <div style={{ display: 'flex', gap: ref.spacing.spacing_8 }}>
-                <Button variant="link" onClick={() => router.push(`${process.env.GITHUB_URL}`)}>
+                <Button variant="link" onClick={() => router.push(`${process.env.NEXT_PUBLIC_GITHUB_URL}`)}>
                     <Icon
                         height={32}
                         width={32}
@@ -49,7 +50,7 @@ const Footer: React.FC<FooterProps> = ({ ...props }) => {
                     />
                 </Button>
 
-                <Button variant="link" onClick={() => router.push(`${process.env.LINKEDIN_URL}`)}>
+                <Button variant="link" onClick={() => router.push(`${process.env.NEXT_PUBLIC_LINKEDIN_URL}`)}>
                     <Icon
                         height={32}
                         width={32}
