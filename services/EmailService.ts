@@ -6,7 +6,7 @@ class EmailService {
     url: string;
 
     constructor() {
-        this.url = `${process.env.NEXT_PUBLIC_API_URL}`;
+        this.url = `${process.env.API_URL}`;
     }
 
     async sendEmail(data: EmailBodySchema): Promise<void> {

@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         try {
             await resend.emails.send({
                 from: `Portfólio - <${process.env.RESEND_DELIVERED_EMAIL}>`,
-                to: [`${process.env.NEXT_PUBLIC_BRAND_EMAIL}`],
+                to: [`${process.env.BRAND_EMAIL}`],
                 subject: 'Novo Lead Gerado',
                 react: EmailTemplate(body),
                 text: body.mensagem,
