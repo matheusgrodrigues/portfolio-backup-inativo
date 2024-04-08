@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ ...props }) => {
         <FooterStyled data-testid="footer" {...props}>
             <p style={{ color: name === 'dark' ? ref.colors['white'] : ref.colors['gray900'] }}>
                 © {date.getFullYear()}{' '}
-                <a href={`${process.env.SITE_URL}`}>{`${process.env.NEXT_PUBLIC_BRAND_NAME}`}</a>.
+                <a href={`${process.env.NEXT_PUBLIC_SITE_URL}`}>{`${process.env.NEXT_PUBLIC_BRAND_NAME}`}</a>.
             </p>
 
             <div style={{ display: 'flex', gap: ref.spacing.spacing_8 }}>
