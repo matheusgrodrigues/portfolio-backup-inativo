@@ -10,7 +10,7 @@ class EmailService {
     }
 
     async sendEmail(data: EmailBodySchema): Promise<void> {
-        const req = await axios.post(`${this.url}/send/route`, {
+        const req = await axios.post(`api/send/route`, {
             ...data,
         });
 
