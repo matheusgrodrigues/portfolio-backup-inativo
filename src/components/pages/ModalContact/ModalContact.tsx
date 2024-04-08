@@ -118,8 +118,6 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         []
     );
 
-    btnSubmitRef.current?.setIsLoading(true);
-
     return (
         <Modal ref={modalContactRef}>
             <Container>
