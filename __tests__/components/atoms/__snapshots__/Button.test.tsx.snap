@@ -3,7 +3,14 @@
 exports[`Deve renderizar o Button corretamente Deve preservar a estrutura visual do componente 1`] = `
 <button
   className="sc-beySPh djfGSV"
+  disabled={false}
   onClick={[Function]}
+  style={
+    {
+      "cursor": "pointer",
+      "opacity": 1,
+    }
+  }
 >
   AButton
 </button>
