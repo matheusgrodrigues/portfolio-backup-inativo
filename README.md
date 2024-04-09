@@ -31,12 +31,15 @@ Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissio
 
 ## Tecnologias Utilizadas
 
+- Clean Code
+- Clean Achitecture
+  
 ### Frontend
 
 -   HTML5
 -   CSS3
 -   TypeScript
--   Next.js latest
+-   React/Next.js: latest
 
 ### Bibliotecas
 
