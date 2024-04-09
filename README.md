@@ -1,19 +1,8 @@
-| Light                                                                                                                                                                   | Dark                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![desktop-light](/public/images/readme/desktop-light.png)                                                                                                               | ![desktop-dark](/public/images/readme/desktop-dark.png)                                                                                                                |
-| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6533-2814&mode=design&t=NdNn7XX9xlAZmckL-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6533-2792&mode=design&t=NdNn7XX9xlAZmckL-4) |
-
-| Light                                                                                                                                                                   | Dark                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![desktop-light](/public/images/readme/desktop-contact-light.png)                                                                                                       | ![desktop-dark](/public/images/readme/desktop-contact-dark.png)                                                                                                        |
-| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6536-2630&mode=design&t=NdNn7XX9xlAZmckL-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6536-2652&mode=design&t=NdNn7XX9xlAZmckL-4) |
-
 # [MVP - Portfolio Frontend - Matheus Gomes](https://matheusgomesdev.com.br) 🚀
-
-> **Em andamento**: https://staging.matheusgomesdev.com.br
 
 Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissional, conectando você ao meu LinkedIn, GitHub e outras redes para descobrir como minhas habilidades podem agregar valor á sua equipe.
 
+-   [Screenshots](#screenshots)
 -   [Tecnologias Utilizadas](#tecnologias-utilizadas)
     -   [Frontend](#frontend)
     -   [Bibliotecas](#bibliotecas)
@@ -28,6 +17,18 @@ Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissio
 -   [Contribuição](#contribuicao)
 -   [Licença](#licenca)
 
+## Screenshots
+
+| Light                                                                                                                                                                   | Dark                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![desktop-light](/public/images/readme/desktop-light.png)                                                                                                               | ![desktop-dark](/public/images/readme/desktop-dark.png)                                                                                                                |
+| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6533-2814&mode=design&t=NdNn7XX9xlAZmckL-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6533-2792&mode=design&t=NdNn7XX9xlAZmckL-4) |
+
+| Light                                                                                                                                                                   | Dark                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![desktop-light](/public/images/readme/desktop-contact-light.png)                                                                                                       | ![desktop-dark](/public/images/readme/desktop-contact-dark.png)                                                                                                        |
+| [Visualize o Layout Light no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6536-2630&mode=design&t=NdNn7XX9xlAZmckL-4) | [Visualize o Layout Dark no Figma](https://www.figma.com/file/WZ6hE95sDBZxWX6X6S5sB7/Portfolio-Matheus?type=design&node-id=6536-2652&mode=design&t=NdNn7XX9xlAZmckL-4) |
+
 ## Tecnologias Utilizadas
 
 ### Frontend
@@ -35,13 +36,13 @@ Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissio
 -   HTML5
 -   CSS3
 -   TypeScript
--   Next.js 16.14
+-   Next.js latest
 
 ### Bibliotecas
 
 -   React.js
 -   Resend [envio de e-mail]
--   Formik
+-   React Hook Form
 -   Styled Components
 -   Radix-ui
 
@@ -62,7 +63,6 @@ Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissio
 
 -   Jest
 -   React Testing Library
--   Cypress
 -   BDD/TDD
 
 ### Prototipacao
@@ -74,7 +74,6 @@ Meu portfólio pessoal, é o ponto de partida para explorar meu perfil profissio
 
 -   Jira
 -   Confluence
--   Storybook
 
 ## Instrucoes de Instalacao
 

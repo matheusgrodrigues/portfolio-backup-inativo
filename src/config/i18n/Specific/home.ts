@@ -1,6 +1,7 @@
 const i18n_home = {
     home: {
         brief_description: {
+            name: 'Matheus Gomes',
             display_name: 'Programador Frontend',
             display_description: 'apaixonado por criação de interfaces inovadoras',
             description:
