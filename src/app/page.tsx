@@ -99,7 +99,25 @@ const Home = () => {
                             gap: theme.ref.spacing['spacing_32'],
                         }}
                     >
-                        <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: theme.ref.spacing['spacing_12'],
+                            }}
+                        >
+                            <Avatar $variant="md" src={'/images/avatar.jpeg'} alt={''} />
+
+                            <Text
+                                styledProps={{
+                                    $color: themeName === 'light' ? 'gray900' : 'white',
+                                    $fontSize: 'sm',
+                                }}
+                            >
+                                {`< ${t('specific.home.brief_description.name')} >`}
+                            </Text>
+                        </div>
 
                         <div>
                             <Display variant="primary" size="xl">
