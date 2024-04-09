@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { EmailBodySchema } from '@/schemas/EmailSchema';
+import { EmailBodySchema } from '@/src/schemas/EmailSchema';
 
 interface EmailTemplateProps extends EmailBodySchema {}
 

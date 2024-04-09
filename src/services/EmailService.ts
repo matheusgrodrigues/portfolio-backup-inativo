@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { EmailBodySchema } from '@/schemas/EmailSchema';
+import { EmailBodySchema } from '@/src/schemas/EmailSchema';
 
 class EmailService {
     url: string;

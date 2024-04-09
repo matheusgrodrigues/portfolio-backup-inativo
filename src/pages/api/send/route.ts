@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { Resend } from 'resend';
 
 import EmailTemplate from '@/src/components/template/EmailTemplate';
-import { EmailBodySchema } from '@/schemas/EmailSchema';
+import { EmailBodySchema } from '@/src/schemas/EmailSchema';
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
