@@ -22,9 +22,9 @@ import Footer from '../../organisms/Footer';
 
 import formModalContactRules from './Rules';
 
-import { EmailBodySchema } from '@/schemas/EmailSchema';
+import { EmailBodySchema } from '@/src/schemas/EmailSchema';
 
-import EmailService from '@/services/EmailService';
+import EmailService from '@/src/services/EmailService';
 
 const Container = styled.div`
     justify-content: center;
