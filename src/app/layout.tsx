@@ -9,6 +9,8 @@ import i18n_metadata from '../config/i18n/Metadata/metadata';
 
 import UIContextProvider from '../core/context/UIContext';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -21,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="pt-BR">
             <body className={inter.className}>
                 <UIContextProvider>{children}</UIContextProvider>
+                <GoogleAnalytics gaId={`${process.env.GA_ID}`} />
             </body>
         </html>
     );
