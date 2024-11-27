@@ -14,25 +14,6 @@ interface ButtonStyledProps {
     $color?: ColorName;
 }
 
-const ButtonStyled = styled.button<ButtonStyledProps>`
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-weight: ${(props) => props.theme.ref.fontWeight[props.$fontWeight!]};
-    background: ${(props) => props.theme.ref.colors[props.$background!]};
-    font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
-    outline: none;
-    height: ${(props) => props.$height};
-    width: ${(props) => props.$width};
-    color: ${(props) => props.theme.ref.colors[props.$color!]};
-    transition: 0.3s;
-
-    &:hover {
-        opacity: 0.8;
-    }
-`;
-
 type ButtonVariant = 'default' | 'primary' | 'link';
 type ButtonSize = 'md';
 
@@ -115,5 +96,24 @@ const Button: React.ForwardRefRenderFunction<ButtonRef, ButtonProps> = (
         </ButtonStyled>
     );
 };
+
+const ButtonStyled = styled.button<ButtonStyledProps>`
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: ${(props) => props.theme.ref.fontWeight[props.$fontWeight!]};
+    background: ${(props) => props.theme.ref.colors[props.$background!]};
+    font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
+    outline: none;
+    height: ${(props) => props.$height};
+    width: ${(props) => props.$width};
+    color: ${(props) => props.theme.ref.colors[props.$color!]};
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+`;
 
 export default forwardRef(Button);

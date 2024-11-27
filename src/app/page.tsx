@@ -19,47 +19,6 @@ import Footer from '../components/organisms/Footer';
 
 import ModalContact, { ModalContactRef } from '../components/pages/ModalContact/ModalContact';
 
-const Container = styled.div`
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-right: ${({ theme }) => theme.ref.spacing.spacing_20};
-    padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
-    padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
-
-    ${({ theme }) => screen('md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
-
-    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
-
-    min-height: calc(100vh - 72px);
-    display: flex;
-    width: 100%;
-
-    & > footer {
-        margin-top: auto;
-    }
-`;
-
-const BriefDescription = styled.div`
-    flex-direction: column;
-    text-align: center;
-    max-width: 700px;
-    display: flex;
-    width: 100%;
-    gap: ${({ theme }) => theme.ref.spacing.spacing_32};
-
-    & p {
-        line-height: ${({ theme }) => lineHeight(theme.ref.fontSize['lg'])};
-    }
-`;
-
-const ActionButton = styled.div`
-    justify-content: center;
-    display: flex;
-    margin: ${({ theme }) => theme.ref.spacing['spacing_32']} 0;
-    gap: ${({ theme }) => theme.ref.spacing['spacing_24']};
-`;
-
 const Home = () => {
     const theme = useTheme();
 
@@ -175,5 +134,46 @@ const Home = () => {
         </>
     );
 };
+
+const Container = styled.div`
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-right: ${({ theme }) => theme.ref.spacing.spacing_20};
+    padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
+    padding-top: ${({ theme }) => theme.ref.spacing.spacing_64};
+
+    ${({ theme }) => screen('md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
+
+    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
+
+    min-height: calc(100vh - 72px);
+    display: flex;
+    width: 100%;
+
+    & > footer {
+        margin-top: auto;
+    }
+`;
+
+const BriefDescription = styled.div`
+    flex-direction: column;
+    text-align: center;
+    max-width: 700px;
+    display: flex;
+    width: 100%;
+    gap: ${({ theme }) => theme.ref.spacing.spacing_32};
+
+    & p {
+        line-height: ${({ theme }) => lineHeight(theme.ref.fontSize['lg'])};
+    }
+`;
+
+const ActionButton = styled.div`
+    justify-content: center;
+    display: flex;
+    margin: ${({ theme }) => theme.ref.spacing['spacing_32']} 0;
+    gap: ${({ theme }) => theme.ref.spacing['spacing_24']};
+`;
 
 export default Home;

@@ -4,6 +4,17 @@ import styled from 'styled-components';
 
 import InputMask, { Props } from 'react-input-mask';
 
+export interface InputCustomMaskProps extends Props {}
+
+const InputCustomMask: React.ForwardRefRenderFunction<React.RefAttributes<object>, InputCustomMaskProps> = (
+    { mask, type, name, ...props },
+    ref
+) => {
+    useImperativeHandle(ref, () => ({}), []);
+
+    return <InputMaskStyled data-testid={`input-${name}`} mask={mask} type={type} name={name} {...props} />;
+};
+
 const InputMaskStyled = styled(InputMask)`
     background-color: ${(props) => props.theme.ref.colors['white']};
     border-radius: ${(props) => props.theme.ref.borderRadius.radius_8};
@@ -16,16 +27,5 @@ const InputMaskStyled = styled(InputMask)`
     width: 100%;
     color: ${(props) => props.theme.ref.colors['gray500']};
 `;
-
-export interface InputCustomMaskProps extends Props {}
-
-const InputCustomMask: React.ForwardRefRenderFunction<React.RefAttributes<object>, InputCustomMaskProps> = (
-    { mask, type, name, ...props },
-    ref
-) => {
-    useImperativeHandle(ref, () => ({}), []);
-
-    return <InputMaskStyled data-testid={`input-${name}`} mask={mask} type={type} name={name} {...props} />;
-};
 
 export default forwardRef(InputCustomMask);

@@ -14,6 +14,41 @@ export interface ModalRef {
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const Modal: React.ForwardRefRenderFunction<ModalRef, DialogProps> = ({ children }, ref) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const theme = useTheme();
+
+    useImperativeHandle(
+        ref,
+        () => ({
+            setIsOpen,
+        }),
+        []
+    );
+
+    return (
+        <Dialog.Root open={isOpen}>
+            <Dialog.Portal>
+                <Content>
+                    <Header>
+                        <Button variant="link" onClick={() => setIsOpen(false)}>
+                            <Icon
+                                icon="close"
+                                width={32}
+                                height={32}
+                                color={`${theme.name === 'light' ? theme.ref.colors['gray900'] : theme.ref.colors['white']}`}
+                            />
+                        </Button>
+                    </Header>
+
+                    {children}
+                </Content>
+            </Dialog.Portal>
+        </Dialog.Root>
+    );
+};
+
 const Content = styled(Dialog.Content)`
     background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
     overflow-y: auto;
@@ -52,40 +87,5 @@ const Header = styled.header`
 
     ${({ theme }) => screen('md', `padding: ${theme.ref.spacing.spacing_24};`)}
 `;
-
-const Modal: React.ForwardRefRenderFunction<ModalRef, DialogProps> = ({ children }, ref) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const theme = useTheme();
-
-    useImperativeHandle(
-        ref,
-        () => ({
-            setIsOpen,
-        }),
-        []
-    );
-
-    return (
-        <Dialog.Root open={isOpen}>
-            <Dialog.Portal>
-                <Content>
-                    <Header>
-                        <Button variant="link" onClick={() => setIsOpen(false)}>
-                            <Icon
-                                icon="close"
-                                width={32}
-                                height={32}
-                                color={`${theme.name === 'light' ? theme.ref.colors['gray900'] : theme.ref.colors['white']}`}
-                            />
-                        </Button>
-                    </Header>
-
-                    {children}
-                </Content>
-            </Dialog.Portal>
-        </Dialog.Root>
-    );
-};
 
 export default forwardRef(Modal);

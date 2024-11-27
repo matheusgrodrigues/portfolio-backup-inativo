@@ -6,16 +6,6 @@ import { ErrorMessage } from '@hookform/error-message';
 
 import { Controller, useFormContext } from '@/src/core/components/Form/Form';
 
-const LabelError = styled.p`
-    margin-top: ${(props) => props.theme.ref.spacing['spacing_4']};
-    font-size: ${(props) => props.theme.ref.fontSize['sm']};
-    color: red;
-
-    &:first-letter {
-        text-transform: uppercase;
-    }
-`;
-
 interface FieldProps {
     render: React.ReactElement;
     name: string;
@@ -57,4 +47,15 @@ export const Field: React.FC<FieldProps> = ({ render, name, type, id }) => {
         />
     );
 };
+
+const LabelError = styled.p`
+    margin-top: ${(props) => props.theme.ref.spacing['spacing_4']};
+    font-size: ${(props) => props.theme.ref.fontSize['sm']};
+    color: red;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+`;
+
 export default Field;

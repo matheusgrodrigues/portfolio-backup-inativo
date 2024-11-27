@@ -11,19 +11,6 @@ import styled, { useTheme } from 'styled-components';
 import Icon from '../atoms/Icon';
 import Button from '../atoms/Button';
 
-const FooterStyled = styled.footer`
-    justify-content: space-between;
-    align-items: center;
-
-    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
-
-    ${({ theme }) => screen('md', `padding: 0 ${theme.ref.spacing.spacing_16}`)};
-
-    display: flex;
-    height: 102px;
-    width: 100%;
-`;
-
 interface FooterProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> {}
 
 const Footer: React.FC<FooterProps> = ({ ...props }) => {
@@ -62,5 +49,18 @@ const Footer: React.FC<FooterProps> = ({ ...props }) => {
         </FooterStyled>
     );
 };
+
+const FooterStyled = styled.footer`
+    justify-content: space-between;
+    align-items: center;
+
+    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
+
+    ${({ theme }) => screen('md', `padding: 0 ${theme.ref.spacing.spacing_16}`)};
+
+    display: flex;
+    height: 102px;
+    width: 100%;
+`;
 
 export default Footer;

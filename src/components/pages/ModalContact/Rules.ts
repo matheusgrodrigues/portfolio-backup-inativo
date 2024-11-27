@@ -6,7 +6,6 @@ import i18n_validationFields from '@/src/config/i18n/Validation/fields';
 
 import regex from '@/src/core/utils/regex/regex';
 
-// TODO: customizar mensagens de validação do Yup através do setLocale  (email, telefone).
 const formModalContactRules = yup.object({
     nome: yup.string().required(),
     email: yup.string().required().matches(regex.email, 'E-mail inválido'),

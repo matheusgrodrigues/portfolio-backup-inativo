@@ -17,10 +17,10 @@ import {
     useForm,
 } from 'react-hook-form';
 
-export interface FormRef extends UseFormReturn<FieldValues, any, undefined> {}
+export interface FormRef extends UseFormReturn<FieldValues, unknown, undefined> {}
 
 interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
-    validationSchema: yup.ObjectSchema<{ [key: string]: any }>;
+    validationSchema: yup.ObjectSchema<{ [key: string]: unknown }>;
     children: React.ReactNode;
     onSubmit: SubmitHandler<any>;
 }

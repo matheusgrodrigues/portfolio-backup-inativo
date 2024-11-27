@@ -10,17 +10,6 @@ interface DisplayStyledProps {
     $color?: ColorName;
 }
 
-const DisplayStyled = styled.h1<DisplayStyledProps>`
-    ${(props) => {
-        if (props.$fontSize === 'lg') {
-            return 'letter-spacing: -0.96px;';
-        }
-    }}
-
-    font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
-    color: ${(props) => props.theme.ref.colors[props.$color!]};
-`;
-
 interface DisplayProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
     children: React.ReactNode;
     size: 'sm' | 'lg' | 'xl';
@@ -66,5 +55,16 @@ const Display: React.FC<DisplayProps> = ({ children, variant, size, styledProps,
         </DisplayStyled>
     );
 };
+
+const DisplayStyled = styled.h1<DisplayStyledProps>`
+    ${(props) => {
+        if (props.$fontSize === 'lg') {
+            return 'letter-spacing: -0.96px;';
+        }
+    }}
+
+    font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
+    color: ${(props) => props.theme.ref.colors[props.$color!]};
+`;
 
 export default Display;

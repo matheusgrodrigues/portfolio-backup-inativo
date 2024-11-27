@@ -7,12 +7,6 @@ import Field from '@/src/core/components/Form/Field';
 import Label from '../atoms/Label';
 import Input, { InputProps } from '../atoms/Input';
 
-const InputWithLabelContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: ${(props) => props.theme.ref.spacing['spacing_8']};
-`;
-
 interface InputWithLabelProps extends InputProps {
     label: string;
 }
@@ -29,4 +23,9 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, name, ...props }
     );
 };
 
+const InputWithLabelContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: ${(props) => props.theme.ref.spacing['spacing_8']};
+`;
 export default InputWithLabel;

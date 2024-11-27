@@ -11,6 +11,22 @@ interface AvatarRootProps extends RadixAvatar.AvatarProps {
     $variant?: AvatarRootVariant;
 }
 
+export interface AvatarProps extends RadixAvatar.AvatarProps {
+    $variant?: AvatarRootVariant;
+    src: string;
+    alt?: string;
+}
+
+function Avatar({ ...props }: AvatarProps) {
+    const { src, alt } = props;
+
+    return (
+        <AvatarRoot {...props}>
+            <AvatarImage src={src} alt={alt} />
+        </AvatarRoot>
+    );
+}
+
 const AvatarRoot = styled(RadixAvatar.Root).attrs<AvatarRootProps>(() => ({
     as: 'span',
     'data-testid': 'a-avatar',
@@ -42,21 +58,5 @@ const AvatarImage = styled(RadixAvatar.Image).attrs<AvatarImageProps>(() => ({
     height: 100%;
     width: 100%;
 `;
-
-export interface AvatarProps extends RadixAvatar.AvatarProps {
-    $variant?: AvatarRootVariant;
-    src: string;
-    alt?: string;
-}
-
-function Avatar({ ...props }: AvatarProps) {
-    const { src, alt } = props;
-
-    return (
-        <AvatarRoot {...props}>
-            <AvatarImage src={src} alt={alt} />
-        </AvatarRoot>
-    );
-}
 
 export default Avatar;

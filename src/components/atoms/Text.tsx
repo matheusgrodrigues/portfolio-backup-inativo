@@ -10,18 +10,6 @@ interface TextStyledProps {
     $color?: ColorName;
 }
 
-const TextStyled = styled.p<TextStyledProps>`
-    ${(props) => {
-        if (props.$fontSize === 'lg') {
-            return `letter-spacing: -0.96px;`;
-        }
-    }};
-
-    font-weight: ${(props) => props.theme.ref.fontWeight[props.$fontWeight!]};
-    font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
-    color: ${(props) => props.theme.ref.colors[props.$color!]};
-`;
-
 interface TextProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {
     children: React.ReactNode;
     styledProps?: TextStyledProps;
@@ -57,4 +45,15 @@ const Text: React.FC<TextProps> = ({ styledProps, variant, children, ...props })
     );
 };
 
+const TextStyled = styled.p<TextStyledProps>`
+    ${(props) => {
+        if (props.$fontSize === 'lg') {
+            return `letter-spacing: -0.96px;`;
+        }
+    }};
+
+    font-weight: ${(props) => props.theme.ref.fontWeight[props.$fontWeight!]};
+    font-size: ${(props) => props.theme.ref.fontSize[props.$fontSize!]};
+    color: ${(props) => props.theme.ref.colors[props.$color!]};
+`;
 export default Text;

@@ -6,6 +6,20 @@ import * as RadixCheckbox from '@radix-ui/react-checkbox';
 
 import Icon from './Icon';
 
+export interface CheckboxProps extends RadixCheckbox.CheckboxProps {}
+
+const Checkbox: React.ForwardRefRenderFunction<React.RefAttributes<HTMLInputElement>, CheckboxProps> = (props, ref) => {
+    useImperativeHandle(ref, () => ({}), []);
+
+    return (
+        <CheckboxRoot data-testid={`input-${props.name}`} {...props}>
+            <CheckboxIndicator>
+                <Icon icon="check" width={23} height={23} />
+            </CheckboxIndicator>
+        </CheckboxRoot>
+    );
+};
+
 const CheckboxRoot = styled(RadixCheckbox.Root)`
     background-color: ${(props) => props.theme.ref.colors['white']};
     font-weight: ${(props) => props.theme.ref.fontWeight['regular']};
@@ -26,19 +40,5 @@ const CheckboxIndicator = styled(RadixCheckbox.Indicator)<RadixCheckbox.Checkbox
     color: ${(props) => props.theme.ref.colors['primary600']};
     margin-top: ${(props) => props.theme.ref.spacing['spacing_8']};
 `;
-
-export interface CheckboxProps extends RadixCheckbox.CheckboxProps {}
-
-const Checkbox: React.ForwardRefRenderFunction<React.RefAttributes<HTMLInputElement>, CheckboxProps> = (props, ref) => {
-    useImperativeHandle(ref, () => ({}), []);
-
-    return (
-        <CheckboxRoot data-testid={`input-${props.name}`} {...props}>
-            <CheckboxIndicator>
-                <Icon icon="check" width={23} height={23} />
-            </CheckboxIndicator>
-        </CheckboxRoot>
-    );
-};
 
 export default forwardRef(Checkbox);

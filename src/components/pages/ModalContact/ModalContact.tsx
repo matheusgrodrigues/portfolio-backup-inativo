@@ -26,46 +26,6 @@ import { EmailBodySchema } from '@/src/schemas/EmailSchema';
 
 import EmailService from '@/src/services/EmailService';
 
-const Container = styled.div`
-    justify-content: center;
-    flex-direction: column;
-    padding-right: ${({ theme }) => theme.ref.spacing.spacing_20};
-    padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
-
-    ${({ theme }) => screen('md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
-
-    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
-
-    min-height: calc(100vh - 72px);
-    display: flex;
-    width: 100%;
-
-    & > footer {
-        margin-top: auto;
-    }
-`;
-
-const FormTitle = styled.div`
-    text-align: center;
-    max-width: 480px;
-    margin: 0 auto;
-    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
-    width: 100%;
-`;
-
-const FormContainer = styled.div`
-    flex-direction: column;
-    max-width: 480px;
-    display: flex;
-    margin: 0 auto;
-    width: 100%;
-    gap: ${(props) => props.theme.ref.spacing['spacing_24']};
-
-    & > button {
-        margin-top: ${(props) => props.theme.ref.spacing['spacing_8']};
-    }
-`;
-
 export interface ModalContactRef {
     setIsOpen: (state: boolean) => void;
 }
@@ -198,5 +158,45 @@ const ModalContact: React.ForwardRefRenderFunction<object, React.RefAttributes<M
         </Modal>
     );
 };
+
+const Container = styled.div`
+    justify-content: center;
+    flex-direction: column;
+    padding-right: ${({ theme }) => theme.ref.spacing.spacing_20};
+    padding-left: ${({ theme }) => theme.ref.spacing.spacing_20};
+
+    ${({ theme }) => screen('md', `padding-top: ${theme.ref.spacing.spacing_96};`)}
+
+    background: ${({ theme }) => (theme.name === 'light' ? theme.ref.colors['white'] : theme.ref.colors['gray900'])};
+
+    min-height: calc(100vh - 72px);
+    display: flex;
+    width: 100%;
+
+    & > footer {
+        margin-top: auto;
+    }
+`;
+
+const FormTitle = styled.div`
+    text-align: center;
+    max-width: 480px;
+    margin: 0 auto;
+    margin-bottom: ${(props) => props.theme.ref.spacing['spacing_96']};
+    width: 100%;
+`;
+
+const FormContainer = styled.div`
+    flex-direction: column;
+    max-width: 480px;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    gap: ${(props) => props.theme.ref.spacing['spacing_24']};
+
+    & > button {
+        margin-top: ${(props) => props.theme.ref.spacing['spacing_8']};
+    }
+`;
 
 export default forwardRef(ModalContact);
